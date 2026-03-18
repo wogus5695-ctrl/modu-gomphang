@@ -151,21 +151,21 @@ export default function Home() {
               {[
                 { 
                   region: "부천시 역곡동", 
-                  keyword: "욕실 곰팡이 제거", 
-                  title: "역곡동 아파트 욕실 실리콘 곰팡이 박멸",
-                  desc: "3년 된 고질적인 실리콘 곰팡이와 줄눈 오염을 전용 약제로 완벽 제거 후 항균 코팅 작업 완료",
-                  tags: ["#부천곰팡이제거", "#역곡동곰팡이", "#욕실청소"],
-                  imgBefore: "/images/service-bathroom.png",
-                  imgAfter: "/images/service-bathroom.png" // 실제 프로젝트에서는 After 이미지가 들어가야 함
+                  keyword: "베란다 곰팡이 제거", 
+                  title: "역곡동 아파트 베란다 벽면 곰팡이 완벽 해결",
+                  desc: "베란다 벽에 핀 곰팡이를 약품을 사용하여 제거하고, 재발 방지 코팅작업 완료",
+                  tags: ["#부천곰팡이제거", "#베란다곰팡이", "#결로해결"],
+                  imgBefore: "/images/portfolio-1-before.jpg",
+                  imgAfter: "/images/portfolio-1-after.jpg"
                 },
                 { 
                   region: "부천시 심곡동", 
                   keyword: "벽 곰팡이 제거", 
                   title: "심곡동 빌라 안방 외벽 결로 곰팡이 치료",
-                  desc: "누수로 인한 벽지 오염 제거 및 결로 방지 항균 페인트 시공으로 재발 원인 원천 차단",
+                  desc: "결로로 인해 곰팡이 발생, 곰팡이 약품제거 및 석고보드 교체",
                   tags: ["#심곡동벽곰팡이", "#부천결로공사", "#곰팡이방지"],
-                  imgBefore: "/images/service-wall.png",
-                  imgAfter: "/images/service-wall.png"
+                  imgBefore: "/images/portfolio-2-before.jpg",
+                  imgAfter: "/images/portfolio-2-after.jpg"
                 },
                 { 
                   region: "부천시 원미동", 
@@ -180,7 +180,7 @@ export default function Home() {
                   region: "부천시 상동", 
                   keyword: "베란다 곰팡이", 
                   title: "상동 아파트 베란다 창틀 곰팡이 박멸",
-                  desc: "환기 부족으로 쌓인 창틀 주변 곰팡이 제거 및 친환경 항균 코팅막 형성으로 장기 청결 유지",
+                  desc: "환기 부족으로 벽면에 곰팡이 발생, 전용 약품으로 제거 후 재발방지 코팅 작업 완료",
                   tags: ["#상동베란다곰팡이", "#부천창틀곰팡이", "#항균코팅"],
                   imgBefore: "/images/service-balcony.png",
                   imgAfter: "/images/service-balcony.png"
@@ -222,12 +222,7 @@ export default function Home() {
                 </div>
               ))}
             </div>
-            <div className="mt-16 text-center">
-              <Link href="#contact" className="inline-flex items-center gap-2 px-8 py-4 bg-gray-900 text-white font-bold rounded-xl hover:bg-blue-600 transition-all shadow-lg group">
-                더 많은 시공 사례 확인하기
-                <span className="transform group-hover:translate-x-1 transition-transform">→</span>
-              </Link>
-            </div>
+
           </div>
         </section>
 
