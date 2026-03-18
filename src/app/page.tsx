@@ -173,8 +173,8 @@ export default function Home() {
                   title: "원미동 오피스텔 벽걸이 에어컨 포자 세척",
                   desc: "냉각핀과 송풍팬 내부의 검은 곰팡이를 고압 살균 세척하여 불쾌한 냄새와 포자균 제거",
                   tags: ["#부천에어컨청소", "#원미동에어컨곰팡이", "#살균세척"],
-                  imgBefore: "/images/service-aircon.png",
-                  imgAfter: "/images/service-aircon.png"
+                  imgBefore: "/images/portfolio-3-before.jpg",
+                  imgAfter: "/images/portfolio-3-after.jpg"
                 },
                 { 
                   region: "부천시 상동", 
@@ -182,8 +182,8 @@ export default function Home() {
                   title: "상동 아파트 베란다 창틀 곰팡이 박멸",
                   desc: "환기 부족으로 벽면에 곰팡이 발생, 전용 약품으로 제거 후 재발방지 코팅 작업 완료",
                   tags: ["#상동베란다곰팡이", "#부천창틀곰팡이", "#항균코팅"],
-                  imgBefore: "/images/service-balcony.png",
-                  imgAfter: "/images/service-balcony.png"
+                  imgBefore: "/images/portfolio-4-before.jpg",
+                  imgAfter: "/images/portfolio-4-after.jpg"
                 }
               ].map((item, idx) => (
                 <div key={idx} className="group bg-blue-50/20 rounded-2xl overflow-hidden border border-blue-100 hover:border-green-200 hover:shadow-xl transition-all duration-500 flex flex-col">
