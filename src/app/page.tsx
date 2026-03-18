@@ -331,7 +331,7 @@ export default function Home() {
                   {status === 'error' && (
                     <p className="mt-4 text-red-200 text-sm">오류가 발생했습니다. 다시 시도해 주세요.</p>
                   )}
-                  <p className="mt-4 text-blue-200 text-sm">상담 신청 후 한 시간 이내에 전문가가 직접 연락 드립니다.</p>
+                  <p className="mt-4 text-blue-200 text-sm">상담 신청 연락은 순차적으로 진행됩니다.</p>
                 </>
               )}
             </form>
