@@ -4,6 +4,8 @@ import { useState } from "react";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import BeforeAfterSlider from "@/components/BeforeAfterSlider";
+
 
 
 export default function Home() {
@@ -222,20 +224,12 @@ export default function Home() {
               ].map((item, idx) => (
                 <div key={idx} className="group bg-blue-50/20 rounded-2xl overflow-hidden border border-blue-100 hover:border-green-200 hover:shadow-xl transition-all duration-500 flex flex-col">
                   {/* Before & After 시각화 영역 */}
-                  <div className="relative aspect-[4/3] overflow-hidden bg-gray-200">
-                    <img
-                      src={item.imgBefore}
-                      alt={`부천 곰팡이제거 전문 업체 지움 (Zium) - ${item.region} ${item.keyword} 시공 사례 (Before)`}
-                      className="w-full h-full object-cover transition-opacity duration-700 opacity-100 group-hover:opacity-0"
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <BeforeAfterSlider 
+                      before={item.imgBefore} 
+                      after={item.imgAfter} 
+                      alt={`지움 (Zium) 시공 사례 - ${item.region} ${item.keyword}`}
                     />
-                    <img
-                      src={item.imgAfter}
-                      alt={`부천 곰팡이제거 전문 업체 지움 (Zium) - ${item.region} ${item.keyword} 시공 사례 (After)`}
-                      className="absolute inset-0 w-full h-full object-cover transition-all duration-700 opacity-0 group-hover:opacity-100 scale-110 group-hover:scale-100"
-                    />
-                    {/* 라벨 오버레이 */}
-                    <div className="absolute top-3 left-3 bg-gray-900/80 text-white text-[10px] font-bold px-2 py-1 rounded backdrop-blur-sm group-hover:opacity-0 transition-opacity">BEFORE</div>
-                    <div className="absolute top-3 left-3 bg-blue-600 text-white text-[10px] font-bold px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">AFTER CHECK</div>
                   </div>
 
                   {/* 정보 요약 영역 */}
