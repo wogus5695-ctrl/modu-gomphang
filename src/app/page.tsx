@@ -36,9 +36,9 @@ export default function Home() {
               <div className="relative group">
                 <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
                 <div className="relative aspect-video rounded-2xl bg-white shadow-2xl overflow-hidden border border-white">
-                  <img 
-                    src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1200" 
-                    alt="밝고 따스한 현대적 거실" 
+                  <img
+                    src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1200"
+                    alt="밝고 따스한 현대적 거실"
                     className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
@@ -87,21 +87,21 @@ export default function Home() {
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div className="space-y-8">
                 {[
-                  { 
-                    num: "1", 
-                    title: "포자균 완전 박멸", 
+                  {
+                    num: "1",
+                    title: "포자균 완전 박멸",
                     desc: "과장 없는 정직한 함량의 전용 세제를 사용하여 표면뿐만 아니라 깊숙한 균까지 박멸",
                     color: "bg-blue-600"
                   },
-                  { 
-                    num: "2", 
-                    title: "완벽 세척 및 건조", 
+                  {
+                    num: "2",
+                    title: "완벽 세척 및 건조",
                     desc: "독한 세제 냄새가 남지 않도록 고압 세척과 열풍 건조를 거쳐 즉시 생활이 가능한 상태 확보",
                     color: "bg-green-500"
                   },
-                  { 
-                    num: "3", 
-                    title: "재발 방지 코팅", 
+                  {
+                    num: "3",
+                    title: "재발 방지 코팅",
                     desc: "곰팡이가 다시는 발붙이지 못하도록 친환경 항균 코팅막을 형성하여 장기적인 청결 유지",
                     color: "bg-slate-900"
                   }
@@ -149,36 +149,36 @@ export default function Home() {
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {[
-                { 
-                  region: "부천시 역곡동", 
-                  keyword: "베란다 곰팡이 제거", 
+                {
+                  region: "부천시 역곡동",
+                  keyword: "베란다 곰팡이 제거",
                   title: "역곡동 아파트 베란다 벽면 곰팡이 완벽 해결",
                   desc: "베란다 벽에 핀 곰팡이를 약품을 사용하여 제거하고, 재발 방지 코팅작업 완료",
                   tags: ["#부천곰팡이제거", "#베란다곰팡이", "#결로해결"],
                   imgBefore: "/images/portfolio-1-before.jpg",
                   imgAfter: "/images/portfolio-1-after.jpg"
                 },
-                { 
-                  region: "부천시 심곡동", 
-                  keyword: "벽 곰팡이 제거", 
+                {
+                  region: "부천시 심곡동",
+                  keyword: "벽 곰팡이 제거",
                   title: "심곡동 빌라 안방 외벽 결로 곰팡이 치료",
                   desc: "결로로 인해 곰팡이 발생, 곰팡이 약품제거 및 석고보드 교체",
                   tags: ["#심곡동벽곰팡이", "#부천결로공사", "#곰팡이방지"],
                   imgBefore: "/images/portfolio-2-before.jpg",
                   imgAfter: "/images/portfolio-2-after.jpg"
                 },
-                { 
-                  region: "부천시 원미동", 
-                  keyword: "에어컨 곰팡이", 
+                {
+                  region: "부천시 원미동",
+                  keyword: "에어컨 곰팡이",
                   title: "원미동 오피스텔 벽걸이 에어컨 포자 세척",
                   desc: "냉각핀과 송풍팬 내부의 검은 곰팡이를 고압 살균 세척하여 불쾌한 냄새와 포자균 제거",
                   tags: ["#부천에어컨청소", "#원미동에어컨곰팡이", "#살균세척"],
                   imgBefore: "/images/portfolio-3-before.jpg",
                   imgAfter: "/images/portfolio-3-after.jpg"
                 },
-                { 
-                  region: "부천시 상동", 
-                  keyword: "베란다 곰팡이", 
+                {
+                  region: "부천시 상동",
+                  keyword: "베란다 곰팡이",
                   title: "상동 아파트 베란다 창틀 곰팡이 박멸",
                   desc: "환기 부족으로 벽면에 곰팡이 발생, 전용 약품으로 제거 후 재발방지 코팅 작업 완료",
                   tags: ["#상동베란다곰팡이", "#부천창틀곰팡이", "#항균코팅"],
@@ -189,15 +189,15 @@ export default function Home() {
                 <div key={idx} className="group bg-blue-50/20 rounded-2xl overflow-hidden border border-blue-100 hover:border-green-200 hover:shadow-xl transition-all duration-500 flex flex-col">
                   {/* Before & After 시각화 영역 */}
                   <div className="relative aspect-[4/3] overflow-hidden bg-gray-200">
-                    <img 
-                      src={item.imgBefore} 
+                    <img
+                      src={item.imgBefore}
                       alt={`부천 곰팡이제거 전문 업체 지움 (Zium) - ${item.region} ${item.keyword} 시공 사례 (Before)`}
-                      className="w-full h-full object-cover transition-opacity duration-700 opacity-100 group-hover:opacity-0" 
+                      className="w-full h-full object-cover transition-opacity duration-700 opacity-100 group-hover:opacity-0"
                     />
-                    <img 
-                      src={item.imgAfter} 
+                    <img
+                      src={item.imgAfter}
                       alt={`부천 곰팡이제거 전문 업체 지움 (Zium) - ${item.region} ${item.keyword} 시공 사례 (After)`}
-                      className="absolute inset-0 w-full h-full object-cover transition-all duration-700 opacity-0 group-hover:opacity-100 scale-110 group-hover:scale-100" 
+                      className="absolute inset-0 w-full h-full object-cover transition-all duration-700 opacity-0 group-hover:opacity-100 scale-110 group-hover:scale-100"
                     />
                     {/* 라벨 오버레이 */}
                     <div className="absolute top-3 left-3 bg-gray-900/80 text-white text-[10px] font-bold px-2 py-1 rounded backdrop-blur-sm group-hover:opacity-0 transition-opacity">BEFORE</div>
