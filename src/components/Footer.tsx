@@ -12,8 +12,8 @@ export default function Footer() {
           <div className="space-y-4">
             <p className="text-gray-900 font-bold text-lg mb-4">고객센터</p>
             <div className="space-y-2">
-              <a href="tel:010-3059-5695" className="text-3xl font-black text-blue-600 hover:text-blue-700 transition-colors block">
-                010-3059-5695
+              <a href="tel:010-3985-6900" className="text-3xl font-black text-blue-600 hover:text-blue-700 transition-colors block">
+                010-3985-6900
               </a>
               <p className="text-gray-500 text-sm">평일/주말 09:00 ~ 20:00 (연중무휴)</p>
             </div>
