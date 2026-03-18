@@ -23,7 +23,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
     "datePublished": post.date,
     "author": {
       "@type": "Organization",
-      "name": "모두종합관리"
+      "name": "지움 (Zium)"
     }
   };
 

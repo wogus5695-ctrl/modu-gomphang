@@ -21,7 +21,7 @@ export default function Home() {
                   건강을 위해 지금 제거하세요
                 </h1>
                 <p className="text-lg md:text-xl text-gray-600 mb-10 leading-relaxed font-medium break-keep">
-                  모두종합관리는 말뿐인 청소가 아닌, 과학적이고 체계적인<br className="hidden md:block" />
+                  지움 (Zium)은 말뿐인 청소가 아닌, 과학적이고 체계적인<br className="hidden md:block" />
                   박멸 프로세스로 당신의 가족에게 건강한 숨을 선물합니다.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
@@ -58,10 +58,10 @@ export default function Home() {
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
-                { title: "욕실 곰팡이", desc: "타일 줄눈과 실리콘 깊숙이 침투한 검은 곰팡이를 자국 없이 제거", img: "/images/service-bathroom.png" },
-                { title: "에어컨 곰팡이", desc: "내부 냉각핀과 필터의 독소 포자균을 고온 살균하여 상쾌한 공기 전달", img: "/images/service-aircon.png" },
-                { title: "벽 곰팡이", desc: "결로와 누수로 오염된 벽면을 근본적으로 치료하고 항균 코팅 마무리", img: "/images/service-wall.png" },
-                { title: "베란다 곰팡이", desc: "단열 문제로 발생하는 창틀 곰팡이를 박멸하고 재발 방지 실리콘 보충", img: "/images/service-balcony.png" }
+                { title: "욕실 곰팡이", desc: "타일 줄눈과 실리콘 깊숙이 침투한 검은 곰팡이, 줄눈과 실리콘 재 시공", img: "/images/service-bathroom.png" },
+                { title: "에어컨 곰팡이", desc: "내부 냉각핀과 필터의 독소 포자균을 전문 약품으로 세척!", img: "/images/service-aircon.png" },
+                { title: "벽 곰팡이", desc: "결로, 단열 등 곰팡이 발생 원인을 분석하고 작업을 통해 근본적인 원인 해결!", img: "/images/service-wall.png" },
+                { title: "베란다 곰팡이", desc: "넓게 퍼져 직접 제거하기 어려운 곰팡이, 전용세제로 제거하고, 방지제 코팅으로 재발 방지!", img: "/images/service-balcony.png" }
               ].map((service, idx) => (
                 <div key={idx} className="group bg-gray-50 rounded-2xl overflow-hidden hover:bg-white hover:shadow-2xl transition-all duration-300 border border-transparent hover:border-blue-100">
                   <div className="aspect-video relative overflow-hidden">
@@ -130,7 +130,7 @@ export default function Home() {
                   <div className="bg-white p-8 rounded-2xl shadow-xl border border-blue-50 relative overflow-hidden">
                     <div className="absolute top-0 left-0 w-1 h-full bg-blue-600"></div>
                     <p className="text-xl font-bold text-gray-900 italic leading-relaxed">
-                      "모두종합관리는 결과물로 보답합니다."
+                      "지움 (Zium)은 결과물로 보답합니다."
                     </p>
                   </div>
                 </div>
@@ -191,12 +191,12 @@ export default function Home() {
                   <div className="relative aspect-[4/3] overflow-hidden bg-gray-200">
                     <img 
                       src={item.imgBefore} 
-                      alt={`부천 곰팡이제거 전문 업체 모두종합관리 - ${item.region} ${item.keyword} 시공 사례 (Before)`}
+                      alt={`부천 곰팡이제거 전문 업체 지움 (Zium) - ${item.region} ${item.keyword} 시공 사례 (Before)`}
                       className="w-full h-full object-cover transition-opacity duration-700 opacity-100 group-hover:opacity-0" 
                     />
                     <img 
                       src={item.imgAfter} 
-                      alt={`부천 곰팡이제거 전문 업체 모두종합관리 - ${item.region} ${item.keyword} 시공 사례 (After)`}
+                      alt={`부천 곰팡이제거 전문 업체 지움 (Zium) - ${item.region} ${item.keyword} 시공 사례 (After)`}
                       className="absolute inset-0 w-full h-full object-cover transition-all duration-700 opacity-0 group-hover:opacity-100 scale-110 group-hover:scale-100" 
                     />
                     {/* 라벨 오버레이 */}
