@@ -12,7 +12,7 @@ export default function Header() {
           <Link href="/#portfolio" className="text-gray-700 hover:text-blue-600 font-semibold transition-colors">시공 사례</Link>
           <Link href="/#contact" className="text-gray-700 hover:text-blue-600 font-semibold transition-colors">견적 문의</Link>
         </nav>
-        <a href="tel:010-3985-6900" className="inline-flex items-center justify-center px-4 py-2 sm:px-5 sm:py-2.5 bg-blue-600 text-white text-sm sm:text-base font-bold rounded-lg hover:bg-blue-700 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+        <a href="tel:010-4861-3226" className="inline-flex items-center justify-center px-4 py-2 sm:px-5 sm:py-2.5 bg-blue-600 text-white text-sm sm:text-base font-bold rounded-lg hover:bg-blue-700 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
           📞 전화 문의
         </a>
       </div>
