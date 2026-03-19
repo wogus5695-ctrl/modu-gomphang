@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/private/',
     },
-    sitemap: 'https://modu-gomphang.netlify.app/sitemap.xml', // 사용자 도메인으로 변경 필요
+    sitemap: 'https://sinbiroo.co.kr/sitemap.xml', // 사용자 도메인으로 업데이트 완료
   };
 }

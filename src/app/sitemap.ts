@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { portfolioCases } from '@/data/portfolio';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://modu-gomphang.netlify.app'; // 사용자 도메어로 변경 필요
+  const baseUrl = 'https://sinbiroo.co.kr'; // 사용자 도메인으로 업데이트 완료
 
   // 시공 사례(블로그) URL 생성
   const blogUrls = portfolioCases.map((post) => ({
