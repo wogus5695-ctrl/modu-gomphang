@@ -22,6 +22,10 @@ export const metadata: Metadata = {
       "naver-site-verification": "9138a0152278010dcac97c9210dcdc527e9fd77d",
     },
   },
+  icons: {
+    icon: "/icon.png",
+    apple: "/icon.png",
+  },
 };
 
 export default function RootLayout({
@@ -30,7 +34,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="ko">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
