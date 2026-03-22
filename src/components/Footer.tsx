@@ -21,7 +21,7 @@ export default function Footer() {
         </div>
         <div className="pt-8 border-t border-gray-100 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-400 text-xs tracking-tight">
-            대표: 박재현 | 사업자등록번호: 준비중 | 주소: 부천시 상동 아파트 일대
+            대표: 김재현 | 사업자등록번호: 405-15-02677
           </p>
           <p className="text-gray-400 text-xs">
             © {new Date().getFullYear()} 지움 (Zium). All rights reserved.
