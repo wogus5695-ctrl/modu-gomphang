@@ -6,6 +6,9 @@ export default function FloatingCallButton() {
       href="tel:010-4861-3226"
       className="fixed bottom-6 right-6 z-[60] flex items-center justify-center w-16 h-16 bg-blue-600 text-white rounded-full shadow-2xl hover:bg-blue-700 transition-all transform hover:scale-110 active:scale-95 group md:w-auto md:px-6 md:rounded-2xl"
       aria-label="전화 상담하기"
+      data-track-category="conversion"
+      data-track-action="call_click"
+      data-track-label="floating_button"
     >
       <div className="flex items-center gap-2">
         <span className="text-2xl animate-bounce group-hover:animate-none">📞</span>

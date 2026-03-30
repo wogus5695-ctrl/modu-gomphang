@@ -8,11 +8,25 @@ export default function Header() {
           <span className="text-2xl font-extrabold text-blue-600 tracking-tight">지움 (Zium)</span>
         </Link>
         <nav className="hidden md:flex gap-8 text-sm sm:text-base">
-          <Link href="/#services" className="text-gray-700 hover:text-blue-600 font-semibold transition-colors">서비스 안내</Link>
-          <Link href="/#portfolio" className="text-gray-700 hover:text-blue-600 font-semibold transition-colors">시공 사례</Link>
-          <Link href="/#contact" className="text-gray-700 hover:text-blue-600 font-semibold transition-colors">견적 문의</Link>
+          <Link href="/services" className="text-gray-700 hover:text-blue-600 font-semibold transition-colors">서비스 안내</Link>
+          <Link href="/portfolio" className="text-gray-700 hover:text-blue-600 font-semibold transition-colors">시공 사례</Link>
+          <Link 
+            href="/#contact" 
+            className="text-gray-700 hover:text-blue-600 font-semibold transition-colors"
+            data-track-category="conversion"
+            data-track-action="inquiry_click"
+            data-track-label="header_nav"
+          >
+            견적 문의
+          </Link>
         </nav>
-        <a href="tel:010-4861-3226" className="inline-flex items-center justify-center px-4 py-2 sm:px-5 sm:py-2.5 bg-blue-600 text-white text-sm sm:text-base font-bold rounded-lg hover:bg-blue-700 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+        <a 
+          href="tel:010-4861-3226" 
+          className="inline-flex items-center justify-center px-4 py-2 sm:px-5 sm:py-2.5 bg-blue-600 text-white text-sm sm:text-base font-bold rounded-lg hover:bg-blue-700 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+          data-track-category="conversion"
+          data-track-action="call_click"
+          data-track-label="header_button"
+        >
           📞 전화 문의
         </a>
       </div>

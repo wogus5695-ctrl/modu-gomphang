@@ -1,58 +1,30 @@
-"use client";
-
-import { useState } from "react";
+import { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
+import ContactForm from "@/components/ContactForm";
+import { getMetadata } from "@/lib/seo";
 
-
+export const metadata: Metadata = getMetadata({
+  title: "부천 곰팡이제거 전문 | 지움 (Zium) - 욕실, 에어컨, 베란다 해결",
+  description: "지움 (Zium)은 부천, 인천 수도권 전 지역 곰팡이 박멸 전문 업체입니다. 욕실, 에어컨, 베란다 곰팡이 제거부터 재발 방지 항균 코팅까지 3단계 책임 시공으로 완벽히 해결합니다.",
+  path: "/",
+});
 
 export default function Home() {
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setStatus('loading');
-
-    const formData = new FormData(e.currentTarget);
-    const data = {
-      name: formData.get('name'),
-      phone: formData.get('phone'),
-      message: formData.get('message'),
-    };
-
-    try {
-      const response = await fetch('https://script.google.com/macros/s/AKfycbxUpW4LtbQhYF_zqGHjSCUuDDQ4-ixlwSWKcv_d000OY9oLShYesbQq48Rr2wZCzDPHTQ/exec', {
-        method: 'POST',
-        body: JSON.stringify(data),
-      });
-
-      if (response.ok) {
-        setStatus('success');
-      } else {
-        setStatus('error');
-      }
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      setStatus('error');
-    }
-  };
-
-
   return (
     <div className="antialiased flex min-h-screen flex-col font-sans overflow-x-hidden">
       {/* Header */}
       <Header />
 
-
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="relative bg-blue-50 overflow-hidden py-16 lg:py-24">
+        <section className="relative bg-blue-50 overflow-hidden py-16 lg:py-24" aria-labelledby="hero-title">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-tight mb-6 break-keep">
+                <h1 id="hero-title" className="text-3xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-tight mb-6 break-keep">
                   우리 집 숨어있는 <span className="text-blue-600 italic">곰팡이</span>,<br />
                   건강을 위해 지금 제거하세요
                 </h1>
@@ -74,7 +46,7 @@ export default function Home() {
                 <div className="relative aspect-video rounded-2xl bg-white shadow-2xl overflow-hidden border border-white">
                   <img
                     src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1200"
-                    alt="밝고 따스한 현대적 거실"
+                    alt="밝고 따스한 현대적 거실 - 곰팡이 없는 깨끗한 주거 환경"
                     className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
@@ -85,11 +57,11 @@ export default function Home() {
         </section>
 
         {/* Services Section */}
-        <section id="services" className="py-20 bg-white">
+        <section id="services" className="py-20 bg-white" aria-labelledby="services-title">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-blue-600 font-bold tracking-widest uppercase mb-3">Professional Services</h2>
-              <p className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">곰팡이 제거 전문 서비스</p>
+              <span className="text-blue-600 font-bold tracking-widest uppercase mb-3 block">Professional Services</span>
+              <h2 id="services-title" className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">곰팡이 제거 전문 서비스</h2>
               <div className="w-12 h-1 bg-blue-600 mx-auto"></div>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -104,21 +76,21 @@ export default function Home() {
                     <img src={service.img} alt={service.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                     <div className="absolute inset-0 bg-blue-900/10 group-hover:bg-transparent transition-colors"></div>
                   </div>
-                  <div className="p-8">
+                  <article className="p-8">
                     <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center mb-4 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                      <span className="text-sm font-bold">0{idx + 1}</span>
+                      <span className="text-sm font-bold" aria-hidden="true">0{idx + 1}</span>
                     </div>
                     <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
                     <p className="text-gray-600 leading-relaxed text-sm">{service.desc}</p>
-                  </div>
+                  </article>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Process Section (New) */}
-        <section className="py-20 bg-gray-50/50 overflow-hidden">
+        {/* Process Section */}
+        <section id="process" className="py-20 bg-gray-50/50 overflow-hidden" aria-labelledby="process-title">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div className="space-y-8">
@@ -143,7 +115,7 @@ export default function Home() {
                   }
                 ].map((item, idx) => (
                   <div key={idx} className="flex gap-6 group">
-                    <div className={`flex-shrink-0 w-12 h-12 ${item.color} text-white rounded-full flex items-center justify-center font-black text-xl shadow-lg transform group-hover:scale-110 transition-transform`}>
+                    <div className={`flex-shrink-0 w-12 h-12 ${item.color} text-white rounded-full flex items-center justify-center font-black text-xl shadow-lg transform group-hover:scale-110 transition-transform`} aria-hidden="true">
                       {item.num}
                     </div>
                     <div>
@@ -156,7 +128,7 @@ export default function Home() {
               <div className="relative">
                 <div className="absolute -top-10 -right-10 w-64 h-64 bg-blue-100 rounded-full blur-3xl opacity-50"></div>
                 <div className="relative">
-                  <h2 className="text-4xl md:text-5xl font-black text-gray-900 leading-tight mb-8">
+                  <h2 id="process-title" className="text-4xl md:text-5xl font-black text-gray-900 leading-tight mb-8">
                     재발을 막는<br />
                     <span className="text-blue-600">3단계 책임시공</span>
                   </h2>
@@ -176,16 +148,17 @@ export default function Home() {
         </section>
 
         {/* Portfolio Section */}
-        <section id="portfolio" className="py-20 bg-white">
+        <section id="portfolio" className="py-20 bg-white" aria-labelledby="portfolio-title">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-blue-600 font-bold tracking-widest uppercase mb-3 text-sm">Real Work History</h2>
-              <p className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">시공 사례</p>
+              <span className="text-blue-600 font-bold tracking-widest uppercase mb-3 text-sm block">Real Work History</span>
+              <h2 id="portfolio-title" className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">시공 사례 후기</h2>
               <div className="w-12 h-1 bg-gradient-to-r from-blue-400 to-green-400 mx-auto"></div>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {[
                 {
+                  id: "bucheon-yeokgok-bathroom",
                   region: "부천시 역곡동",
                   keyword: "베란다 곰팡이 제거",
                   title: "역곡동 아파트 베란다 벽면 곰팡이 완벽 해결",
@@ -195,6 +168,7 @@ export default function Home() {
                   imgAfter: "/images/portfolio-1-after.jpg"
                 },
                 {
+                  id: "bucheon-simgok-wall",
                   region: "부천시 심곡동",
                   keyword: "벽 곰팡이 제거",
                   title: "심곡동 빌라 안방 외벽 결로 곰팡이 치료",
@@ -204,6 +178,7 @@ export default function Home() {
                   imgAfter: "/images/portfolio-2-after.jpg"
                 },
                 {
+                  id: "bucheon-wonmi-aircon",
                   region: "부천시 원미동",
                   keyword: "에어컨 곰팡이",
                   title: "원미동 오피스텔 벽걸이 에어컨 포자 세척",
@@ -213,6 +188,7 @@ export default function Home() {
                   imgAfter: "/images/portfolio-3-after.jpg"
                 },
                 {
+                  id: "bucheon-sangdong-balcony",
                   region: "부천시 상동",
                   keyword: "베란다 곰팡이",
                   title: "상동 아파트 베란다 창틀 곰팡이 박멸",
@@ -222,13 +198,13 @@ export default function Home() {
                   imgAfter: "/images/portfolio-4-after.jpg"
                 }
               ].map((item, idx) => (
-                <div key={idx} className="group bg-blue-50/20 rounded-2xl overflow-hidden border border-blue-100 hover:border-green-200 hover:shadow-xl transition-all duration-500 flex flex-col">
+                <article key={idx} className="group bg-blue-50/20 rounded-2xl overflow-hidden border border-blue-100 hover:border-green-200 hover:shadow-xl transition-all duration-500 flex flex-col">
                   {/* Before & After 시각화 영역 */}
                   <div className="relative aspect-[4/3] overflow-hidden">
                     <BeforeAfterSlider 
                       before={item.imgBefore} 
                       after={item.imgAfter} 
-                      alt={`지움 (Zium) 시공 사례 - ${item.region} ${item.keyword}`}
+                      alt={`지움 (Zium) 시공 전후 비교 - ${item.region} ${item.keyword}`}
                     />
                   </div>
 
@@ -236,7 +212,9 @@ export default function Home() {
                   <div className="p-5 flex-grow flex flex-col">
                     <p className="text-blue-600 text-[11px] font-black mb-1.5 uppercase tracking-wider">{item.region} | {item.keyword}</p>
                     <h3 className="text-gray-900 font-bold text-base mb-3 line-clamp-1 break-keep leading-tight">
-                      {item.title}
+                      <Link href={`/blog/${item.id}`} className="hover:text-blue-600 transition-colors">
+                        {item.title}
+                      </Link>
                     </h3>
                     <p className="text-gray-600 text-xs leading-relaxed mb-4 line-clamp-2 break-keep">
                       {item.desc}
@@ -247,7 +225,7 @@ export default function Home() {
                       ))}
                     </div>
                   </div>
-                </div>
+                </article>
               ))}
             </div>
 
@@ -255,80 +233,14 @@ export default function Home() {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="py-20 bg-blue-600 text-white">
+        <section id="contact" className="py-20 bg-blue-600 text-white" aria-labelledby="contact-title">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl md:text-5xl font-black mb-6">집안의 곰팡이 고민,<br />지금 바로 해결하세요</h2>
+            <h2 id="contact-title" className="text-3xl md:text-5xl font-black mb-6">집안의 곰팡이 고민,<br />지금 바로 해결하세요</h2>
             <p className="text-blue-100 mb-12 text-lg">전문가 상담은 언제나 무료입니다. 사진 한 장으로 시작되는 건강한 변화를 경험해보세요.</p>
-            <form 
-              onSubmit={handleSubmit}
-              className="bg-white/10 backdrop-blur-xl p-8 rounded-3xl border border-white/20 shadow-2xl"
-            >
-              {status === 'success' ? (
-                <div className="py-12 text-center animate-fade-in">
-                  <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl">
-                    <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <h3 className="text-2xl font-black mb-2">무료 견적 신청 완료!</h3>
-                  <p className="text-blue-100 italic">담당 전문가가 곧 연락드리겠습니다.</p>
-                  <button 
-                    type="button"
-                    onClick={() => setStatus('idle')}
-                    className="mt-8 text-white/60 hover:text-white text-sm transition-colors border-b border-white/20"
-                  >
-                    새로운 문의 작성하기
-                  </button>
-                </div>
-              ) : (
-                <>
-                  <div className="grid md:grid-cols-2 gap-6 mb-6">
-                    <input 
-                      name="name" 
-                      type="text" 
-                      placeholder="성함" 
-                      required 
-                      disabled={status === 'loading'}
-                      className="bg-white/90 text-gray-900 placeholder:text-gray-400 w-full px-6 py-4 rounded-xl focus:outline-none focus:ring-4 ring-blue-400/50 transition-all font-medium disabled:opacity-50" 
-                    />
-                    <input 
-                      name="phone" 
-                      type="tel" 
-                      placeholder="연락처 ('-' 없이 입력)" 
-                      required 
-                      disabled={status === 'loading'}
-                      className="bg-white/90 text-gray-900 placeholder:text-gray-400 w-full px-6 py-4 rounded-xl focus:outline-none focus:ring-4 ring-blue-400/50 transition-all font-medium disabled:opacity-50" 
-                    />
-                  </div>
-                  <textarea 
-                    name="message" 
-                    placeholder="문의 내용 및 지역 (예: 거실 벽면 곰팡이, 부천 상동 아파트)" 
-                    required 
-                    rows={4} 
-                    disabled={status === 'loading'}
-                    className="bg-white/90 text-gray-900 placeholder:text-gray-400 w-full px-6 py-4 rounded-xl mb-8 focus:outline-none focus:ring-4 ring-blue-400/50 transition-all font-medium resize-none disabled:opacity-50"
-                  ></textarea>
-                  <button 
-                    type="submit" 
-                    disabled={status === 'loading'}
-                    className="w-full bg-white text-blue-600 font-black text-xl py-5 rounded-2xl hover:bg-blue-50 transition-all transform hover:-translate-y-1 shadow-2xl disabled:opacity-50 flex items-center justify-center gap-3"
-                  >
-                    {status === 'loading' ? (
-                      <>
-                        <span className="w-5 h-5 border-2 border-blue-600 border-t-transparent rounded-full animate-spin" />
-                        전송 중...
-                      </>
-                    ) : (
-                      "실시간 무료 견적 신청하기"
-                    )}
-                  </button>
-                  {status === 'error' && (
-                    <p className="mt-4 text-red-200 text-sm">오류가 발생했습니다. 다시 시도해 주세요.</p>
-                  )}
-                  <p className="mt-4 text-blue-200 text-sm">상담 신청 연락은 순차적으로 진행됩니다.</p>
-                </>
-              )}
-            </form>
+            
+            {/* Contact Form Component */}
+            <ContactForm />
+            
           </div>
         </section>
       </main>
