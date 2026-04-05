@@ -172,8 +172,8 @@ export function getLocalizedContent(serviceSlug: string, provinceSlug: string, c
   return {
     key,
     serviceName: isWindowCaulking ? '창틀코킹' : serviceTitle,
-    provinceName: province.name,
-    cityName: city.name,
+    provinceName: province?.name || (allowedRegion?.province === 'seoul' ? '서울특별시' : '경기도'),
+    cityName: city?.name || allowedRegion?.name || "",
     neighborhoods: [],
     primaryKeyword: isWindowCaulking ? `${displayName} 창틀코킹` : `${locationName} ${serviceTitle}`,
     secondaryKeywords: isWindowCaulking 
