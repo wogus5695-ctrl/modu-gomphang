@@ -178,10 +178,10 @@ export function getLocalizedContent(serviceSlug: string, provinceSlug: string, c
       ? [`${displayName} 창틀 누수`, `${displayName} 베란다 코킹`, `${displayName} 실리콘 보수`, `${displayName} 창틀코킹 비용`]
       : [`${locationName} 전문`, `${locationName} 업체 추천`, `${locationName} 견적`, `${locationName} 시공 사례`],
     intro: isWindowCaulking
-      ? `${displayName} 지역의 창틀 누수와 실리콘 손상 문제를 창틀코킹 작업으로 점검하고 보수합니다.`
+      ? `${displayName} 지역 아파트·빌라·주택의 창틀 누수, 실리콘 벌어짐, 외벽 접합부 틈새 문제를 창틀코킹 작업으로 점검하고 보수합니다.`
       : `${locationName} 지역의 쾌적한 주거 환경을 위해 정직하고 꼼꼼하게 시공하는 ${serviceTitle} 전문가 지움(Zium)입니다. 고객님의 소중한 공간을 내 집처럼 생각하며 최상의 만족을 드리겠습니다.`,
     localProblems: isWindowCaulking
-      ? `${displayName} 창틀코킹은 누수 원인, 실리콘 손상 범위, 외벽 접합 상태에 따라 작업 범위가 달라질 수 있습니다.`
+      ? `${displayName} 창틀코킹은 누수 원인, 창틀 실리콘 손상 범위, 외벽과 창호 접합 상태에 따라 작업 범위와 비용이 달라질 수 있습니다.`
       : `${locationName} 지역은 계절별 온도 차와 습도 변화로 인해 관련 문제가 빈번하게 발생합니다. 특히 노후된 시설이나 단열 취약 부위에서 시작되는 문제는 조기 발견과 전문적인 처리가 매우 중요합니다.`,
     targets: [
       `${locationName} 소재 아파트 및 빌라`,
@@ -202,16 +202,31 @@ export function getLocalizedContent(serviceSlug: string, provinceSlug: string, c
       "작업 환경의 접근성 및 난이도",
       "추가 보수 작업 필요 여부"
     ],
-    faqs: [
-      {
-        question: "방문 견적 비용이 발생하나요?",
-        answer: "지움은 고객님의 부담을 덜어드리기 위해 기본적으로 전 지역 무료 방문 견적 서비스를 제공하고 있습니다. 편하게 문의주세요."
-      },
-      {
-        question: "시공 기간은 얼마나 걸리나요?",
-        answer: "일반적인 주거 공간의 경우 하루 내에 작업이 완료되지만, 시공 범위와 상태에 따라 소폭 변동될 수 있습니다. 정확한 일정은 현장 진단 시 안내해 드립니다."
-      }
-    ],
+    faqs: isWindowCaulking
+      ? [
+          {
+            question: `${displayName} 창틀코킹만으로 누수가 해결되나요?`,
+            answer: `창틀 누수는 실리콘 노후화로 발생하는 경우도 있지만, 외벽 균열이나 창호 접합부 문제, 기존 시공 불량이 함께 원인이 되는 경우도 있습니다. 그래서 ${displayName} 창틀코킹 상담 시에는 누수 원인을 먼저 확인하는 과정이 중요합니다.`
+          },
+          {
+            question: `${displayName} 창틀코킹은 부분 보수도 가능한가요?`,
+            answer: `누수 범위와 손상 상태에 따라 부분 보수가 가능한 경우도 있습니다. 다만 실리콘 손상 범위가 넓거나 주변 접합부 상태가 좋지 않으면 부분 보수보다 전체 보수가 더 적절할 수 있습니다.`
+          },
+          {
+            question: `비가 올 때만 누수되는 경우에도 ${displayName} 창틀코킹 상담이 가능한가요?`,
+            answer: `가능합니다. 비 오는 날이나 강풍이 있을 때만 발생하는 누수는 창틀 틈새, 외벽 접합부, 실리콘 경화 문제와 관련된 경우가 많아 창틀코킹 점검이 필요한 사례가 많습니다.`
+          }
+        ]
+      : [
+          {
+            question: "방문 견적 비용이 발생하나요?",
+            answer: "지움은 고객님의 부담을 덜어드리기 위해 기본적으로 전 지역 무료 방문 견적 서비스를 제공하고 있습니다. 편하게 문의주세요."
+          },
+          {
+            question: "시공 기간은 얼마나 걸리나요?",
+            answer: "일반적인 주거 공간의 경우 하루 내에 작업이 완료되지만, 시공 범위와 상태에 따라 소폭 변동될 수 있습니다. 정확한 일정은 현장 진단 시 안내해 드립니다."
+          }
+        ],
     nearbyLinks: [],
     relatedPortfolioIds: []
   } as LocalizedPageContent;

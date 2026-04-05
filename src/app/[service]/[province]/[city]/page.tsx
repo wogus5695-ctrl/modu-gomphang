@@ -177,7 +177,7 @@ export default async function LocationServicePage({ params }: Props) {
                 
                 <h2 className="text-3xl md:text-5xl font-black mb-8 leading-tight relative z-10">
                   {serviceSlug === 'window-caulking' 
-                    ? `${displayName} 창틀코킹 상담이 필요하시면 지금 바로 문의하세요`
+                    ? `${displayName} 창틀코킹 상담이 필요하시면 현장 상황을 확인한 뒤 작업 범위와 보수 방향을 안내해드립니다`
                     : `${locationName} 전문가에게 지금 바로 문의하세요`}
                 </h2>
                 <p className="text-blue-100 mb-12 text-lg font-medium opacity-90 relative z-10">

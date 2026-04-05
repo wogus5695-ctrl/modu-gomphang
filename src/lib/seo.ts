@@ -106,14 +106,14 @@ export function getMetadataByLocation(options: {
     : cityName.replace(/[구시군]$/, ''); 
 
   const generatedTitle = isWindowCaulking
-    ? `${displayName} 창틀코킹 | 신비로`
+    ? `${displayName} 창틀코킹 | 아파트 누수·실리콘 보수 상담 신비로`
     : `${locationText} ${serviceTitle} 전문 | ${activeBenefit} - 지움 (Zium)`;
     
   const finalTitle = metaTitle || generatedTitle;
 
   // Description 생성: [지역명]의 [문제 상황]을 [해결 방식]으로 완벽 해결. [CTA].
   const defaultDesc = isWindowCaulking
-    ? `${displayName} 실리콘 코킹 전문. 노후된 창틀 실리콘 제거 후 고성능 실런트 정밀 시공으로 빗물 누수와 외풍을 완벽 차단합니다. ${displayName} 무료 견적 상담 가능.`
+    ? `${displayName} 창틀코킹이 필요하신가요? 아파트·빌라 창틀 누수, 실리콘 손상, 외벽 접합부 틈새 문제를 점검 후 상담해드립니다.`
     : `${locationText} 지역의 곰팡이와 유해균 문제, 지움 (Zium)의 원인 분석과 항균 코팅막으로 완벽 해결하세요. ${locationText} 전 지역 무료 방문 견적 및 1년 무상 AS 보장.`;
   const finalDescription = metaDescription || defaultDesc;
 
