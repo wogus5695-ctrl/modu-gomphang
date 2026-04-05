@@ -164,7 +164,9 @@ export function getLocalizedContent(serviceSlug: string, provinceSlug: string, c
 
   const locationName = city ? `${province.name} ${city.name}` : allowedRegion?.name || "";
   const serviceTitle = service.title;
-  const displayName = allowedRegion ? allowedRegion.name : city?.name.replace(/[구시군]$/, '') || "";
+  const displayName = allowedRegion 
+    ? (allowedRegion.parentDistrict ? `${allowedRegion.parentDistrict} ${allowedRegion.name}` : allowedRegion.name)
+    : city?.name.replace(/[구시군]$/, '') || "";
 
   // 기본 Fallback 데이터 생성
   return {

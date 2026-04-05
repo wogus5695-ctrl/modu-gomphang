@@ -102,7 +102,7 @@ export function getMetadataByLocation(options: {
   
   // citySlug(cityName)가 화이트리스트에 있으면 해당 이름을 사용, 없으면 기존 cityName 가공
   const displayName = isWindowCaulking && allowedRegion 
-    ? allowedRegion.name 
+    ? (allowedRegion.parentDistrict ? `${allowedRegion.parentDistrict} ${allowedRegion.name}` : allowedRegion.name)
     : cityName.replace(/[구시군]$/, ''); 
 
   const generatedTitle = isWindowCaulking

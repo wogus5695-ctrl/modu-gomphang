@@ -11,7 +11,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
 import FAQSchema from "@/components/FAQSchema";
-import Breadcrumbs from "@/components/Breadcrumbs";
+import Breadcrumbs, { BreadcrumbItem } from "@/components/Breadcrumbs";
 
 // Modular Section Components
 import LocalHero from "@/components/sections/LocalHero";
@@ -26,12 +26,13 @@ type Props = {
   params: Promise<{
     service: string;
     province: string;
-    city: string;
+    location: string[];
   }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { service, province: provinceSlug, city: citySlug } = await params;
+  const { service, province: provinceSlug, location } = await params;
+  const citySlug = location[location.length - 1];
   
   const serviceInfo = services.find((s) => s.slug === service);
   const regionInfo = getRegionInfo(provinceSlug, citySlug);
@@ -48,15 +49,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const localContent = getLocalizedContent(service, provinceSlug, citySlug);
   const provinceName = regionInfo?.province.name || (allowedRegion?.province === 'seoul' ? '서울특별시' : '경기도');
-  const cityName = regionInfo?.city.name || allowedRegion?.name || "";
-
+  
   // 자동 생성된 메타데이터 + H1 정보
   const seo = getMetadataByLocation({
     serviceSlug: service,
     serviceTitle: serviceInfo?.title || "창틀코킹",
     provinceName: provinceName,
     cityName: citySlug,
-    path: localContent?.canonicalSlug || `/${service}/${provinceSlug}/${citySlug}`,
+    path: localContent?.canonicalSlug || `/${service}/${provinceSlug}/${location.join('/')}`,
     metaTitle: localContent?.metaTitle,
     metaDescription: localContent?.metaDescription,
   });
@@ -65,7 +65,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function LocationServicePage({ params }: Props) {
-  const { service: serviceSlug, province: provinceSlug, city: citySlug } = await params;
+  const { service: serviceSlug, province: provinceSlug, location } = await params;
+  const citySlug = location[location.length - 1];
   
   const service = services.find((s) => s.slug === serviceSlug);
   const region = getRegionInfo(provinceSlug, citySlug);
@@ -86,7 +87,9 @@ export default async function LocationServicePage({ params }: Props) {
   const provinceName = region?.province.name || (allowedRegion?.province === 'seoul' ? '서울특별시' : '경기도');
   const cityName = region?.city.name || allowedRegion?.name || "";
   const locationName = `${provinceName} ${cityName}`;
-  const displayName = allowedRegion ? allowedRegion.name : cityName.replace(/[구시군]$/, '');
+  const displayName = allowedRegion 
+    ? (allowedRegion.parentDistrict ? `${allowedRegion.parentDistrict} ${allowedRegion.name}` : allowedRegion.name)
+    : cityName.replace(/[구시군]$/, '');
   
   // SEO 헬퍼로부터 동일한 H1 타이틀 획득 (일관성 유지)
   const { h1 } = getMetadataByLocation({
@@ -100,6 +103,25 @@ export default async function LocationServicePage({ params }: Props) {
   // 관련 포트폴리오 필터링
   const relatedPortfolio = portfolioCases.filter(p => local?.relatedPortfolioIds.includes(p.id));
 
+  // Breadcrumbs items 생성
+  const breadcrumbItems: BreadcrumbItem[] = [
+    { label: "서비스 안내", href: "/services" },
+    { label: service?.title || "창틀코킹", href: `/services/${serviceSlug}` },
+    { label: provinceName }
+  ];
+
+  // location 배열을 순회하며 계층적 브레드크럼 추가
+  location.forEach((slug, index) => {
+    const isLast = index === location.length - 1;
+    const regionObj = WINDOW_CAULKING_ALLOWED_REGIONS[slug];
+    const label = regionObj ? regionObj.name : slug;
+    breadcrumbItems.push({
+      label: label,
+      active: isLast,
+      href: isLast ? undefined : `/${serviceSlug}/${provinceSlug}/${location.slice(0, index + 1).join('/')}`
+    });
+  });
+
   return (
     <div className="flex min-h-screen flex-col font-sans antialiased">
       {/* FAQ 구조화 데이터 자동 주입 (SEO) */}
@@ -110,12 +132,7 @@ export default async function LocationServicePage({ params }: Props) {
       <main className="flex-grow bg-white">
         {/* Breadcrumbs Section */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
-          <Breadcrumbs items={[
-            { label: "서비스 안내", href: "/services" },
-            { label: service?.title || "창틀코킹", href: `/services/${serviceSlug}` },
-            { label: provinceName },
-            { label: cityName, active: true }
-          ]} />
+          <Breadcrumbs items={breadcrumbItems} />
         </div>
 
         {/* 히어로 섹션 (필수) */}
