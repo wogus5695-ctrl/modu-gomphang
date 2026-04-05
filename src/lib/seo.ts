@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { WINDOW_CAULKING_ALLOWED_REGIONS } from '@/data/allowedKeywords';
 
 export const SEO_CONFIG = {
   title: {
@@ -89,19 +90,37 @@ export function getMetadataByLocation(options: {
   // 서비스별 기본 효익(Benefit) 설정
   const defaultBenefit = serviceSlug.includes('mold') 
     ? "재발 없는 3단계 책임시공" 
+    : serviceSlug.includes('window')
+    ? "누수 완벽 차단 및 정밀 코킹"
     : "정밀 진단 기반 명품 시공";
   const activeBenefit = benefit || defaultBenefit;
 
   // Title 생성: [지역명] [서비스명] 전문 | [핵심 효익] - 지움 (Zium)
-  const generatedTitle = `${locationText} ${serviceTitle} 전문 | ${activeBenefit} - 지움 (Zium)`;
+  // 단, 'window-caulking'의 경우 사용자 요청에 따른 특수 화이트리스트 규칙 적용
+  const isWindowCaulking = serviceSlug.includes('window');
+  const allowedRegion = isWindowCaulking ? WINDOW_CAULKING_ALLOWED_REGIONS[cityName.toLowerCase()] || WINDOW_CAULKING_ALLOWED_REGIONS[options.cityName.toLowerCase()] : null;
+  
+  // citySlug(cityName)가 화이트리스트에 있으면 해당 이름을 사용, 없으면 기존 cityName 가공
+  const displayName = isWindowCaulking && allowedRegion 
+    ? allowedRegion.name 
+    : cityName.replace(/[구시군]$/, ''); 
+
+  const generatedTitle = isWindowCaulking
+    ? `${displayName} 창틀코킹 | 신비로`
+    : `${locationText} ${serviceTitle} 전문 | ${activeBenefit} - 지움 (Zium)`;
+    
   const finalTitle = metaTitle || generatedTitle;
 
   // Description 생성: [지역명]의 [문제 상황]을 [해결 방식]으로 완벽 해결. [CTA].
-  const defaultDesc = `${locationText} 지역의 곰팡이와 유해균 문제, 지움 (Zium)의 원인 분석과 항균 코팅막으로 완벽 해결하세요. ${locationText} 전 지역 무료 방문 견적 및 1년 무상 AS 보장.`;
+  const defaultDesc = isWindowCaulking
+    ? `${displayName} 실리콘 코킹 전문. 노후된 창틀 실리콘 제거 후 고성능 실런트 정밀 시공으로 빗물 누수와 외풍을 완벽 차단합니다. ${displayName} 무료 견적 상담 가능.`
+    : `${locationText} 지역의 곰팡이와 유해균 문제, 지움 (Zium)의 원인 분석과 항균 코팅막으로 완벽 해결하세요. ${locationText} 전 지역 무료 방문 견적 및 1년 무상 AS 보장.`;
   const finalDescription = metaDescription || defaultDesc;
 
   // H1용 타이틀 (메타데이터와 일관성 유지)
-  const h1 = `${locationText} ${serviceTitle} 전문`;
+  const h1 = isWindowCaulking 
+    ? `${displayName} 창틀코킹`
+    : `${locationText} ${serviceTitle} 전문`;
 
   return {
     ...getMetadata({

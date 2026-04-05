@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { services } from "@/data/services";
 import { getRegionInfo } from "@/data/regions";
 import { getLocalizedContent } from "@/data/localizedContent";
+import { WINDOW_CAULKING_ALLOWED_REGIONS } from "@/data/allowedKeywords";
 import { portfolioCases } from "@/data/portfolio";
 import { getMetadataByLocation } from "@/lib/seo";
 import Header from "@/components/Header";
@@ -34,18 +35,27 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   
   const serviceInfo = services.find((s) => s.slug === service);
   const regionInfo = getRegionInfo(provinceSlug, citySlug);
-  const localContent = getLocalizedContent(service, provinceSlug, citySlug);
+  const allowedRegion = service === 'window-caulking' ? WINDOW_CAULKING_ALLOWED_REGIONS[citySlug] : null;
 
-  if (!serviceInfo || !regionInfo) {
+  // 창틀코킹인 경우 화이트리스트 검증 (지역이 없거나 province가 다르면 차단)
+  if (service === 'window-caulking') {
+    if (!allowedRegion || allowedRegion.province !== provinceSlug) {
+      return { title: "존재하지 않는 페이지입니다" };
+    }
+  } else if (!serviceInfo || !regionInfo) {
     return { title: "존재하지 않는 페이지입니다" };
   }
+
+  const localContent = getLocalizedContent(service, provinceSlug, citySlug);
+  const provinceName = regionInfo?.province.name || (allowedRegion?.province === 'seoul' ? '서울특별시' : '경기도');
+  const cityName = regionInfo?.city.name || allowedRegion?.name || "";
 
   // 자동 생성된 메타데이터 + H1 정보
   const seo = getMetadataByLocation({
     serviceSlug: service,
-    serviceTitle: serviceInfo.title,
-    provinceName: regionInfo.province.name,
-    cityName: regionInfo.city.name,
+    serviceTitle: serviceInfo?.title || "창틀코킹",
+    provinceName: provinceName,
+    cityName: citySlug,
     path: localContent?.canonicalSlug || `/${service}/${provinceSlug}/${citySlug}`,
     metaTitle: localContent?.metaTitle,
     metaDescription: localContent?.metaDescription,
@@ -59,21 +69,31 @@ export default async function LocationServicePage({ params }: Props) {
   
   const service = services.find((s) => s.slug === serviceSlug);
   const region = getRegionInfo(provinceSlug, citySlug);
-  const local = getLocalizedContent(serviceSlug, provinceSlug, citySlug);
+  const allowedRegion = serviceSlug === 'window-caulking' ? WINDOW_CAULKING_ALLOWED_REGIONS[citySlug] : null;
 
-  if (!service || !region) {
+  // 창틀코킹 화이트리스트 검증
+  if (serviceSlug === 'window-caulking') {
+    if (!allowedRegion || allowedRegion.province !== provinceSlug) {
+      notFound();
+    }
+  } else if (!service || !region) {
     notFound();
   }
 
-  const { province, city } = region;
-  const locationName = `${province.name} ${city.name}`;
+  const local = getLocalizedContent(serviceSlug, provinceSlug, citySlug);
+
+  // region이 명시적 데이터에 없을 수 있으므로(상동 등) 정규화
+  const provinceName = region?.province.name || (allowedRegion?.province === 'seoul' ? '서울특별시' : '경기도');
+  const cityName = region?.city.name || allowedRegion?.name || "";
+  const locationName = `${provinceName} ${cityName}`;
+  const displayName = allowedRegion ? allowedRegion.name : cityName.replace(/[구시군]$/, '');
   
   // SEO 헬퍼로부터 동일한 H1 타이틀 획득 (일관성 유지)
   const { h1 } = getMetadataByLocation({
     serviceSlug,
-    serviceTitle: service.title,
-    provinceName: province.name,
-    cityName: city.name,
+    serviceTitle: service?.title || "창틀코킹",
+    provinceName: provinceName,
+    cityName: citySlug, // 헬퍼 내부에서 화이트리스트 참조를 위해 slug 전달
     path: `/`, // 임시
   });
 
@@ -92,9 +112,9 @@ export default async function LocationServicePage({ params }: Props) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
           <Breadcrumbs items={[
             { label: "서비스 안내", href: "/services" },
-            { label: service.title, href: `/services/${serviceSlug}` },
-            { label: province.name },
-            { label: city.name, active: true }
+            { label: service?.title || "창틀코킹", href: `/services/${serviceSlug}` },
+            { label: provinceName },
+            { label: cityName, active: true }
           ]} />
         </div>
 
@@ -156,7 +176,9 @@ export default async function LocationServicePage({ params }: Props) {
                 <div className="absolute top-0 left-0 w-32 h-32 bg-white/10 rounded-full -ml-16 -mt-16"></div>
                 
                 <h2 className="text-3xl md:text-5xl font-black mb-8 leading-tight relative z-10">
-                  {locationName} 전문가에게 <br /> 지금 바로 문의하세요
+                  {serviceSlug === 'window-caulking' 
+                    ? `${displayName} 창틀코킹 상담이 필요하시면 지금 바로 문의하세요`
+                    : `${locationName} 전문가에게 지금 바로 문의하세요`}
                 </h2>
                 <p className="text-blue-100 mb-12 text-lg font-medium opacity-90 relative z-10">
                   망설임은 해결을 늦출 뿐입니다. 사진 한 장으로 시작되는 건강한 변화를 경험해 보세요.
