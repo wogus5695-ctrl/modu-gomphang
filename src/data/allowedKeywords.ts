@@ -77,10 +77,23 @@ export const WINDOW_CAULKING_ALLOWED_REGIONS: Record<string, AllowedRegion> = {
   "pocheon": { slug: "pocheon", name: "포천", province: "gyeonggi" },
   "dongducheon": { slug: "dongducheon", name: "동두천", province: "gyeonggi" },
   
-  // 경기 지역 (동 단위)
+  // 경기 지역 (동 단위 - 상위 시명 조합용)
   "sang-dong": { slug: "sang-dong", name: "상동", province: "gyeonggi", parentDistrict: "부천" },
   "jung-dong": { slug: "jung-dong", name: "중동", province: "gyeonggi", parentDistrict: "부천" },
   "wonjong-dong": { slug: "wonjong-dong", name: "원종동", province: "gyeonggi", parentDistrict: "부천" },
+  "yeongtong-dong": { slug: "yeongtong-dong", name: "영통동", province: "gyeonggi", parentDistrict: "수원" },
+  "ingye-dong": { slug: "ingye-dong", name: "인계동", province: "gyeonggi", parentDistrict: "수원" },
+  "maetan-dong": { slug: "maetan-dong", name: "매탄동", province: "gyeonggi", parentDistrict: "수원" },
+  "jeongja-dong": { slug: "jeongja-dong", name: "정자동", province: "gyeonggi", parentDistrict: "성남" },
+  "yatap-dong": { slug: "yatap-dong", name: "야탑동", province: "gyeonggi", parentDistrict: "성남" },
+  "pangyo-dong": { slug: "pangyo-dong", name: "판교동", province: "gyeonggi", parentDistrict: "성남" },
+  "pyenchon-dong": { slug: "pyenchon-dong", name: "평촌동", province: "gyeonggi", parentDistrict: "안양" },
+  "gwanyang-dong": { slug: "gwanyang-dong", name: "관양동", province: "gyeonggi", parentDistrict: "안양" },
+  "seoksu-dong": { slug: "seoksu-dong", name: "석수동", province: "gyeonggi", parentDistrict: "안양" },
+  "baegot-dong": { slug: "baegot-dong", name: "배곧동", province: "gyeonggi", parentDistrict: "시흥" },
+  "jeongwang-dong": { slug: "jeongwang-dong", name: "정왕동", province: "gyeonggi", parentDistrict: "시흥" },
+  "gojan-dong": { slug: "gojan-dong", name: "고잔동", province: "gyeonggi", parentDistrict: "안산" },
+  "bono-dong": { slug: "bono-dong", name: "본오동", province: "gyeonggi", parentDistrict: "안산" },
 };
 
 /**
