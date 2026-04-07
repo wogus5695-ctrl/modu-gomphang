@@ -8,8 +8,8 @@ export default function Header() {
           <span className="text-2xl font-extrabold text-blue-600 tracking-tight">레인가드</span>
         </Link>
         <nav className="hidden md:flex gap-8 text-sm sm:text-base">
-          <Link href="/services" className="text-gray-700 hover:text-blue-600 font-semibold transition-colors">서비스 안내</Link>
-          <Link href="/portfolio" className="text-gray-700 hover:text-blue-600 font-semibold transition-colors">시공 사례</Link>
+          <Link href="/#services" className="text-gray-700 hover:text-blue-600 font-semibold transition-colors">서비스 안내</Link>
+          <Link href="/#cases" className="text-gray-700 hover:text-blue-600 font-semibold transition-colors">시공 사례</Link>
           <Link 
             href="/#contact" 
             className="text-gray-700 hover:text-blue-600 font-semibold transition-colors"

@@ -43,12 +43,14 @@ export default function Home() {
           keywords={content.secondaryKeywords}
         />
 
-        {/* 문제 상황 및 분석 */}
-        <LocalAnalysis 
-          locationName="창틀"
-          problems={content.localProblems}
-          targets={content.targets}
-        />
+        {/* 문제 상황 및 분석 (서비스 안내 앵커 상단) */}
+        <div id="services">
+          <LocalAnalysis 
+            locationName="창틀"
+            problems={content.localProblems}
+            targets={content.targets}
+          />
+        </div>
 
         {/* 시공 프로세스 */}
         <LocalProcess process={content.workProcess} />
@@ -60,10 +62,12 @@ export default function Home() {
         <LocalFAQ faqs={content.faqs} />
 
         {/* 시공 사례 */}
-        <LocalPortfolio 
-          locationName="레인가드" 
-          portfolio={representativePortfolio} 
-        />
+        <div id="cases">
+          <LocalPortfolio 
+            locationName="레인가드" 
+            portfolio={representativePortfolio} 
+          />
+        </div>
 
         {/* 문의 CTA 섹션 (지역 페이지와 구조 통일) */}
         <section id="contact" className="py-24 bg-white">
