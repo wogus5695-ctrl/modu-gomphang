@@ -14,8 +14,8 @@ export default function LocalPortfolio({ locationName, portfolio }: LocalPortfol
   return (
     <section className="py-24 bg-gray-50 border-t border-gray-100" aria-labelledby="portfolio-title">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 id="portfolio-title" className="text-3xl font-black text-gray-900 mb-12 text-center">
-          {locationName} 창틀코킹 시공 사례
+        <h2 id="portfolio-title" className="text-3xl md:text-5xl font-black text-gray-900 mb-16 text-center tracking-tighter leading-tight">
+          {locationName} <br className="md:hidden" /> 시공 사례
         </h2>
         <div className="grid md:grid-cols-2 gap-8">
           {portfolio.map((item) => (

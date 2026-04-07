@@ -15,10 +15,10 @@ export default function LocalAnalysis({ locationName, problems, targets }: Local
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           <div className="space-y-10">
             <div>
-              <h2 id="analysis-title" className="text-3xl font-black text-gray-900 mb-6 border-l-8 border-blue-600 pl-6">
+              <h2 id="analysis-title" className="text-3xl md:text-4xl font-black text-gray-900 mb-8 border-l-8 border-blue-600 pl-6 tracking-tighter">
                 {locationName} 지역 특성 분석
               </h2>
-              <p className="text-lg text-gray-600 leading-relaxed font-medium whitespace-pre-line">
+              <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-medium whitespace-pre-line tracking-tight opacity-90">
                 {problems || `${locationName} 지역의 기후와 주거 특성을 고려한 맞춤형 시공을 진행합니다.`}
               </p>
             </div>

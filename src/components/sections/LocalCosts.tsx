@@ -12,11 +12,11 @@ export default function LocalCosts({ costFactors }: LocalCostsProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-3 gap-16 items-start">
           <div className="lg:col-span-1">
-            <h2 id="costs-title" className="text-3xl font-black text-gray-900 mb-6 leading-tight">
+            <h2 id="costs-title" className="text-3xl md:text-4xl font-black text-gray-900 mb-8 leading-tight tracking-tighter">
               합리적인 시공 <br className="hidden lg:block" /> 비용 결정 요소
             </h2>
-            <p className="text-gray-600 mb-10 leading-relaxed font-medium">
-              레인가드는 과도한 비용을 요구하지 않습니다. 현장 상황을 정밀하게 분석하여 꼭 필요한 시공만을 제안해 드립니니다.
+            <p className="text-gray-600 text-lg mb-10 leading-relaxed font-medium tracking-tight opacity-90">
+              레인가드는 과도한 비용을 요구하지 않습니다. 현장 상황을 정밀하게 분석하여 꼭 필요한 시공만을 제안해 드립니다.
             </p>
           </div>
           

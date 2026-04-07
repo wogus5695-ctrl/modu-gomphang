@@ -15,9 +15,13 @@ export default function LocalFAQ({ faqs }: LocalFAQProps) {
   return (
     <section className="py-24 bg-white" aria-labelledby="faq-title">
       <div className="max-w-4xl mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 id="faq-title" className="text-3xl font-black text-gray-900 mb-4 tracking-tighter">자주 묻는 질문 (FAQ)</h2>
-          <p className="text-gray-500 font-medium">지역 고객님들이 궁금해하시는 핵심 내용을 정리했습니다.</p>
+        <div className="text-center mb-20">
+          <h2 id="faq-title" className="text-3xl md:text-4xl font-black text-gray-900 mb-6 tracking-tighter">
+            자주 묻는 질문 (FAQ)
+          </h2>
+          <p className="text-gray-500 font-medium tracking-tight opacity-80 underline underline-offset-8 decoration-blue-200">
+            지역 고객님들이 궁금해하시는 핵심 내용을 정리했습니다
+          </p>
         </div>
         
         <div className="space-y-6">

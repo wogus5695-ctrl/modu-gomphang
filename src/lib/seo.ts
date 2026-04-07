@@ -113,7 +113,7 @@ export function getMetadataByLocation(options: {
 
   // H1용 타이틀
   const h1 = isWindowCaulking 
-    ? `${displayName} 창틀코킹 전문가 레인가드`
+    ? `${displayName} 창틀코킹 전문가`
     : `${locationText} ${serviceTitle} 전문`;
 
   return {

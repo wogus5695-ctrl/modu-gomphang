@@ -130,9 +130,11 @@ export default async function LocationServicePage({ params }: Props) {
       <Header />
       
       <main className="flex-grow bg-white">
-        {/* Breadcrumbs Section */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
-          <Breadcrumbs items={breadcrumbItems} />
+        {/* Breadcrumbs Section - Hidden from UI but kept for SEO */}
+        <div className="hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
+            <Breadcrumbs items={breadcrumbItems} />
+          </div>
         </div>
 
         {/* 히어로 섹션 (필수) */}

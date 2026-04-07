@@ -23,11 +23,11 @@ export default function LocalNearbyLinks({ locationName, serviceSlug, provinceSl
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-white rounded-full -ml-32 -mb-32 opacity-10 blur-2xl"></div>
 
       <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
-        <h2 id="nearby-title" className="text-3xl md:text-4xl font-black mb-8 tracking-tighter">
-          {locationName} 인근 지역 창틀코킹 안내
+        <h2 id="nearby-title" className="text-3xl md:text-5xl font-black mb-10 tracking-tighter leading-tight italic">
+          NEARBY REGIONS
         </h2>
-        <p className="text-blue-100 mb-12 text-lg font-medium opacity-80">
-          인근 지역에서도 레인가드의 프리미엄 창틀코킹 서비스를 동일하게 이용하실 수 있습니다.
+        <p className="text-blue-100 mb-14 text-lg md:text-xl font-medium opacity-80 tracking-tight">
+          {locationName} 인근 지역에서도 레인가드의 <br className="md:hidden" /> 프리미엄 서비스를 이용하실 수 있습니다.
         </p>
         
         <div className="flex flex-wrap justify-center gap-4">
