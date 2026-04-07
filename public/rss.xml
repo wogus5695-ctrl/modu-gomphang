@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
   <channel>
-    <title>지움 (Zium) - 곰팡이제거 전문</title>
+    <title>레인가드 - 창틀코킹 및 누수 보수 전문</title>
     <link>https://sinbiroo.co.kr/</link>
-    <description>부천 시공 사례 및 곰팡이 해결 전문</description>
+    <description>창틀코킹, 빗물누수 해결의 기준. 레인가드의 실시간 시공 사례를 확인하세요.</description>
     <language>ko-kr</language>
     <item>
-      <title>부천시 역곡동 욕실 곰팡이 제거 완벽 해결</title>
-      <link>https://sinbiroo.co.kr/blog/bucheon-yeokgok-bathroom</link>
-      <description>오래된 아파트 욕실의 실리콘과 타일 곰팡이를 뿌리까지 박멸한 사례입니다.</description>
-      <pubDate>Wed, 20 Mar 2024 00:00:00 +0900</pubDate>
+      <title>부천시 상동 아파트 노후 창틀 실리콘 교체 및 누수 차단</title>
+      <link>https://sinbiroo.co.kr/portfolio/bucheon-sangdong-apartment</link>
+      <description>장마철 창틀 사이로 스며드는 빗물 누수 문제를 해결하기 위해 노후된 실리콘을 전면 제거하고 창틀 전용 실런트로 재시공했습니다.</description>
+      <pubDate>Mon, 25 Mar 2024 00:00:00 +0900</pubDate>
     </item>
     <item>
-      <title>부천시 원미동 에어컨 곰팡이 제거 및 살균 세척</title>
-      <link>https://sinbiroo.co.kr/blog/bucheon-wonmi-aircon</link>
-      <description>에어컨 내부 포자균을 고압 세척으로 완벽히 제거했습니다.</description>
-      <pubDate>Mon, 18 Mar 2024 00:00:00 +0900</pubDate>
+      <title>인천 구월동 빌라 창틀실리콘 노후로 인한 벽지 젖음 해결</title>
+      <link>https://sinbiroo.co.kr/portfolio/incheon-guwol-villa</link>
+      <description>안방 창문 주변의 벽지가 빗물에 젖는 문제를 해결하기 위해 샷시코킹 보수 작업을 진행했습니다.</description>
+      <pubDate>Wed, 20 Mar 2024 00:00:00 +0900</pubDate>
     </item>
   </channel>
 </rss>
