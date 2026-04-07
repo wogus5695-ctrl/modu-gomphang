@@ -1,10 +1,18 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-gray-100 bg-white/90 backdrop-blur-md shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 group">
+        <Link href="/" className="flex items-center gap-3 group">
+          <Image 
+            src="/logo.png" 
+            alt="레인가드 로고" 
+            width={32} 
+            height={32} 
+            className="rounded-lg shadow-sm group-hover:shadow-md transition-all" 
+          />
           <span className="text-2xl font-extrabold text-blue-600 tracking-tight">레인가드</span>
         </Link>
         <nav className="hidden md:flex gap-8 text-sm sm:text-base">
