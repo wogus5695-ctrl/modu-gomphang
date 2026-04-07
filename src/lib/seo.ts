@@ -3,19 +3,19 @@ import { WINDOW_CAULKING_ALLOWED_REGIONS } from '@/data/allowedKeywords';
 
 export const SEO_CONFIG = {
   title: {
-    default: "곰팡이제거 전문 | 지움 (Zium) - 욕실, 에어컨, 베란다 해결",
-    template: "%s | 지움 (Zium)"
+    default: "창틀코킹 전문가 | 창틀 누수·실리콘 보수 상담 신비로",
+    template: "%s | 신비로 (Sinbiroo)"
   },
-  description: "지움 (Zium)에서 우리 집 숨어있는 곰팡이를 완벽히 제거하세요. 욕실, 에어컨, 벽면, 베란다 곰팡이 해결 및 재발을 막는 3단계 책임시공. 부천, 인천 등 수도권 전 지역 방문 가능.",
+  description: "아파트·빌라·주택 창틀 누수 및 실리콘 손상 문제를 전문적으로 보수하는 창틀코킹 전문가 신비로입니다. 빗물 누수 차단 및 정밀 코킹 시공으로 완벽 해결해 드립니다.",
   keywords: [
-    "곰팡이제거", 
-    "부천곰팡이제거", 
-    "인천곰팡이제거", 
-    "베란다곰팡이", 
-    "벽곰팡이", 
-    "에어컨곰팡이", 
-    "욕실곰팡이", 
-    "결로현상해결"
+    "창틀코킹",
+    "샷시코킹",
+    "아파트코킹",
+    "빗물누수",
+    "창틀누수",
+    "창틀실리콘",
+    "베란다코킹",
+    "외벽실리콘보수"
   ],
   baseUrl: "https://sinbiroo.co.kr",
   ogImage: "/icon.png",
@@ -42,10 +42,10 @@ export function getMetadata(options: {
       canonical: url,
     },
     openGraph: {
-      title: title ? `${title} | 지움 (Zium)` : SEO_CONFIG.title.default,
+      title: title ? `${title} | 신비로 (Sinbiroo)` : SEO_CONFIG.title.default,
       description: description || SEO_CONFIG.description,
       url: url,
-      siteName: "지움 (Zium)",
+      siteName: "신비로 (Sinbiroo)",
       locale: "ko_KR",
       type: "website",
       images: [
@@ -53,13 +53,13 @@ export function getMetadata(options: {
           url: ogImage || SEO_CONFIG.ogImage,
           width: 800,
           height: 600,
-          alt: title || "지움 (Zium)",
+          alt: title || "신비로 (Sinbiroo)",
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: title ? `${title} | 지움 (Zium)` : SEO_CONFIG.title.default,
+      title: title ? `${title} | 신비로 (Sinbiroo)` : SEO_CONFIG.title.default,
       description: description || SEO_CONFIG.description,
       images: [ogImage || SEO_CONFIG.ogImage],
     },
@@ -95,7 +95,7 @@ export function getMetadataByLocation(options: {
     : "정밀 진단 기반 명품 시공";
   const activeBenefit = benefit || defaultBenefit;
 
-  // Title 생성: [지역명] [서비스명] 전문 | [핵심 효익] - 지움 (Zium)
+  // Title 생성: [지역명] [서비스명] 전문 | [핵심 효익] - 신비로 (Sinbiroo)
   // 단, 'window-caulking'의 경우 사용자 요청에 따른 특수 화이트리스트 규칙 적용
   const isWindowCaulking = serviceSlug.includes('window');
   const allowedRegion = isWindowCaulking ? WINDOW_CAULKING_ALLOWED_REGIONS[cityName.toLowerCase()] || WINDOW_CAULKING_ALLOWED_REGIONS[options.cityName.toLowerCase()] : null;
@@ -107,14 +107,14 @@ export function getMetadataByLocation(options: {
 
   const generatedTitle = isWindowCaulking
     ? `${displayName} 창틀코킹 | 아파트 누수·실리콘 보수 상담 신비로`
-    : `${locationText} ${serviceTitle} 전문 | ${activeBenefit} - 지움 (Zium)`;
+    : `${locationText} ${serviceTitle} 전문 | ${activeBenefit} - 신비로 (Sinbiroo)`;
     
   const finalTitle = metaTitle || generatedTitle;
 
   // Description 생성: [지역명]의 [문제 상황]을 [해결 방식]으로 완벽 해결. [CTA].
   const defaultDesc = isWindowCaulking
     ? `${displayName} 창틀코킹이 필요하신가요? 아파트·빌라 창틀 누수, 실리콘 손상, 외벽 접합부 틈새 문제를 점검 후 상담해드립니다.`
-    : `${locationText} 지역의 곰팡이와 유해균 문제, 지움 (Zium)의 원인 분석과 항균 코팅막으로 완벽 해결하세요. ${locationText} 전 지역 무료 방문 견적 및 1년 무상 AS 보장.`;
+    : `${locationText} 지역의 창틀 누수 및 실리콘 노후 문제, 신비로(Sinbiroo)의 정밀 진단과 전문 코킹 공법으로 완벽 해결하세요. ${locationText} 전 지역 무료 방문 견적 및 책임 시공 보장.`;
   const finalDescription = metaDescription || defaultDesc;
 
   // H1용 타이틀 (메타데이터와 일관성 유지)
@@ -131,3 +131,4 @@ export function getMetadataByLocation(options: {
     h1, // 페이지 컴포넌트에서 활용 가능
   };
 }
+

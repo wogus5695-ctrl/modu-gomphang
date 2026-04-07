@@ -86,7 +86,7 @@ export default function ContactForm() {
           </div>
           <textarea 
             name="message" 
-            placeholder="문의 내용 및 지역 (예: 거실 벽면 곰팡이, 부천 상동 아파트)" 
+            placeholder="문의 내용 및 지역 (예: 거실 창틀 실리콘 벌어짐, 빗물 누수 점검, 부천 상동 아파트)" 
             required 
             rows={4} 
             disabled={status === 'loading'}

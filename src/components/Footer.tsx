@@ -4,9 +4,9 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-12 items-start mb-12">
           <div>
-            <span className="text-2xl font-black text-blue-600 mb-6 block">지움 (Zium)</span>
+            <span className="text-2xl font-black text-blue-600 mb-6 block">신비로 (Sinbiroo)</span>
             <p className="text-gray-600 text-sm leading-relaxed max-w-sm">
-              지움은 고객님의 소중한 거주 공간을 건강하고 깨끗하게 되돌려드리는 곰팡이 제거 전문 서비스입니다. 다년간의 노하우와 친환경 공법으로 완벽한 시공을 약속합니다.
+              신비로는 아파트 및 주택의 창틀 누수 문제를 완벽하게 해결하는 창틀코킹 및 누수 보수 전문 서비스입니다. 정밀 진단과 전문 코킹 공법으로 빗물 누수를 완벽 차단해 드립니다.
             </p>
           </div>
           <div className="space-y-4">
@@ -24,7 +24,7 @@ export default function Footer() {
             대표: 김재현 | 사업자등록번호: 405-15-02677
           </p>
           <p className="text-gray-400 text-xs">
-            © {new Date().getFullYear()} 지움 (Zium). All rights reserved.
+            © {new Date().getFullYear()} 신비로 (Sinbiroo). All rights reserved.
           </p>
         </div>
       </div>
