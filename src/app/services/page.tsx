@@ -7,7 +7,7 @@ import { getMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = getMetadata({
   title: "전문 서비스 안내",
-  description: "지움 (Zium)의 전문 분야별 곰팡이 제거 및 특수 세척 서비스를 확인하세요. 욕실, 에어컨, 벽면 등 보이지 않는 곳의 균까지 완벽하게 해결해 드립니다.",
+  description: "RainGuard의 전문 분야별 창틀코킹 및 빗물누수 보수 서비스를 확인하세요. 아파트, 빌라, 주택의 누수 문제를 완벽하게 해결해 드립니다.",
   path: "/services",
 });
 
@@ -21,7 +21,7 @@ export default function ServicesPage() {
         <section className="bg-gray-900 py-20 text-white relative overflow-hidden">
           <div className="absolute inset-0 opacity-20">
             <img 
-              src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=1600" 
+              src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=1600" 
               alt="전문 시공 배경 이미지" 
               className="w-full h-full object-cover"
             />
@@ -29,7 +29,7 @@ export default function ServicesPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
             <h1 className="text-4xl md:text-5xl font-black mb-6">전문 서비스 안내</h1>
             <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed break-keep">
-              지움 (Zium)은 다년간의 노하우와 검증된 약품으로 곰팡이와 유해균을 근본적으로 제거합니다.
+              RainGuard는 다년간의 노하우와 검증된 창호 전용 실런트를 사용하여 빗물누수를 근본적으로 해결합니다.
             </p>
           </div>
         </section>

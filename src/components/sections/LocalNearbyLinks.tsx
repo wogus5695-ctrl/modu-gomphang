@@ -24,10 +24,10 @@ export default function LocalNearbyLinks({ locationName, serviceSlug, provinceSl
 
       <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
         <h2 id="nearby-title" className="text-3xl md:text-4xl font-black mb-8 tracking-tighter">
-          {locationName} 인접 지역 서비스 안내
+          {locationName} 인근 지역 창틀코킹 안내
         </h2>
         <p className="text-blue-100 mb-12 text-lg font-medium opacity-80">
-          인근 지역에서도 동일하게 높은 품질의 프리미엄 서비스를 이용하실 수 있습니다.
+          인근 지역에서도 RainGuard의 프리미엄 창틀코킹 서비스를 동일하게 이용하실 수 있습니다.
         </p>
         
         <div className="flex flex-wrap justify-center gap-4">
@@ -37,7 +37,7 @@ export default function LocalNearbyLinks({ locationName, serviceSlug, provinceSl
               href={`/${serviceSlug}/${provinceSlug}/${link.slug}`} 
               className="px-8 py-4 bg-white/10 hover:bg-white text-white hover:text-blue-600 border border-white/20 rounded-2xl font-bold transition-all transform hover:-translate-y-1 hover:shadow-xl"
             >
-              {link.name} 전문 시공
+              {link.name} 창틀코킹 보기
             </Link>
           ))}
         </div>

@@ -16,8 +16,8 @@ import LocalFAQ from "@/components/sections/LocalFAQ";
 import LocalPortfolio from "@/components/sections/LocalPortfolio";
 
 export const metadata: Metadata = getMetadata({
-  title: "창틀코킹 전문가 | 아파트 누수·실리콘 보수 상담 신비로",
-  description: "아파트·빌라·주택 창틀 누수 및 실리콘 손상 문제를 전문적으로 보수하는 창틀코킹 전문가 신비로입니다. 무료 방문 견적 및 책임 시공으로 완벽 해결해 드립니다.",
+  title: "RainGuard | 창틀코킹·빗물누수·창틀누수 보수 상담",
+  description: "창틀코킹 전문가 RainGuard입니다. 아파트 및 빌라의 창틀 누수, 빗물 누수, 실리콘 손상 문제를 정밀 점검하고 완벽 보수합니다.",
   path: "/",
 });
 
@@ -61,7 +61,7 @@ export default function Home() {
 
         {/* 시공 사례 */}
         <LocalPortfolio 
-          locationName="신비로" 
+          locationName="RainGuard" 
           portfolio={representativePortfolio} 
         />
 

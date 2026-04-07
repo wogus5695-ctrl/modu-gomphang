@@ -145,48 +145,80 @@ export default async function LocationServicePage({ params }: Props) {
 
         {/* 지역 맞춤 문제 및 특성 (조건부) */}
         {local && (local.localProblems || local.targets) && (
-          <LocalAnalysis 
-            locationName={locationName}
-            problems={local.localProblems}
-            targets={local.targets}
-          />
+          <section id="analysis">
+            <LocalAnalysis 
+              locationName={locationName}
+              problems={local.localProblems}
+              targets={local.targets}
+            />
+          </section>
         )}
 
         {/* 시공 프로세스 (조건부) */}
         {local?.workProcess && local.workProcess.length > 0 && (
-          <LocalProcess process={local.workProcess} />
+          <section id="process" className="scroll-mt-20">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 -mb-16 relative z-10">
+              <h2 className="text-2xl md:text-3xl font-black text-gray-900">
+                {serviceSlug === 'window-caulking' ? `${displayName} 창틀코킹 시공 과정` : `${service?.title} 시공 과정`}
+              </h2>
+            </div>
+            <LocalProcess process={local.workProcess} />
+          </section>
         )}
 
         {/* 비용 영향 요소 (조건부) */}
         {local?.costFactors && local.costFactors.length > 0 && (
-          <LocalCosts costFactors={local.costFactors} />
+          <section id="costs" className="scroll-mt-20">
+            <LocalCosts costFactors={local.costFactors} />
+          </section>
         )}
 
         {/* FAQ (조건부) */}
         {local?.faqs && local.faqs.length > 0 && (
-          <LocalFAQ faqs={local.faqs} />
+          <section id="faq" className="scroll-mt-20">
+            <div className="max-w-3xl mx-auto px-4 mt-20 -mb-12 relative z-10">
+              <h2 className="text-2xl md:text-3xl font-black text-gray-900 text-center">
+                {serviceSlug === 'window-caulking' ? `${displayName} 창틀누수 FAQ` : `${service?.title} 자주 묻는 질문`}
+              </h2>
+            </div>
+            <LocalFAQ faqs={local.faqs} />
+          </section>
         )}
 
         {/* 관련 사례 (조건부) */}
         {relatedPortfolio.length > 0 && (
-          <LocalPortfolio 
-            locationName={locationName} 
-            portfolio={relatedPortfolio} 
-          />
+          <section id="portfolio" className="scroll-mt-20">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-20 -mb-16 relative z-10">
+              <h2 className="text-2xl md:text-3xl font-black text-gray-900">
+                {serviceSlug === 'window-caulking' ? `${displayName} 인근 창틀코킹 시공 사례` : `${service?.title} 시공 사례`}
+              </h2>
+            </div>
+            <LocalPortfolio 
+              locationName={locationName} 
+              portfolio={relatedPortfolio} 
+            />
+          </section>
         )}
 
         {/* 인접 지역 링크 (조건부) */}
         {local?.nearbyLinks && local.nearbyLinks.length > 0 && (
-          <LocalNearbyLinks 
-            locationName={locationName}
-            serviceSlug={serviceSlug}
-            provinceSlug={provinceSlug}
-            links={local.nearbyLinks}
-          />
+          <section id="nearby" className="scroll-mt-20">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-20 -mb-16 relative z-10">
+              <h2 className="text-2xl md:text-3xl font-black text-gray-900">
+                {provinceName} 타 지역 창틀코킹 시공 안내
+              </h2>
+            </div>
+            <LocalNearbyLinks 
+              locationName={locationName}
+              serviceSlug={serviceSlug}
+              provinceSlug={provinceSlug}
+              links={local.nearbyLinks}
+            />
+          </section>
         )}
 
         {/* 문의 CTA 섹션 (고정항목) */}
-        <section id="contact" className="py-24 bg-white">
+        <section id="contact" className="py-24 bg-white scroll-mt-20">
           <div className="max-w-4xl mx-auto px-4">
              <div className="bg-blue-600 text-white p-10 md:p-20 rounded-[60px] shadow-3xl text-center relative overflow-hidden">
                 {/* Decor */}
@@ -194,11 +226,11 @@ export default async function LocationServicePage({ params }: Props) {
                 
                 <h2 className="text-3xl md:text-5xl font-black mb-8 leading-tight relative z-10">
                   {serviceSlug === 'window-caulking' 
-                    ? `${displayName} 창틀코킹 상담이 필요하시면 현장 상황을 확인한 뒤 작업 범위와 보수 방향을 안내해드립니다`
-                    : `${locationName} 전문가에게 지금 바로 문의하세요`}
+                    ? `${displayName} 창틀코킹 상담은 전문가 RainGuard와 상의하세요`
+                    : `${locationName} 전문가 RainGuard에게 지금 바로 문의하세요`}
                 </h2>
                 <p className="text-blue-100 mb-12 text-lg font-medium opacity-90 relative z-10">
-                  망설임은 해결을 늦출 뿐입니다. 사진 한 장으로 시작되는 건강한 변화를 경험해 보세요.
+                  정밀 진단부터 책임 시공까지, 빗물누수 고민을 완벽하게 해결해 드립니다.
                 </p>
                 
                 <div className="bg-white text-gray-900 p-8 md:p-12 rounded-[40px] shadow-inner relative z-10">
@@ -207,6 +239,7 @@ export default async function LocationServicePage({ params }: Props) {
              </div>
           </div>
         </section>
+
       </main>
 
       <Footer />

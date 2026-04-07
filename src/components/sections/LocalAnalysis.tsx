@@ -41,7 +41,7 @@ export default function LocalAnalysis({ locationName, problems, targets }: Local
             <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-full -mr-16 -mt-16 opacity-50"></div>
             <h3 className="text-2xl font-black text-gray-900 mb-6">전문가 한마디</h3>
             <p className="text-blue-900 font-bold italic leading-relaxed text-lg">
-              "단순한 청소는 누구나 할 수 있습니다. 하지만 {locationName}의 주거 특성에 맞는 완벽한 원인 분석과 재발 방지는 오직 '지움'만이 가능합니다."
+              "단순한 덧방 시공으로는 누수를 해결할 수 없습니다. {locationName}의 창호 특성에 맞는 정밀한 원인 분석과 정석 시공은 오직 RainGuard(레인가드)만이 약속하는 품질입니다."
             </p>
           </div>
         </div>
