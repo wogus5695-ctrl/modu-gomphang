@@ -3,21 +3,22 @@ import React from 'react';
 interface LocalHeroProps {
   locationName: string;
   serviceTitle: string;
+  title?: string;
   intro?: string;
   keywords?: string[];
 }
 
-export default function LocalHero({ locationName, serviceTitle, intro, keywords }: LocalHeroProps) {
+export default function LocalHero({ locationName, serviceTitle, title, intro, keywords }: LocalHeroProps) {
   return (
     <section className="relative bg-white py-24 overflow-hidden" aria-labelledby="hero-title">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-4xl mx-auto mb-12">
-          <span className="text-blue-600 font-black tracking-widest uppercase mb-4 block">RainGuard Local Premium</span>
-          <h1 id="hero-title" className="text-4xl md:text-7xl font-black text-gray-900 leading-[1.1] mb-8 break-keep">
-            {locationName} <br className="md:hidden" /> <span className="text-blue-600">{serviceTitle}</span> 완벽 해결
+        <div className="relative z-10 max-w-4xl mx-auto text-center">
+          <span className="text-blue-600 font-extrabold tracking-widest uppercase mb-4 block">레인가드 로컬 프리미엄</span>
+          <h1 id="hero-title" className="text-4xl md:text-7xl font-black text-gray-900 mb-8 leading-tight tracking-tighter">
+            {title || `${locationName} 창틀코킹 전문가`}
           </h1>
-          <p className="text-xl md:text-2xl text-gray-500 leading-relaxed font-medium break-keep mb-10">
-            {intro || `${locationName} 지역의 창틀누수 고민, RainGuard(레인가드)가 해결해 드립니다.`}
+          <p className="text-gray-600 text-xl md:text-2xl font-medium mb-12 leading-relaxed max-w-3xl mx-auto">
+            {intro || `${locationName} 지역의 창틀누수 고민, 레인가드가 해결해 드립니다.`}
           </p>
           <div className="flex justify-center">
             <a 
@@ -31,16 +32,6 @@ export default function LocalHero({ locationName, serviceTitle, intro, keywords 
             </a>
           </div>
         </div>
-        
-        {keywords && keywords.length > 0 && (
-          <div className="flex flex-wrap justify-center gap-2 mb-12">
-            {keywords.map((tag, i) => (
-              <span key={i} className="px-4 py-2 bg-blue-50 text-blue-600 rounded-full text-sm font-bold border border-blue-100">
-                #{tag}
-              </span>
-            ))}
-          </div>
-        )}
       </div>
     </section>
   );

@@ -226,8 +226,8 @@ export default async function LocationServicePage({ params }: Props) {
                 
                 <h2 className="text-3xl md:text-5xl font-black mb-8 leading-tight relative z-10">
                   {serviceSlug === 'window-caulking' 
-                    ? `${displayName} 창틀코킹 상담은 전문가 RainGuard와 상의하세요`
-                    : `${locationName} 전문가 RainGuard에게 지금 바로 문의하세요`}
+                    ? `${displayName} 창틀코킹 상담은 전문가 레인가드와 상의하세요`
+                    : `${locationName} 전문가 레인가드에게 지금 바로 문의하세요`}
                 </h2>
                 <p className="text-blue-100 mb-12 text-lg font-medium opacity-90 relative z-10">
                   정밀 진단부터 책임 시공까지, 빗물누수 고민을 완벽하게 해결해 드립니다.

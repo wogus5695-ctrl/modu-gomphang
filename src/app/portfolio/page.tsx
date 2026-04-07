@@ -7,7 +7,7 @@ import { getMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = getMetadata({
   title: "시공 사례 (포트폴리오)",
-  description: "RainGuard의 실제 창틀코킹 및 빗물누수 보수 시공 사례를 확인해 보세요. 아파트, 빌라, 주택의 누수 문제를 완벽하게 해결한 과정을 상세히 공개합니다.",
+  description: "레인가드의 실제 창틀코킹 및 빗물누수 보수 시공 사례를 확인해 보세요. 아파트, 빌라, 주택의 누수 문제를 완벽하게 해결한 과정을 상세히 공개합니다.",
   path: "/portfolio",
 });
 
@@ -20,10 +20,10 @@ export default function PortfolioListPage() {
         {/* Portfolio Hero */}
         <section className="bg-gray-50 py-24 relative overflow-hidden border-b border-gray-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            <span className="text-blue-600 font-bold tracking-widest uppercase mb-4 block">RainGuard Case Archive</span>
-            <h1 className="text-4xl md:text-6xl font-black text-gray-900 mb-8 leading-tight">RainGuard 시공 사례</h1>
+            <span className="text-blue-600 font-bold tracking-widest uppercase mb-4 block">Case Archive</span>
+            <h1 className="text-4xl md:text-6xl font-black text-gray-900 mb-8 leading-tight">레인가드 시공 사례</h1>
             <p className="text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed break-keep">
-              가장 까다로운 누수 현장에서 검증된 RainGuard의 기술력. <br />
+              가장 까다로운 누수 현장에서 검증된 레인가드의 기술력. <br />
               실제 시공 사례를 통해 투명한 해결 과정을 확인하세요.
             </p>
           </div>
@@ -73,7 +73,7 @@ export default function PortfolioListPage() {
         <section className="py-24 bg-blue-600 text-white">
           <div className="max-w-3xl mx-auto px-4 text-center">
             <h2 className="text-3xl md:text-5xl font-black mb-8 leading-tight">포트폴리오와 유사한 <br /> 상황이신가요?</h2>
-            <p className="text-blue-100 mb-12 text-lg font-medium opacity-90">RainGuard는 어떤 까다로운 누수 현장도 완벽히 해결할 준비가 되어 있습니다.</p>
+            <p className="text-blue-100 mb-12 text-lg font-medium opacity-90">레인가드는 어떤 까다로운 누수 현장도 완벽히 해결할 준비가 되어 있습니다.</p>
             <Link 
               href="/#contact" 
               className="inline-block px-12 py-5 bg-white text-blue-600 font-black text-xl rounded-2xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all"

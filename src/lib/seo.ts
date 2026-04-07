@@ -3,13 +3,13 @@ import { WINDOW_CAULKING_ALLOWED_REGIONS } from '@/data/allowedKeywords';
 
 export const SEO_CONFIG = {
   title: {
-    default: "RainGuard | 창틀코킹·빗물누수·창틀누수 보수 상담",
-    template: "%s | RainGuard"
+    default: "레인가드 | 창틀코킹·빗물누수·창틀누수 보수 상담",
+    template: "%s | 레인가드"
   },
-  description: "창틀코킹 전문가 RainGuard입니다. 아파트 및 빌라의 창틀 누수, 빗물 누수, 실리콘 손상 문제를 정밀 점검하고 완벽 보수합니다. 샷시코킹 및 창틀실리콘 노후 문제 상담.",
+  description: "창틀코킹 전문가 레인가드입니다. 아파트 및 빌라의 창틀 누수, 빗물 누수, 실리콘 손상 문제를 정밀 점검하고 완벽 보수합니다. 샷시코킹 및 창틀실리콘 노후 문제 상담.",
   keywords: [
     "창틀코킹",
-    "RainGuard",
+    "레인가드",
     "샷시코킹",
     "아파트코킹",
     "빗물누수",
@@ -42,10 +42,10 @@ export function getMetadata(options: {
       canonical: url,
     },
     openGraph: {
-      title: title ? `${title} | RainGuard` : SEO_CONFIG.title.default,
+      title: title ? `${title} | 레인가드` : SEO_CONFIG.title.default,
       description: description || SEO_CONFIG.description,
       url: url,
-      siteName: "RainGuard",
+      siteName: "레인가드",
       locale: "ko_KR",
       type: "website",
       images: [
@@ -53,13 +53,13 @@ export function getMetadata(options: {
           url: ogImage || SEO_CONFIG.ogImage,
           width: 800,
           height: 600,
-          alt: title || "RainGuard",
+          alt: title || "레인가드",
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: title ? `${title} | RainGuard` : SEO_CONFIG.title.default,
+      title: title ? `${title} | 레인가드` : SEO_CONFIG.title.default,
       description: description || SEO_CONFIG.description,
       images: [ogImage || SEO_CONFIG.ogImage],
     },
@@ -98,22 +98,22 @@ export function getMetadataByLocation(options: {
     ? (allowedRegion.parentDistrict ? `${allowedRegion.parentDistrict} ${allowedRegion.name}` : allowedRegion.name)
     : cityName.replace(/[구시군]$/, ''); 
 
-  // Title 생성: {지역명} 창틀코킹 | 빗물누수·창틀누수 실리콘 보수 RainGuard
+  // Title 생성: {지역명} 창틀코킹 | 빗물누수·창틀누수 실리콘 보수 레인가드
   const generatedTitle = isWindowCaulking
-    ? `${displayName} 창틀코킹 | 빗물누수·창틀누수 실리콘 보수 RainGuard`
-    : `${locationText} ${serviceTitle} 전문 | ${activeBenefit} - RainGuard`;
+    ? `${displayName} 창틀코킹 | 빗물누수·창틀누수 실리콘 보수 레인가드`
+    : `${locationText} ${serviceTitle} 전문 | ${activeBenefit} - 레인가드`;
     
   const finalTitle = metaTitle || generatedTitle;
 
   // Description 생성
   const defaultDesc = isWindowCaulking
-    ? `${displayName} 창틀코킹 및 빗물누수 보수 전문 RainGuard입니다. 노후된 창틀실리콘과 외벽 접합부 틈새를 점검하여 창틀누수를 완벽하게 해결해 드립니다.`
-    : `${locationText} 지역의 ${serviceTitle} 고민, RainGuard의 정밀 진단과 전문 시공으로 완벽하게 해결하세요. 무료 방문 견적 및 책임 시공 보장.`;
+    ? `${displayName} 창틀코킹 및 빗물누수 보수 전문 레인가드입니다. 노후된 창틀실리콘과 외벽 접합부 틈새를 점검하여 창틀누수를 완벽하게 해결해 드립니다.`
+    : `${locationText} 지역의 ${serviceTitle} 고민, 레인가드의 정밀 진단과 전문 시공으로 완벽하게 해결하세요. 무료 방문 견적 및 책임 시공 보장.`;
   const finalDescription = metaDescription || defaultDesc;
 
   // H1용 타이틀
   const h1 = isWindowCaulking 
-    ? `${displayName} 창틀코킹 전문가 RainGuard`
+    ? `${displayName} 창틀코킹 전문가 레인가드`
     : `${locationText} ${serviceTitle} 전문`;
 
   return {

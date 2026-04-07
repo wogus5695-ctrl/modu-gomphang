@@ -7,7 +7,7 @@ import { getMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = getMetadata({
   title: "전문 서비스 안내",
-  description: "RainGuard의 전문 분야별 창틀코킹 및 빗물누수 보수 서비스를 확인하세요. 아파트, 빌라, 주택의 누수 문제를 완벽하게 해결해 드립니다.",
+  description: "레인가드의 전문 분야별 창틀코킹 및 빗물누수 보수 서비스를 확인하세요. 아파트, 빌라, 주택의 누수 문제를 완벽하게 해결해 드립니다.",
   path: "/services",
 });
 
@@ -29,7 +29,7 @@ export default function ServicesPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
             <h1 className="text-4xl md:text-5xl font-black mb-6">전문 서비스 안내</h1>
             <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed break-keep">
-              RainGuard는 다년간의 노하우와 검증된 창호 전용 실런트를 사용하여 빗물누수를 근본적으로 해결합니다.
+              레인가드는 다년간의 노하우와 검증된 창호 전용 실런트를 사용하여 빗물누수를 근본적으로 해결합니다.
             </p>
           </div>
         </section>

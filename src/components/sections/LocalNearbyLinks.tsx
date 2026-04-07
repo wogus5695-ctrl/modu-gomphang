@@ -27,7 +27,7 @@ export default function LocalNearbyLinks({ locationName, serviceSlug, provinceSl
           {locationName} 인근 지역 창틀코킹 안내
         </h2>
         <p className="text-blue-100 mb-12 text-lg font-medium opacity-80">
-          인근 지역에서도 RainGuard의 프리미엄 창틀코킹 서비스를 동일하게 이용하실 수 있습니다.
+          인근 지역에서도 레인가드의 프리미엄 창틀코킹 서비스를 동일하게 이용하실 수 있습니다.
         </p>
         
         <div className="flex flex-wrap justify-center gap-4">

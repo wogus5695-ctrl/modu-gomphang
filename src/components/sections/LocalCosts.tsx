@@ -15,8 +15,8 @@ export default function LocalCosts({ costFactors }: LocalCostsProps) {
             <h2 id="costs-title" className="text-3xl font-black text-gray-900 mb-6 leading-tight">
               합리적인 시공 <br className="hidden lg:block" /> 비용 결정 요소
             </h2>
-            <p className="text-gray-600 font-medium leading-relaxed">
-              RainGuard는 과도한 비용을 요구하지 않습니다. 현장 상황을 정밀하게 분석하여 꼭 필요한 시공만을 제안해 드립니다.
+            <p className="text-gray-600 mb-10 leading-relaxed font-medium">
+              레인가드는 과도한 비용을 요구하지 않습니다. 현장 상황을 정밀하게 분석하여 꼭 필요한 시공만을 제안해 드립니니다.
             </p>
           </div>
           

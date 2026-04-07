@@ -16,8 +16,8 @@ import LocalFAQ from "@/components/sections/LocalFAQ";
 import LocalPortfolio from "@/components/sections/LocalPortfolio";
 
 export const metadata: Metadata = getMetadata({
-  title: "RainGuard | 창틀코킹·빗물누수·창틀누수 보수 상담",
-  description: "창틀코킹 전문가 RainGuard입니다. 아파트 및 빌라의 창틀 누수, 빗물 누수, 실리콘 손상 문제를 정밀 점검하고 완벽 보수합니다.",
+  title: BRAND_HUB_CONTENT.subtitle,
+  description: BRAND_HUB_CONTENT.intro,
   path: "/",
 });
 
@@ -37,9 +37,9 @@ export default function Home() {
       <main className="flex-grow bg-white">
         {/* 히어로 섹션 (필수) */}
         <LocalHero 
-          locationName={content.title} 
-          serviceTitle="" 
-          intro={content.intro}
+          locationName="레인가드" 
+          serviceTitle="창틀코킹 전문 브랜드" 
+          intro="빗물누수·창틀누수 해결의 기준, 레인가드입니다."
           keywords={content.secondaryKeywords}
         />
 
@@ -61,7 +61,7 @@ export default function Home() {
 
         {/* 시공 사례 */}
         <LocalPortfolio 
-          locationName="RainGuard" 
+          locationName="레인가드" 
           portfolio={representativePortfolio} 
         />
 

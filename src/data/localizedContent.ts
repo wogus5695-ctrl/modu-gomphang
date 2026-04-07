@@ -73,8 +73,8 @@ export function getLocalizedContent(serviceSlug: string, provinceSlug: string, c
       ? [`${displayName} 창틀누수`, `${displayName} 빗물누수`, `${displayName} 샷시코킹`, `${displayName} 아파트코킹`, `${displayName} 창틀실리콘`]
       : [`${locationName} 전문`, `${locationName} 업체 추천`, `${locationName} 견적`, `${locationName} 시공 사례`],
     intro: isWindowCaulking
-      ? `${displayName} 창틀코킹이 필요한 현장은 비가 올 때 창틀 틈새로 물이 스며들거나, 창틀실리콘 노후화로 인한 창틀누수가 반복되는 경우가 많습니다. RainGuard는 ${displayName} 지역의 빗물누수와 창호 접합부 상태를 함께 확인해 외벽 접합부 틈새 등 근본적인 원인을 점검하고 창틀코킹 보수 범위를 안내합니다.`
-      : `${locationName} 지역의 쾌적한 주거 환경을 위해 정직하게 시공하는 RainGuard입니다. 전문적인 기술력으로 최상의 만족을 드리겠습니다.`,
+      ? `${displayName} 창틀코킹이 필요한 현장은 비가 올 때 창틀 틈새로 물이 스며들거나, 창틀실리콘 노후화로 인한 창틀누수가 반복되는 경우가 많습니다. 레인가드는 ${displayName} 지역의 빗물누수와 창호 접합부 상태를 함께 확인해 외벽 접합부 틈새 등 근본적인 원인을 점검하고 창틀코킹 보수 범위를 안내합니다.`
+      : `${locationName} 지역의 쾌적한 주거 환경을 위해 정직하게 시공하는 레인가드입니다. 전문적인 기술력으로 최상의 만족을 드리겠습니다.`,
     localProblems: isWindowCaulking
       ? `${displayName} 지역의 아파트 및 빌라는 외부 환경 노출로 인해 창틀실리콘 경화가 진행되기 쉽습니다. 빗물누수를 방치할 경우 내벽 손상으로 이어지므로 샷시코킹 전문가의 정밀 진단이 필요합니다.`
       : `${locationName} 지역 특성에 맞춰 최적화된 시공 솔루션을 제공합니다. 노후된 시설 점검 및 관리를 통해 문제를 조기에 해결해 드립니다.`,
@@ -103,31 +103,23 @@ export function getLocalizedContent(serviceSlug: string, provinceSlug: string, c
       "스카이차/로프 등 장비 사용 여부",
       "추가적인 외벽 균열 보수 포함 여부"
     ],
-    faqs: isWindowCaulking
-      ? [
-          {
-            question: `${displayName} 창틀코킹 시공 후 무상 AS가 가능한가요?`,
-            answer: `RainGuard는 ${displayName} 지역 전담 팀을 운영하며, 시공 하자에 대해 철저한 책임 보증을 제공합니다. 사용된 자재와 공법에 따라 정해진 기간 내 무상 점검 및 보수를 지원합니다.`
-          },
-          {
-            question: "창틀실리콘 교체 작업 시 소음이 심한가요?",
-            answer: "노후 실리콘을 제거하는 과정에서 약간의 소음이 발생할 수 있으나, 이웃 세대에 큰 불편을 주지 않는 범위 내에서 신속하고 깔끔하게 작업을 진행합니다."
-          },
-          {
-            question: `${displayName} 창틀누수 상담은 주말에도 가능한가요?`,
-            answer: "네, 가능합니다. RainGuard 고객센터로 문의 주시면 주말 및 공휴일에도 ${displayName} 지역 방문 예약 및 상담을 도와드리고 있습니다."
-          }
-        ]
-      : [
-          {
-            question: "방문 견적 비용이 발생하나요?",
-            answer: "RainGuard는 고객님의 부담을 덜어드리기 위해 전 지역 무료 방문 견적 서비스를 제공하고 있습니다. 편하게 문의주세요."
-          }
-        ],
+    faqs: [
+      {
+        question: `${displayName} 지역 시공 A/S 기간은 어떻게 되나요?`,
+        answer: `레인가드는 ${displayName} 지역 전담 팀을 운영하며, 시공 하자에 대해 철저한 책임 보증을 제공합니다. 사용된 자재와 공법에 따라 정해진 기간 내 무상 점검 및 보수를 지원합니다.`
+      },
+      {
+        question: "주말이나 공휴일에도 상담이 가능한가요?",
+        answer: `네, 가능합니다. 레인가드 고객센터로 문의 주시면 주말 및 공휴일에도 ${displayName} 지역 방문 예약 및 상담을 도와드리고 있습니다.`
+      },
+      {
+        question: "방문 견적 시 비용이 발생하나요?",
+        answer: "레인가드는 고객님의 부담을 덜어드리기 위해 전 지역 무료 방문 견적 서비스를 제공하고 있습니다. 편하게 문의주세요."
+      }
+    ],
     nearbyLinks: [],
     relatedPortfolioIds: [],
-    metaTitle: isWindowCaulking ? `${displayName} 창틀코킹 | 빗물누수·창틀누수 실리콘 보수 RainGuard` : undefined,
-    metaDescription: isWindowCaulking ? `${displayName} 창틀코킹 및 빗물누수 보수 전문 RainGuard입니다. 노후된 창틀실리콘과 외벽 접합부 틈새를 점검하여 창틀누수를 완벽하게 해결해 드립니다.` : undefined
+    metaTitle: isWindowCaulking ? `${displayName} 창틀코킹 | 빗물누수·창틀누수 실리콘 보수 레인가드` : undefined,
+    metaDescription: isWindowCaulking ? `${displayName} 창틀코킹 및 빗물누수 보수 전문 레인가드입니다. 노후된 창틀실리콘과 외벽 접합부 틈새를 점검하여 창틀누수를 완벽하게 해결해 드립니다.` : undefined
   } as LocalizedPageContent;
 }
-

@@ -50,11 +50,11 @@ export default async function PortfolioDetailPage({ params }: Props) {
     "datePublished": post.date,
     "author": {
       "@type": "Organization",
-      "name": "RainGuard"
+      "name": "레인가드"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "RainGuard",
+      "name": "레인가드",
       "logo": {
         "@type": "ImageObject",
         "url": "https://sinbiroo.co.kr/icon.png"
@@ -132,7 +132,7 @@ export default async function PortfolioDetailPage({ params }: Props) {
               {localRegion && (
                 <div className="mb-20 p-8 bg-blue-50 rounded-3xl border border-blue-100 flex flex-col md:flex-row items-center justify-between gap-6">
                   <div>
-                    <h3 className="text-xl font-black text-blue-900 mb-2">{localRegion.cityName} 창틀코킹은 RainGuard가 최고입니다</h3>
+                    <h3 className="text-xl font-black text-blue-900 mb-2">{localRegion.cityName} 창틀코킹은 레인가드가 최고입니다</h3>
                     <p className="text-blue-700 font-medium">해당 지역의 서비스 안내와 견적 정보를 확인하세요.</p>
                   </div>
                   <Link 
@@ -176,7 +176,7 @@ export default async function PortfolioDetailPage({ params }: Props) {
               <div className="bg-gray-900 rounded-[40px] p-10 md:p-16 text-center text-white relative overflow-hidden">
                  <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/20 rounded-full blur-3xl -mr-32 -mt-32"></div>
                  <h3 className="text-2xl md:text-3xl font-black mb-6 leading-tight">유사한 시공 환경이신가요?</h3>
-                 <p className="text-gray-400 mb-10 font-medium">RainGuard의 전문 {post.service}를 통해 <br /> 쾌적한 주거 환경을 선물해 드립니다.</p>
+                 <p className="text-gray-400 mb-10 font-medium">레인가드의 전문 {post.service}를 통해 <br /> 쾌적한 주거 환경을 선물해 드립니다.</p>
                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Link 
                       href={`/services/${post.relatedServiceSlug}`} 
@@ -204,7 +204,7 @@ export default async function PortfolioDetailPage({ params }: Props) {
         {/* Other Cases Navigation */}
         <section className="py-24 bg-gray-50 border-t border-gray-100">
            <div className="max-w-7xl mx-auto px-4 text-center mb-12">
-             <h4 className="text-sm font-black text-blue-600 uppercase tracking-widest mb-4">RainGuard 시공 갤러리</h4>
+             <h4 className="text-sm font-black text-blue-600 uppercase tracking-widest mb-4">레인가드 시공 갤러리</h4>
              <h2 className="text-3xl md:text-4xl font-black text-gray-900">최근 완료된 다른 시공 사례</h2>
            </div>
            <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-8">
