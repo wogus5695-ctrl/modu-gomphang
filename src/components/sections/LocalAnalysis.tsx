@@ -83,39 +83,29 @@ export default function LocalAnalysis({
           ))}
         </div>
 
-        {/* Secondary Visual + SEO Footnote Group */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center pt-20 border-t border-gray-100">
-          {/* Real Work Image */}
-          <div className="relative rounded-[50px] overflow-hidden shadow-2xl aspect-[4/3] group">
+        {/* Secondary Visual (Real Work Case) */}
+        <div className="pt-20 border-t border-gray-100">
+          <div className="relative rounded-[50px] overflow-hidden shadow-2xl aspect-[21/9] md:aspect-[21/7] group">
             <Image 
               src="/analysis-caulking.jpg" 
               alt={`${locationName} 창틀코킹 시공 현장`}
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-700"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-gray-900/40 to-transparent" />
-            <div className="absolute bottom-6 left-8 text-white">
-              <div className="text-sm font-black uppercase tracking-widest mb-1 opacity-80">Real Work Case</div>
-              <div className="text-xl font-black">{locationName} 실제 시공 현장</div>
+            <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-gray-900/20 to-transparent" />
+            <div className="absolute bottom-8 left-10 text-white">
+              <div className="text-sm font-black uppercase tracking-widest mb-2 opacity-80">Real Work Case</div>
+              <div className="text-2xl md:text-3xl font-black">{locationName} 실제 시공 현장</div>
             </div>
           </div>
+        </div>
 
-          <div className="space-y-8">
-            <div className="p-8 bg-blue-50 rounded-[40px] border border-blue-100/50">
-              <h4 className="text-xl font-black text-blue-900 mb-4">전문가 한마디</h4>
-              <p className="text-blue-800/80 font-bold leading-relaxed italic text-lg">
-                "창틀코킹의 핵심은 '생략 없는 공정'입니다. 보이지 않는 곳까지 정석대로 시공했을 때 비로소 누수의 공포에서 벗어날 수 있습니다."
-              </p>
-            </div>
-
-            {/* SEO Footnote - Discretely placed as per request */}
-            <div className="text-gray-400 text-sm font-bold leading-relaxed px-4">
-              <p>
-                ※ 레인가드는 {locationName} 창틀코킹, {locationName} 창틀누수, {locationName} 빗물누수 예방 및 전문 보수를 통해 주거 환경의 가치를 지켜드립니다. 
-                본 페이지는 {locationName} 지역 고객님들을 위한 주거 환경 분석과 시공 가이드를 제공합니다.
-              </p>
-            </div>
-          </div>
+        {/* SEO Footnote - Moved to the very bottom as a closing note */}
+        <div className="mt-12 text-gray-400 text-sm font-bold leading-relaxed px-4 text-center max-w-4xl mx-auto">
+          <p>
+            ※ 레인가드는 {locationName} 창틀코킹, {locationName} 창틀누수, {locationName} 빗물누수 예방 및 전문 보수를 통해 주거 환경의 가치를 지켜드립니다. 
+            본 페이지는 {locationName} 지역 고객님들을 위한 주거 환경 분석과 시공 가이드를 제공합니다.
+          </p>
         </div>
       </div>
     </section>
