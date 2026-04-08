@@ -119,7 +119,7 @@ export function getLocalizedContent(serviceSlug: string, provinceSlug: string, c
     costFactors: [
       "창틀코킹 시공이 필요한\n창호의 개수 및 사이즈",
       "건물의 총 층고 대비\n작업 현장의 층수",
-      "많은 양의 외벽크랙 발견으로\n작업량이 증가할 때"
+      "많은 양의 추가 외벽크랙 발견으로\n작업량이 증가할 때"
     ],
     faqs: [
       {

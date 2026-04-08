@@ -13,7 +13,7 @@ export default function LocalCosts({ costFactors }: LocalCostsProps) {
         <div className="grid lg:grid-cols-3 gap-16 items-start">
           <div className="lg:col-span-1">
             <h2 id="costs-title" className="text-3xl md:text-5xl font-black text-gray-900 mb-8 leading-tight tracking-tighter">
-              합리적인 시공 <br className="hidden lg:block" /> 비용 결정 요소
+              <span className="text-blue-600 block lg:inline">합리적인 시공</span> <br className="hidden lg:block" /> 비용 결정 요소
             </h2>
             <p className="text-gray-600 text-lg md:text-xl mb-10 leading-relaxed font-bold tracking-tight opacity-95">
               <span className="block mb-1">
@@ -22,24 +22,26 @@ export default function LocalCosts({ costFactors }: LocalCostsProps) {
               <span className="block mb-1 md:inline lg:block">불필요한 공정을 제외하고</span>
               <span className="block mb-1 md:inline lg:block">현장에 꼭 필요한 시공만을 제안하여</span>
               <span className="block">
-                <span className="text-blue-600">최적의 비용</span>으로 해결해 드립니다.
+                <span className="text-blue-600 font-black">최적의 비용</span>으로 해결해 드립니다.
               </span>
             </p>
           </div>
           
-          <div className="lg:col-span-2 flex flex-col gap-5">
-            {costFactors.map((factor, i) => (
-              <div key={i} className="group flex items-start gap-6 p-8 bg-white rounded-[40px] shadow-sm border border-gray-100 hover:shadow-xl hover:border-blue-200 transition-all duration-300">
-                <span className="flex-shrink-0 mt-1 w-12 h-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300 shadow-sm">
-                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                  </svg>
-                </span>
-                <p className="text-gray-900 font-black text-xl leading-[1.4] tracking-tight whitespace-pre-line">
-                  {factor}
-                </p>
-              </div>
-            ))}
+          <div className="lg:col-span-2 flex flex-col items-center lg:items-end gap-5">
+            <div className="flex flex-col gap-4 w-full md:w-auto md:min-w-[400px]">
+              {costFactors.map((factor, i) => (
+                <div key={i} className="group flex items-start gap-5 p-7 bg-white rounded-[32px] shadow-sm border border-gray-100 hover:shadow-xl hover:border-blue-200 transition-all duration-300">
+                  <span className="flex-shrink-0 mt-1 w-11 h-11 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </span>
+                  <p className="text-gray-900 font-black text-lg md:text-xl leading-[1.45] tracking-tight whitespace-pre-line">
+                    {factor}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
