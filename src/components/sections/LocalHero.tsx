@@ -95,7 +95,7 @@ export default function LocalHero({ locationName, serviceTitle, title, intro, ke
           <div className="relative order-1 lg:order-2">
             <div className="relative rounded-[40px] md:rounded-[60px] overflow-hidden shadow-2xl z-20 aspect-[4/3] md:aspect-square lg:aspect-[4/5]">
               <Image 
-                src="/hero-caulking.png"
+                src="/hero-caulking.jpg"
                 alt={`${locationName} 창틀코킹 시공 현장`}
                 fill
                 className="object-cover"
