@@ -27,15 +27,17 @@ export default function LocalCosts({ costFactors }: LocalCostsProps) {
             </p>
           </div>
           
-          <div className="lg:col-span-2 grid sm:grid-cols-2 gap-6">
+          <div className="lg:col-span-2 flex flex-col gap-5">
             {costFactors.map((factor, i) => (
-              <div key={i} className="group flex items-center gap-5 p-8 bg-white rounded-[32px] shadow-sm border border-gray-100 hover:shadow-xl hover:border-blue-200 transition-all duration-300">
-                <span className="flex-shrink-0 w-12 h-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+              <div key={i} className="group flex items-start gap-6 p-8 bg-white rounded-[40px] shadow-sm border border-gray-100 hover:shadow-xl hover:border-blue-200 transition-all duration-300">
+                <span className="flex-shrink-0 mt-1 w-12 h-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300 shadow-sm">
                   <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                   </svg>
                 </span>
-                <p className="text-gray-900 font-extrabold text-lg leading-snug tracking-tight">{factor}</p>
+                <p className="text-gray-900 font-black text-xl leading-[1.4] tracking-tight whitespace-pre-line">
+                  {factor}
+                </p>
               </div>
             ))}
           </div>
