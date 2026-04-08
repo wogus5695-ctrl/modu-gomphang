@@ -28,15 +28,15 @@ export default function LocalCosts({ costFactors }: LocalCostsProps) {
           </div>
           
           <div className="lg:col-span-2 flex flex-col items-center lg:items-end gap-5">
-            <div className="flex flex-col gap-4 w-full md:w-auto md:min-w-[400px]">
+            <div className="flex flex-col gap-4 w-full md:w-auto md:min-w-[450px]">
               {costFactors.map((factor, i) => (
-                <div key={i} className="group flex items-start gap-5 p-7 bg-white rounded-[32px] shadow-sm border border-gray-100 hover:shadow-xl hover:border-blue-200 transition-all duration-300">
-                  <span className="flex-shrink-0 mt-1 w-11 h-11 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+                <div key={i} className="group flex items-center gap-5 px-8 py-6 bg-white rounded-[32px] shadow-sm border border-gray-100 hover:shadow-xl hover:border-blue-200 transition-all duration-300">
+                  <span className="flex-shrink-0 w-10 h-10 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                     </svg>
                   </span>
-                  <p className="text-gray-900 font-black text-lg md:text-xl leading-[1.45] tracking-tight whitespace-pre-line">
+                  <p className="text-gray-900 font-bold text-lg md:text-xl leading-none tracking-tight md:whitespace-nowrap">
                     {factor}
                   </p>
                 </div>
