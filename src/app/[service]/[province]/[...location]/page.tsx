@@ -148,8 +148,7 @@ export default async function LocationServicePage({ params }: Props) {
           <section id="analysis">
             <LocalAnalysis 
               locationName={displayName} // 도시 이름 정규화 적용
-              problems={local.localProblems}
-              targets={local.targets}
+              introDesc={local.localProblems}
             />
           </section>
         )}

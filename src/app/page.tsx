@@ -47,8 +47,7 @@ export default function Home() {
         <div id="services">
           <LocalAnalysis 
             locationName="창틀"
-            problems={content.localProblems}
-            targets={content.targets}
+            introDesc={content.localProblems}
           />
         </div>
 
