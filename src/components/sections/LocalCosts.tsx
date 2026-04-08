@@ -15,8 +15,15 @@ export default function LocalCosts({ costFactors }: LocalCostsProps) {
             <h2 id="costs-title" className="text-3xl md:text-5xl font-black text-gray-900 mb-8 leading-tight tracking-tighter">
               합리적인 시공 <br className="hidden lg:block" /> 비용 결정 요소
             </h2>
-            <p className="text-gray-600 text-lg mb-10 leading-relaxed font-medium tracking-tight opacity-90">
-              레인가드는 투명한 견적 시스템을 지향합니다. 불필요한 공정을 제외하고 오직 현장에 꼭 필요한 시공만을 제안하여 최적의 비용으로 해결해 드립니다.
+            <p className="text-gray-600 text-lg md:text-xl mb-10 leading-relaxed font-bold tracking-tight opacity-95">
+              <span className="block mb-1">
+                레인가드는 <span className="relative inline-block overflow-visible after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-blue-600/30 after:rounded-full">투명한 견적 시스템</span>을 지향합니다.
+              </span>
+              <span className="block mb-1 md:inline lg:block">불필요한 공정을 제외하고</span>
+              <span className="block mb-1 md:inline lg:block">현장에 꼭 필요한 시공만을 제안하여</span>
+              <span className="block">
+                <span className="text-blue-600">최적의 비용</span>으로 해결해 드립니다.
+              </span>
             </p>
           </div>
           
