@@ -130,11 +130,9 @@ export default async function LocationServicePage({ params }: Props) {
       <Header />
       
       <main className="flex-grow bg-white">
-        {/* Breadcrumbs Section - Hidden from UI but kept for SEO */}
-        <div className="hidden">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
-            <Breadcrumbs items={breadcrumbItems} />
-          </div>
+        {/* Breadcrumbs Section - Hidden from UI visually but kept in DOM for SEO */}
+        <div className="sr-only">
+          <Breadcrumbs items={breadcrumbItems} />
         </div>
 
         {/* 히어로 섹션 (필수) */}
@@ -149,7 +147,7 @@ export default async function LocationServicePage({ params }: Props) {
         {local && (local.localProblems || local.targets) && (
           <section id="analysis">
             <LocalAnalysis 
-              locationName={locationName}
+              locationName={displayName} // 도시 이름 정규화 적용
               problems={local.localProblems}
               targets={local.targets}
             />
@@ -159,12 +157,10 @@ export default async function LocationServicePage({ params }: Props) {
         {/* 시공 프로세스 (조건부) */}
         {local?.workProcess && local.workProcess.length > 0 && (
           <section id="process" className="scroll-mt-20">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 -mb-16 relative z-10">
-              <h2 className="text-2xl md:text-3xl font-black text-gray-900">
-                {serviceSlug === 'window-caulking' ? `${displayName} 창틀코킹 시공 과정` : `${service?.title} 시공 과정`}
-              </h2>
-            </div>
-            <LocalProcess process={local.workProcess} />
+            <LocalProcess 
+              title={serviceSlug === 'window-caulking' ? `${displayName} 창틀코킹 시공 과정` : `${service?.title} 시공 과정`}
+              process={local.workProcess} 
+            />
           </section>
         )}
 
@@ -178,25 +174,18 @@ export default async function LocationServicePage({ params }: Props) {
         {/* FAQ (조건부) */}
         {local?.faqs && local.faqs.length > 0 && (
           <section id="faq" className="scroll-mt-20">
-            <div className="max-w-3xl mx-auto px-4 mt-20 -mb-12 relative z-10">
-              <h2 className="text-2xl md:text-3xl font-black text-gray-900 text-center">
-                {serviceSlug === 'window-caulking' ? `${displayName} 창틀누수 FAQ` : `${service?.title} 자주 묻는 질문`}
-              </h2>
-            </div>
-            <LocalFAQ faqs={local.faqs} />
+            <LocalFAQ 
+              title={serviceSlug === 'window-caulking' ? `${displayName} 창틀누수 FAQ` : `${service?.title} 자주 묻는 질문`}
+              faqs={local.faqs} 
+            />
           </section>
         )}
 
         {/* 관련 사례 (조건부) */}
         {relatedPortfolio.length > 0 && (
           <section id="portfolio" className="scroll-mt-20">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-20 -mb-16 relative z-10">
-              <h2 className="text-2xl md:text-3xl font-black text-gray-900">
-                {serviceSlug === 'window-caulking' ? `${displayName} 인근 창틀코킹 시공 사례` : `${service?.title} 시공 사례`}
-              </h2>
-            </div>
             <LocalPortfolio 
-              locationName={locationName} 
+              title={serviceSlug === 'window-caulking' ? `${displayName} 인근 창틀코킹 시공 사례` : `${service?.title} 시공 사례`}
               portfolio={relatedPortfolio} 
             />
           </section>
@@ -204,20 +193,24 @@ export default async function LocationServicePage({ params }: Props) {
 
         {/* 인접 지역 링크 (조건부) */}
         {local?.nearbyLinks && local.nearbyLinks.length > 0 && (
-          <section id="nearby" className="scroll-mt-20">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-20 -mb-16 relative z-10">
-              <h2 className="text-2xl md:text-3xl font-black text-gray-900">
+          <section id="nearby" className="scroll-mt-20 py-24 bg-gray-50/30">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="inline-block px-4 py-1.5 bg-blue-50 text-blue-600 rounded-full text-sm font-black mb-6 uppercase tracking-wider">
+                Service Areas
+              </div>
+              <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-12 tracking-tighter">
                 {provinceName} 타 지역 창틀코킹 시공 안내
               </h2>
+              <LocalNearbyLinks 
+                locationName={locationName}
+                serviceSlug={serviceSlug}
+                provinceSlug={provinceSlug}
+                links={local.nearbyLinks}
+              />
             </div>
-            <LocalNearbyLinks 
-              locationName={locationName}
-              serviceSlug={serviceSlug}
-              provinceSlug={provinceSlug}
-              links={local.nearbyLinks}
-            />
           </section>
         )}
+
 
         {/* 문의 CTA 섹션 (고정항목) */}
         <section id="contact" className="py-24 bg-white scroll-mt-20">
