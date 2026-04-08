@@ -19,7 +19,7 @@ export interface LocalizedPageContent {
   intro: string;
   localProblems: string;
   targets: string[];
-  workProcess: string[];
+  workProcess: { title: string; description: string }[] | string[];
   costFactors: string[];
   faqs: LocalizedFAQ[];
   nearbyLinks: LocalizedNearbyLink[];
@@ -90,13 +90,32 @@ export function getLocalizedContent(serviceSlug: string, provinceSlug: string, c
           "노후 시설 보수 및 관리가 필요한 곳",
           "전문가의 정밀 진단이 필요한 현장"
         ],
-    workProcess: [
-      "1. 현장 방문 및 누수 원인 정밀 진단",
-      "2. 노후 실리콘 제거 및 이물질 청소",
-      "3. 샷시코킹 전용 프라이머 도포",
-      "4. 창틀실리콘 정밀 충진 및 마감",
-      "5. 시공 부위 최종 검수"
-    ],
+    workProcess: isWindowCaulking
+      ? [
+          {
+            title: "현장 방문 및 누수 원인 정밀 진단",
+            description: "창틀, 코킹실리콘, 외벽크랙 등\n빗물이 스며드는 위치와 원인을 꼼꼼하게 확인합니다."
+          },
+          {
+            title: "노후 실리콘 제거 및 이물질 정리",
+            description: "탄성이 약해져 갈라진 실리콘과\n금이 가거나 탈락한 외벽크랙, 이물질 등을 말끔히 제거합니다."
+          },
+          {
+            title: "부착력을 높이는 프라이머 도포",
+            description: "실리콘의 접착력과 방수 유지력을 높일 수 있도록\n프라이머를 세밀하게 도포합니다."
+          },
+          {
+            title: "새로운 실리콘 충진 및 마감",
+            description: "새로운 실리콘을 창틀 틈새 깊숙이 꼼꼼히 채운 뒤\n균일하게 도포하여 깔끔하게 마감합니다."
+          }
+        ]
+      : [
+          "1. 현장 방문 및 누수 원인 정밀 진단",
+          "2. 노후 실리콘 제거 및 이물질 청소",
+          "3. 샷시코킹 전용 프라이머 도포",
+          "4. 창틀실리콘 정밀 충진 및 마감",
+          "5. 시공 부위 최종 검수"
+        ],
     costFactors: [
       "시공이 필요한 창호의 개수 및 크기",
       "기존 실리콘의 노후도 및 제거 난이도",
