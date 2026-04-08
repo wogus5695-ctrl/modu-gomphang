@@ -73,7 +73,7 @@ export function getLocalizedContent(serviceSlug: string, provinceSlug: string, c
       ? [`${displayName} 창틀누수`, `${displayName} 빗물누수`, `${displayName} 샷시코킹`, `${displayName} 아파트코킹`, `${displayName} 창틀실리콘`]
       : [`${locationName} 전문`, `${locationName} 업체 추천`, `${locationName} 견적`, `${locationName} 시공 사례`],
     intro: isWindowCaulking
-      ? `${displayName} 창틀코킹이 필요한 현장은 비가 올 때 창틀 틈새로 물이 스며들거나, 창틀실리콘 노후화로 인한 창틀누수가 반복되는 경우가 많습니다. 레인가드는 ${displayName} 지역의 빗물누수와 창호 접합부 상태를 함께 확인해 외벽 접합부 틈새 등 근본적인 원인을 점검하고 창틀코킹 보수 범위를 안내합니다.`
+      ? `${displayName} 창틀코킹이 필요한 현장은\n비가 올 때 창틀실리콘 노후화로 인한\n창틀누수가 반복되는 경우가 많습니다.\n레인가드는 ${displayName} 지역의 빗물누수에 대한\n근본적인 원인을 점검하고 창틀코킹 보수해 드립니다.`
       : `${locationName} 지역의 쾌적한 주거 환경을 위해 정직하게 시공하는 레인가드입니다. 전문적인 기술력으로 최상의 만족을 드리겠습니다.`,
     localProblems: isWindowCaulking
       ? `${displayName} 지역의 아파트 및 빌라는 외부 환경 노출로 인해 창틀실리콘 경화가 진행되기 쉽습니다. 빗물누수를 방치할 경우 내벽 손상으로 이어지므로 샷시코킹 전문가의 정밀 진단이 필요합니다.`

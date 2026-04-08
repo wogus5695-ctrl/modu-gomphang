@@ -39,8 +39,18 @@ export default function LocalHero({ locationName, serviceTitle, title, intro, ke
             </h1>
             
             {/* 3. Description */}
-            <p className="text-gray-600 text-lg md:text-xl font-medium mb-10 leading-relaxed max-w-2xl opacity-90 whitespace-pre-line">
-              {intro || `${locationName} 지역의 창틀누수 고민, 레인가드가 정밀 점검부터 책임 시공까지 완벽하게 해결해 드립니다.`}
+            <p className="text-gray-600 text-lg md:text-xl font-medium mb-10 leading-relaxed max-w-2xl opacity-90">
+              {intro ? (
+                intro.split('\n').map((line, i, arr) => (
+                  <React.Fragment key={i}>
+                    {line}
+                    {i < arr.length - 1 && <br className="hidden md:block" />}
+                    {i < arr.length - 1 && <span className="md:hidden"> </span>}
+                  </React.Fragment>
+                ))
+              ) : (
+                `${locationName} 지역의 창틀누수 고민, 레인가드가 정밀 점검부터 책임 시공까지 완벽하게 해결해 드립니다.`
+              )}
             </p>
 
             {/* 4. Core Trust Points */}
