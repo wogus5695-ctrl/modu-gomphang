@@ -100,8 +100,11 @@ export default async function LocationServicePage({ params }: Props) {
     path: `/`, // 임시
   });
 
-  // 관련 포트폴리오 필터링
+  // 관련 포트폴리오 필터링 (동적 조건부)
   const relatedPortfolio = portfolioCases.filter(p => local?.relatedPortfolioIds.includes(p.id));
+
+  // 공통 대표 시공 사례 (메인페이지 노출분 3개 고정)
+  const representativePortfolio = portfolioCases.slice(0, 3);
 
   // Breadcrumbs items 생성
   const breadcrumbItems: BreadcrumbItem[] = [
@@ -179,6 +182,14 @@ export default async function LocationServicePage({ params }: Props) {
             />
           </section>
         )}
+
+        {/* 공통 대표 시공 사례 (항상 노출, 메인페이지와 동일) */}
+        <section id="cases" className="scroll-mt-20">
+          <LocalPortfolio 
+            title="대표 시공 사례"
+            portfolio={representativePortfolio} 
+          />
+        </section>
 
         {/* 관련 사례 (조건부) */}
         {relatedPortfolio.length > 0 && (
