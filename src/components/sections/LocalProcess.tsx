@@ -73,7 +73,7 @@ export default function LocalProcess({ title, process }: LocalProcessProps) {
                   src="/process-caulking.jpg" 
                   alt="레인가드 정석 시공 현장"
                   fill
-                  className="object-cover"
+                  className="object-cover object-right"
                 />
                 {/* Overlay Gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900/40 via-transparent to-transparent" />
