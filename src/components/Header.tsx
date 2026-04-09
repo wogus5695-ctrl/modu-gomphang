@@ -5,15 +5,14 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-gray-100 bg-white/90 backdrop-blur-md shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-3 group">
+        <Link href="/" className="flex items-center group">
           <Image 
             src="/logo.png" 
             alt="레인가드 로고" 
-            width={32} 
-            height={32} 
-            className="rounded-lg shadow-sm group-hover:shadow-md transition-all" 
+            width={160} 
+            height={40} 
+            className="h-8 md:h-10 w-auto transition-transform group-hover:scale-105" 
           />
-          <span className="text-2xl font-extrabold text-blue-600 tracking-tight">레인가드</span>
         </Link>
         <nav className="hidden md:flex gap-8 text-sm sm:text-base">
           <Link href="/#services" className="text-gray-700 hover:text-blue-600 font-semibold transition-colors">서비스 안내</Link>

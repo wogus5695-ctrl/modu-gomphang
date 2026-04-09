@@ -7,15 +7,14 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-12 items-start mb-12">
           <div className="flex flex-col gap-4">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center">
               <Image 
                 src="/logo.png" 
                 alt="레인가드 로고" 
-                width={32} 
-                height={32} 
-                className="rounded-lg opacity-80" 
+                width={120} 
+                height={30} 
+                className="h-6 md:h-7 w-auto opacity-80" 
               />
-              <span className="text-2xl font-black text-blue-600">레인가드</span>
             </div>
             <p className="text-gray-600 text-sm leading-relaxed max-w-sm">
               레인가드는 아파트 및 주거 시설의 빗물누수 문제를 완벽하게 해결하는 창틀코킹 및 누수 보수 전문 브랜드입니다. 정밀 점검과 전문 실리콘 코킹 공법으로 안전한 주거 환경을 약속합니다.
