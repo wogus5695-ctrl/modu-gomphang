@@ -24,8 +24,8 @@ export const metadata: Metadata = getMetadata({
 export default function Home() {
   const content = BRAND_HUB_CONTENT;
   
-  // 대표 시공 사례 (대표 4개 선정)
-  const representativePortfolio = portfolioCases.slice(0, 4);
+  // 대표 시공 사례 (대표 3개 선정)
+  const representativePortfolio = portfolioCases.slice(0, 3);
 
   return (
     <div className="flex min-h-screen flex-col font-sans antialiased overflow-x-hidden">

@@ -26,35 +26,26 @@ export default function LocalPortfolio({ title, portfolio }: LocalPortfolioProps
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
           {portfolio.map((item) => (
-            <div key={item.id} className="group bg-white rounded-[48px] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100/50 flex flex-col">
-              <div className="aspect-[16/10] relative overflow-hidden">
+            <div key={item.id} className="group bg-white rounded-[40px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 flex flex-col h-full">
+              <div className="aspect-[1.1/1] relative overflow-hidden">
                 <BeforeAfterSlider before={item.beforeImg} after={item.afterImg} alt={item.title} />
               </div>
-              <div className="p-10 flex flex-col h-full bg-white relative z-10">
-                <h3 className="font-black text-2xl mb-4 group-hover:text-blue-600 transition-colors line-clamp-1">
-                  <Link 
-                    href={`/portfolio/${item.id}`}
-                    data-track-category="view"
-                    data-track-action="case_detail_click"
-                    data-track-label={`case_${item.id}`}
-                  >
-                    {item.title}
-                  </Link>
+              <div className="p-8 md:p-10 flex flex-col flex-grow bg-white">
+                <h3 className="font-black text-xl md:text-2xl mb-4 group-hover:text-blue-600 transition-colors line-clamp-2 leading-tight">
+                  {item.title}
                 </h3>
-                <p className="text-gray-500 font-extrabold leading-relaxed mb-8 line-clamp-2">{item.summary}</p>
+                <p className="text-gray-500 font-bold leading-relaxed opacity-85 line-clamp-3">
+                  {item.summary}
+                </p>
                 
-                <div className="mt-auto">
-                  <Link 
-                    href={`/portfolio/${item.id}`} 
-                    className="inline-flex items-center px-6 py-3 bg-gray-50 text-blue-600 rounded-2xl font-black group-hover:bg-blue-600 group-hover:text-white transition-all duration-300"
-                    data-track-category="view"
-                    data-track-action="case_detail_click"
-                    data-track-label={`case_${item.id}`}
-                  >
-                    시공 상세 보기 <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
-                  </Link>
+                {/* Decorative bar at the bottom for balanced look since button is removed */}
+                <div className="mt-8 pt-6 border-t border-gray-50">
+                  <div className="flex items-center gap-2 text-blue-600 font-black text-sm uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span className="w-8 h-px bg-blue-600"></span>
+                    Professional Work
+                  </div>
                 </div>
               </div>
             </div>
