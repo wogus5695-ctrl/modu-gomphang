@@ -63,5 +63,5 @@ export const BRAND_HUB_CONTENT = {
 
   // CTA
   ctaHeader: "빗물누수 차단의 시작, 레인가드가 함께합니다",
-  ctaSummary: "창틀코킹 상담이 필요하시면 레인가드가 현장 상황을 확인한 뒤 작업 범위와 보수 방향을 안내해드립니다."
+  ctaSummary: "지금 바로 전문가와 전화 또는 카카오톡으로 쉽고 빠르게 상담받으세요."
 };

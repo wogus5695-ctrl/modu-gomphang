@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import ContactForm from "@/components/ContactForm";
+import ContactCTA from "@/components/ContactCTA";
 import FAQSchema from "@/components/FAQSchema";
 import { getMetadata } from "@/lib/seo";
 import { BRAND_HUB_CONTENT } from "@/data/brandHub";
@@ -88,8 +88,8 @@ export default function Home() {
                   {content.ctaSummary}
                 </p>
                 
-                <div className="bg-white text-gray-900 p-8 md:p-12 rounded-[40px] shadow-inner relative z-10">
-                  <ContactForm />
+                <div className="bg-transparent mt-8">
+                  <ContactCTA />
                 </div>
              </div>
           </div>

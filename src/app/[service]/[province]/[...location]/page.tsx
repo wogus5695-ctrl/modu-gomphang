@@ -9,7 +9,7 @@ import { portfolioCases } from "@/data/portfolio";
 import { getMetadataByLocation } from "@/lib/seo";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import ContactForm from "@/components/ContactForm";
+import ContactCTA from "@/components/ContactCTA";
 import FAQSchema from "@/components/FAQSchema";
 import Breadcrumbs, { BreadcrumbItem } from "@/components/Breadcrumbs";
 
@@ -227,8 +227,8 @@ export default async function LocationServicePage({ params }: Props) {
                   정밀 진단부터 책임 시공까지, 빗물누수 고민을 완벽하게 해결해 드립니다.
                 </p>
                 
-                <div className="bg-white text-gray-900 p-8 md:p-12 rounded-[40px] shadow-inner relative z-10">
-                  <ContactForm />
+                <div className="bg-transparent mt-8">
+                  <ContactCTA />
                 </div>
              </div>
           </div>
