@@ -70,17 +70,17 @@ export function getLocalizedContent(serviceSlug: string, provinceSlug: string, c
     neighborhoods: [],
     primaryKeyword: isWindowCaulking ? `${displayName} 창틀코킹` : `${locationName} ${service.title}`,
     secondaryKeywords: isWindowCaulking 
-      ? [`${displayName} 창틀누수`, `${displayName} 빗물누수`, `${displayName} 샷시코킹`, `${displayName} 아파트코킹`, `${displayName} 창틀실리콘`]
+      ? ["100% 책임 시공제", "정밀 누수 진단", "프리미엄 실리콘 사용", "아파트·주택·상가 전문"]
       : [`${locationName} 전문`, `${locationName} 업체 추천`, `${locationName} 견적`, `${locationName} 시공 사례`],
     intro: isWindowCaulking
-      ? `${displayName} 창틀코킹이 필요한 현장은\n비가 올 때 창틀실리콘 노후화로 인한\n창틀누수가 반복되는 경우가 많습니다.\n레인가드는 ${displayName} 지역의 빗물누수에 대한\n근본적인 원인을 점검하고 창틀코킹 보수해 드립니다.`
+      ? `비가 올 때마다 반복되는 빗물누수와 창틀누수, 더 이상 방치하지 마세요.\n정밀한 원인 진단을 통해 노후된 실리콘을 완벽하게 보수합니다.\n아파트, 주택부터 상가까지 레인가드가 책임지고 해결해 드립니다.`
       : `${locationName} 지역의 쾌적한 주거 환경을 위해 정직하게 시공하는 레인가드입니다. 전문적인 기술력으로 최상의 만족을 드리겠습니다.`,
     localProblems: isWindowCaulking
-      ? `${displayName} 지역의 아파트 및 빌라는 외부 환경 노출로 인해 창틀실리콘 경화가 진행되기 쉽습니다. 빗물누수를 방치할 경우 내벽 손상으로 이어지므로 샷시코킹 전문가의 정밀 진단이 필요합니다.`
+      ? `시간이 지나면 외부 환경에 노출된 창틀실리콘은 자연스럽게 경화되고 틈이 벌어지게 됩니다. 이렇게 발생한 미세한 틈새로 빗물이 유입되면 내부 벽지 손상과 곰팡이의 원인이 되므로, 누수 전문가의 정확한 상태 점검이 반드시 필요합니다.`
       : `${locationName} 지역 특성에 맞춰 최적화된 시공 솔루션을 제공합니다. 노후된 시설 점검 및 관리를 통해 문제를 조기에 해결해 드립니다.`,
     targets: isWindowCaulking
       ? [
-          `${displayName} 소재 아파트 및 빌라 세대`,
+          "아파트, 주택, 상가 등 빗물누수 취약 세대",
           "창틀 틈새로 빗물 유입이 확인되는 곳",
           "외벽 실리콘이 갈라지거나 떨어진 현장",
           "비만 오면 창문 주변 벽지가 젖는 주거 공간"
@@ -123,16 +123,16 @@ export function getLocalizedContent(serviceSlug: string, provinceSlug: string, c
     ],
     faqs: [
       {
-        question: `${displayName} 지역 시공 A/S 기간은 어떻게 되나요?`,
-        answer: `레인가드는 ${displayName} 지역 전담 팀을 운영하며, 시공 하자에 대해 철저한 책임 보증을 제공합니다. 사용된 자재와 공법에 따라 정해진 기간 내 무상 점검 및 보수를 지원합니다.`
+        question: `창틀코킹 시공 후 A/S 보증 기간은 어떻게 되나요?`,
+        answer: `레인가드는 시공 하자에 대해 철저한 책임 보증을 제공합니다. 사용된 프리미엄 자재와 정석 공법을 바탕으로, 정해진 기간 내 무상 점검 및 보수를 확실하게 지원해 드립니다.`
       },
       {
-        question: "주말이나 공휴일에도 상담이 가능한가요?",
-        answer: `네, 가능합니다. 레인가드 고객센터로 문의 주시면 주말 및 공휴일에도 ${displayName} 지역 방문 예약 및 상담을 도와드리고 있습니다.`
+        question: "비가 오는 날이나 주말에도 방문 점검이 가능한가요?",
+        answer: `안전을 위해 비가 오는 날 당일 시공은 어려울 수 있으나, 누수 원인 진단 및 방문 상담은 가능합니다. 주말이나 공휴일에도 고객센터로 문의해 주시면 편하신 일정에 맞춰 방문을 도와드립니다.`
       },
       {
         question: "방문 견적 시 비용이 발생하나요?",
-        answer: "레인가드는 고객님의 부담을 덜어드리기 위해 전 지역 무료 방문 견적 서비스를 제공하고 있습니다. 편하게 문의주세요."
+        answer: "레인가드는 고객님의 부담을 최소화하기 위해 기본적으로 무상 방문 견적 서비스를 제공하고 있습니다. 누수 상태 점검이 필요하시다면 언제든 편하게 문의해 주세요."
       }
     ],
     nearbyLinks: [],
