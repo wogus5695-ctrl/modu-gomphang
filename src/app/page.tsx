@@ -52,6 +52,7 @@ export default async function Home({ searchParams }: Props) {
   let heroService = "창틀코킹 전문 브랜드";
   let heroIntro = `창틀코킹이 필요한 현장은\n비가 올 때 창틀실리콘 노후화로 인한\n창틀누수가 반복되는 경우가 많습니다.\n레인가드는 빗물누수의 근본적인 원인을 점검하고\n정확한 창틀코킹 보수로 해결해 드립니다.`;
   let analysisIntro = BRAND_HUB_CONTENT.localProblems;
+  let processTitle = "레인가드만의 정석 시공 프로세스";
   let ctaHeader = BRAND_HUB_CONTENT.ctaHeader;
 
   if (k) {
@@ -60,14 +61,26 @@ export default async function Home({ searchParams }: Props) {
     const hash = getHash(decoded);
     const data = getDynamicHomeData(region, service, hash);
 
-    heroLocation = region;
-    heroService = `${service} 전문`;
-    heroIntro = `${data.summary}\n\n${data.regionText}`;
+    // 1번. H1 문구 
+    // 기존의 locationName과 serviceTitle을 합쳤을 때 한 문장으로 H1이 완성됨.
+    // 디자인을 유지하기 위해 locationName을 비우고 serviceTitle에 H1 전체를 주입.
+    heroLocation = "";
+    heroService = data.h1;
+    
+    // 2번. 상단 요약 문구
+    heroIntro = data.summary;
+    
+    // 3번. 첫 본문 첫 문장
     analysisIntro = [
       data.regionText,
       data.serviceBlock,
       "레인가드는 낡고 들뜬 기존 실리콘을 철저히 제거하고, 전용 프라이머와 고기능성 실런트로 정석 시공합니다."
     ].join('\n\n');
+    
+    // 4번. 시공 프로세스 앞 연결 제목
+    processTitle = data.processTitle;
+
+    // 5번. CTA 문구
     ctaHeader = data.ctaHeader;
   }
 
@@ -102,7 +115,7 @@ export default async function Home({ searchParams }: Props) {
 
         {/* 시공 프로세스 */}
         <LocalProcess 
-          title="레인가드만의 정석 시공 프로세스"
+          title={processTitle}
           process={content.workProcess} 
         />
 
