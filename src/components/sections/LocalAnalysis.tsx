@@ -9,16 +9,18 @@ interface AnalysisBlock {
 
 interface LocalAnalysisProps {
   locationName: string;
+  dynamicKeyword?: string;
   introTitle?: string;
   introDesc?: string;
   blocks?: AnalysisBlock[];
 }
 
-export default function LocalAnalysis({ 
-  locationName, 
-  introTitle, 
-  introDesc, 
-  blocks 
+export default function LocalAnalysis({
+  locationName,
+  dynamicKeyword,
+  introTitle,
+  introDesc,
+  blocks
 }: LocalAnalysisProps) {
   // Default blocks for Window Caulking if not provided
   const defaultBlocks: AnalysisBlock[] = [
@@ -86,8 +88,9 @@ export default function LocalAnalysis({
         {/* SEO Footnote - Clean finishing note without visual distractions */}
         <div className="mt-20 pt-12 border-t border-gray-100 text-gray-400 text-sm font-bold leading-relaxed px-4 text-center max-w-4xl mx-auto">
           <p>
-            ※ 레인가드는 {locationName} 창틀코킹, {locationName} 창틀누수, {locationName} 빗물누수 예방 및 전문 보수를 통해 주거 환경의 가치를 지켜드립니다. 
-            본 페이지는 {locationName} 지역 고객님들을 위한 주거 환경 분석과 시공 가이드를 제공합니다.
+            ※ 레인가드는 {dynamicKeyword ? dynamicKeyword : (locationName ? `${locationName} 창틀코킹` : "창틀코킹")} 전문가가 현장에 맞는 작업으로 주거 환경의 가치를 지켜드립니다.
+            <br className="hidden sm:block" />
+            본 페이지는 고객님들을 위한 주거 환경 분석과 시공 가이드를 제공합니다.
           </p>
         </div>
       </div>

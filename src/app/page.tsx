@@ -54,6 +54,7 @@ export default async function Home({ searchParams }: Props) {
   let analysisIntro = BRAND_HUB_CONTENT.localProblems;
   let processTitle = "레인가드만의 정석 시공 프로세스";
   let ctaHeader = BRAND_HUB_CONTENT.ctaHeader;
+  let analysisDynamicKeyword = "";
 
   if (k) {
     const decoded = decodeURIComponent(k);
@@ -66,26 +67,29 @@ export default async function Home({ searchParams }: Props) {
     // 디자인을 유지하기 위해 locationName을 비우고 serviceTitle에 H1 전체를 주입.
     heroLocation = "";
     heroService = data.h1;
-    
+
     // 2번. 상단 요약 문구
     heroIntro = data.summary;
-    
+
     // 3번. 첫 본문 첫 문장
     analysisIntro = [
       data.regionText,
       data.serviceBlock,
       "레인가드는 낡고 들뜬 기존 실리콘을 철저히 제거하고, 전용 프라이머와 고기능성 실런트로 정석 시공합니다."
     ].join('\n\n');
-    
+
     // 4번. 시공 프로세스 앞 연결 제목
     processTitle = data.processTitle;
 
     // 5번. CTA 문구
     ctaHeader = data.ctaHeader;
+
+    // 추가: Expert Analysis 꼬릿말용 동적 키워드
+    analysisDynamicKeyword = `${region} ${service}`;
   }
 
   const content = BRAND_HUB_CONTENT;
-  
+
   // 대표 시공 사례 (대표 3개 선정)
   const representativePortfolio = portfolioCases.slice(0, 3);
 
@@ -93,67 +97,68 @@ export default async function Home({ searchParams }: Props) {
     <div className="flex min-h-screen flex-col font-sans antialiased overflow-x-hidden">
       {/* FAQ 구조화 데이터 자동 주입 (SEO) */}
       <FAQSchema faqs={content.faqs} />
-      
+
       <Header />
 
       <main className="flex-grow bg-white">
         {/* 히어로 섹션 (필수) */}
-        <LocalHero 
-          locationName={heroLocation} 
-          serviceTitle={heroService} 
+        <LocalHero
+          locationName={heroLocation}
+          serviceTitle={heroService}
           intro={heroIntro}
           keywords={["100% 책임 시공제", "정밀 누수 진단", "전문가 직접 시공", "철저한 사후 관리"]}
         />
 
         {/* 문제 상황 및 분석 (서비스 안내 앵커 상단) */}
         <div id="services">
-          <LocalAnalysis 
+          <LocalAnalysis
             locationName={k ? heroLocation : "창틀"}
             introDesc={analysisIntro}
+            dynamicKeyword={analysisDynamicKeyword || undefined}
           />
         </div>
 
         {/* 시공 프로세스 */}
-        <LocalProcess 
+        <LocalProcess
           title={processTitle}
-          process={content.workProcess} 
+          process={content.workProcess}
         />
 
         {/* 비용 영향 요소 */}
         <LocalCosts costFactors={content.costFactors} />
 
         {/* FAQ */}
-        <LocalFAQ 
+        <LocalFAQ
           title="자주 묻는 질문"
-          faqs={content.faqs} 
+          faqs={content.faqs}
         />
 
         {/* 시공 사례 */}
         <div id="cases">
-          <LocalPortfolio 
+          <LocalPortfolio
             title="대표 시공 사례"
-            portfolio={representativePortfolio} 
+            portfolio={representativePortfolio}
           />
         </div>
 
         {/* 문의 CTA 섹션 (지역 페이지와 구조 통일) */}
         <section id="contact" className="py-24 bg-white">
           <div className="max-w-4xl mx-auto px-4">
-             <div className="bg-blue-600 text-white p-10 md:p-20 rounded-[60px] shadow-3xl text-center relative overflow-hidden">
-                {/* Decoration */}
-                <div className="absolute top-0 left-0 w-32 h-32 bg-white/10 rounded-full -ml-16 -mt-16"></div>
-                
-                <h2 className="text-3xl md:text-5xl font-black mb-8 leading-tight relative z-10">
-                  {ctaHeader}
-                </h2>
-                <p className="text-blue-100 mb-12 text-lg font-medium opacity-90 relative z-10">
-                  {content.ctaSummary}
-                </p>
-                
-                <div className="bg-transparent mt-8">
-                  <ContactCTA />
-                </div>
-             </div>
+            <div className="bg-blue-600 text-white p-10 md:p-20 rounded-[60px] shadow-3xl text-center relative overflow-hidden">
+              {/* Decoration */}
+              <div className="absolute top-0 left-0 w-32 h-32 bg-white/10 rounded-full -ml-16 -mt-16"></div>
+
+              <h2 className="text-3xl md:text-5xl font-black mb-8 leading-tight relative z-10">
+                {ctaHeader}
+              </h2>
+              <p className="text-blue-100 mb-12 text-lg font-medium opacity-90 relative z-10">
+                {content.ctaSummary}
+              </p>
+
+              <div className="bg-transparent mt-8">
+                <ContactCTA />
+              </div>
+            </div>
           </div>
         </section>
       </main>
