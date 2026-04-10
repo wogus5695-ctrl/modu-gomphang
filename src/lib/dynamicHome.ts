@@ -1,73 +1,28 @@
-import React from 'react';
-import { Metadata } from 'next';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import ContactCTA from '@/components/ContactCTA';
-import { getMetadata } from '@/lib/seo';
-
-type Props = {
-  params: Promise<{ keyword: string }>;
-};
-
-// 안정적인 해시 생성기 (SEO 페이지가 마운트될 때마다 내용이 바뀌지 않게 고정)
-const getHash = (str: string) => {
+export const getHash = (str: string) => {
   return str.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
 };
 
-// 동적 메타데이터 생성
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { keyword } = await params;
-  const decodedKeyword = decodeURIComponent(keyword);
-  const parts = decodedKeyword.split('-');
-  
-  const region = parts[0] || '서울';
-  const service = parts[1] || '창틀코킹';
-
-  const hash = getHash(decodedKeyword);
-  
+export const getDynamicHomeData = (region: string, service: string, hash: number) => {
   const titlePatterns = [
     `${region} ${service} | 레인가드`,
-    `${region} ${service} 점검 및 보수 | 레인가드`,
-    `${region} 지역 ${service} 전문 | 레인가드`
+    `${region} ${service} 점검 및 보수 | 레인가드`
   ];
-  
+
   const descPatterns = [
     `${region} 지역의 ${service} 점검, 보수, 실리콘 재시공 안내. 레인가드 상담 가능.`,
-    `${region} 지역에서 발생하는 ${service} 관련 점검 및 보수 안내 페이지입니다.`,
-    `${region} ${service} 전문 시공. 노후 환경 점검 및 꼼꼼한 마감 보수 상담 환영.`
+    `${region} 지역에서 발생하는 ${service} 관련 점검 및 보수 안내 페이지입니다.`
   ];
 
-  return getMetadata({
-    title: titlePatterns[hash % titlePatterns.length],
-    description: descPatterns[hash % descPatterns.length],
-    path: `/area-service/${keyword}`,
-  });
-}
-
-export default async function AreaServiceDetail({ params }: Props) {
-  const { keyword } = await params;
-  const decodedKeyword = decodeURIComponent(keyword);
-  const parts = decodedKeyword.split('-');
-  
-  const region = parts[0] || '서울';
-  const service = parts[1] || '창틀코킹';
-
-  const hash = getHash(decodedKeyword);
-
-  // 1. H1 및 상단 요약 템플릿
   const h1Patterns = [
     `${region} ${service} 전문 시공`,
-    `${region} ${service} 점검 및 보수`,
-    `${region} 지역 ${service} 전문 안내`
-  ];
-  
-  const summaryPatterns = [
-    `${region} 지역의 ${service} 관련 점검 및 보수 안내`,
-    `${region} 지역에서 발생할 수 있는 ${service} 관련 점검 안내`,
-    `${region} 일대의 ${service} 보수 및 정밀 시공 과정 안내`
+    `${region} ${service} 점검 및 보수`
   ];
 
-  // 2. 지역명별 보조 문장 템플릿
+  const summaryPatterns = [
+    `${region} 지역의 ${service} 관련 점검 및 보수 안내`,
+    `${region} 지역에서 발생할 수 있는 ${service} 관련 점검 안내`
+  ];
+
   const regionPatterns = [
     `${region} 지역의 아파트, 빌라, 상가에서는 창틀 주변 실리콘 노후나 마감 손상으로 인해 점검 문의가 이어질 수 있습니다.`,
     `${region} 지역은 주거 형태가 다양한 만큼 창틀 주변 틈새, 실리콘 열화, 우천 시 유입 여부를 함께 살펴보는 것이 중요합니다.`,
@@ -76,7 +31,6 @@ export default async function AreaServiceDetail({ params }: Props) {
     `${region} 지역의 주택 및 공동주택에서는 창틀 주변 마감 상태에 따라 우천 시 누수 증상이 나타날 수 있어 초기 점검이 중요합니다.`
   ];
 
-  // 3. 작업명별 공통 문장 블록 템플릿
   const serviceBlocks: Record<string, string[]> = {
     '창틀코킹': [
       `창틀코킹은 노후된 실리콘 마감이나 벌어진 틈새를 점검하고, 필요한 부위에 맞춰 보수 또는 재시공을 진행하는 작업입니다. 창틀 주변 마감 상태가 좋지 않으면 비바람이 강한 날 빗물 유입으로 이어질 수 있어, 초기 점검과 보수가 중요합니다.`,
@@ -100,73 +54,18 @@ export default async function AreaServiceDetail({ params }: Props) {
 
   const blocks = serviceBlocks[service] || serviceBlocks['창틀코킹'];
 
-  // 4. CTA 템플릿
   const ctaPatterns = [
     `${region} ${service} 상담 문의`,
-    `${region} ${service} 빠른 견적 상담`,
-    `${region} 지역 ${service} 진단 문의`
+    `${region} ${service} 빠른 견적 상담`
   ];
 
-  const currentH1 = h1Patterns[hash % h1Patterns.length];
-  const currentSummary = summaryPatterns[hash % summaryPatterns.length];
-  const currentRegionText = regionPatterns[hash % regionPatterns.length];
-  const currentServiceBlock = blocks[hash % blocks.length];
-  const currentCta = ctaPatterns[hash % ctaPatterns.length];
-
-  return (
-    <div className="flex min-h-screen flex-col font-sans antialiased text-gray-800">
-      <Header />
-      
-      <main className="flex-grow bg-gray-50 py-16 md:py-24">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          
-          <div className="text-center mb-12">
-            <h1 className="text-3xl md:text-5xl font-black text-gray-900 mb-6 tracking-tight">
-              {currentH1}
-            </h1>
-            <p className="text-xl md:text-2xl text-blue-600 font-bold tracking-tight">
-              {currentSummary}
-            </p>
-          </div>
-
-          <div className="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-gray-100 flex flex-col gap-10">
-            
-            <section>
-              <h2 className="text-xl font-bold text-gray-900 border-l-4 border-blue-600 pl-4 mb-4">지역 동향 안내</h2>
-              <p className="text-gray-600 leading-relaxed font-medium text-lg">
-                {currentRegionText}
-              </p>
-            </section>
-
-            <section className="bg-gray-50 p-6 md:p-8 rounded-2xl">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 block">작업 상세 프로세스</h2>
-              <p className="text-gray-700 leading-relaxed text-lg break-keep whitespace-pre-line">
-                {currentServiceBlock}
-              </p>
-            </section>
-
-          </div>
-
-          <section className="mt-16 bg-blue-600 text-white rounded-[40px] p-10 md:p-16 text-center shadow-lg relative overflow-hidden">
-            <h2 className="text-2xl md:text-4xl font-black mb-6 relative z-10 tracking-tight">
-              {currentCta}
-            </h2>
-            <p className="text-blue-100 mb-10 text-lg relative z-10 break-keep">
-              가장 확실하고 투명한 점검과 보수를 약속드립니다.<br className="hidden sm:block" />
-              전문가와 빠른 상담을 진행해 보세요.
-            </p>
-            <div className="relative z-10 max-w-sm mx-auto">
-              <ContactCTA />
-            </div>
-            
-            <div className="absolute -top-16 -right-16 w-48 h-48 bg-white opacity-10 rounded-full"></div>
-            <div className="absolute -bottom-16 -left-16 w-64 h-64 bg-white opacity-5 rounded-full"></div>
-          </section>
-
-        </div>
-      </main>
-
-      <Footer />
-    </div>
-  );
-}
+  return {
+    metaTitle: titlePatterns[hash % titlePatterns.length],
+    metaDesc: descPatterns[hash % descPatterns.length],
+    h1: h1Patterns[hash % h1Patterns.length],
+    summary: summaryPatterns[hash % summaryPatterns.length],
+    regionText: regionPatterns[hash % regionPatterns.length],
+    serviceBlock: blocks[hash % blocks.length],
+    ctaHeader: ctaPatterns[hash % ctaPatterns.length]
+  };
+};
