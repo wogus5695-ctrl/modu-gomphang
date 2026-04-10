@@ -30,12 +30,17 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="pt-8 border-t border-gray-100 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-400 text-xs tracking-tight">
-            대표: 김재현 | 사업자등록번호: 405-15-02677
-          </p>
-          <p className="text-gray-400 text-xs">
-            © {new Date().getFullYear()} 레인가드. All rights reserved.
+        <div className="pt-8 border-t border-gray-100">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-3">
+            <p className="text-gray-400 text-xs tracking-tight">
+              대표: 김재현 | 사업자등록번호: 405-15-02677
+            </p>
+            <p className="text-gray-400 text-xs">
+              © {new Date().getFullYear()} 레인가드. All rights reserved.
+            </p>
+          </div>
+          <p className="text-gray-400/70 text-[11px] tracking-tight text-center md:text-left break-keep">
+            * 서울·경기·인천·강원 지역 창틀코킹 및 빗물누수 보수 상담 가능
           </p>
         </div>
       </div>
