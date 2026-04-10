@@ -148,7 +148,7 @@ export default async function LocationServicePage({ params }: Props) {
 
         {/* 지역 맞춤 문제 및 특성 (조건부) */}
         {local && (local.localProblems || local.targets) && (
-          <section id="analysis">
+          <section id="services" className="scroll-mt-20">
             <LocalAnalysis 
               locationName={displayName} // 도시 이름 정규화 적용
               introDesc={local.localProblems}

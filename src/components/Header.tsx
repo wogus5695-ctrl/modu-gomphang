@@ -1,7 +1,16 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
+  const pathname = usePathname();
+  
+  // 현재 페이지가 지역 랜딩 페이지인 경우 현재 URL을 유지, 그 외엔 메인홈 기준 앵커로 이동
+  const isLocalPage = pathname && pathname !== '/' && !pathname.startsWith('/portfolio') && !pathname.startsWith('/services');
+  const navPrefix = isLocalPage ? '' : '/';
+
   return (
     <header className="sticky top-0 z-50 w-full border-b border-gray-100 bg-white/90 backdrop-blur-md shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center justify-between">
@@ -15,10 +24,10 @@ export default function Header() {
           />
         </Link>
         <nav className="hidden md:flex gap-8 text-sm sm:text-base">
-          <Link href="/#services" className="text-gray-700 hover:text-blue-600 font-semibold transition-colors">서비스 안내</Link>
-          <Link href="/#cases" className="text-gray-700 hover:text-blue-600 font-semibold transition-colors">시공 사례</Link>
+          <Link href={`${navPrefix}#services`} className="text-gray-700 hover:text-blue-600 font-semibold transition-colors">서비스 안내</Link>
+          <Link href={`${navPrefix}#cases`} className="text-gray-700 hover:text-blue-600 font-semibold transition-colors">시공 사례</Link>
           <Link 
-            href="/#contact" 
+            href={`${navPrefix}#contact`} 
             className="text-gray-700 hover:text-blue-600 font-semibold transition-colors"
             data-track-category="conversion"
             data-track-action="inquiry_click"
