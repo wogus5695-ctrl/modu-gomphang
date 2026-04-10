@@ -23,9 +23,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
+  // 중복을 방지하고 서비스별 명확한 SEO 주제 정보 주입
+  const metaTitle = slug === 'window-caulking' 
+    ? "아파트 창틀코킹 전문 | 빗물누수·창틀누수 완벽 보수"
+    : `${service.title} | 빗물누수·실리콘 재시공 전문`;
+
+  const metaDesc = slug === 'window-caulking'
+    ? "레인가드의 아파트 창틀코킹 매뉴얼 및 시공 안내. 노후된 샷시 실리콘 제거부터 고성능 실런트 재시공까지, 창틀누수의 근본 원인을 찾아 빗물 침투를 완벽하게 차단합니다."
+    : service.description;
+
   return getMetadata({
-    title: service.title,
-    description: service.description,
+    title: metaTitle,
+    description: metaDesc,
     path: `/services/${service.slug}`,
     ogImage: service.heroImage,
   });
