@@ -14,7 +14,7 @@ export default function LocalHero({ locationName, serviceTitle, title, intro, ke
     <section className="relative bg-white pt-16 pb-24 md:pt-24 md:pb-32 overflow-hidden" aria-labelledby="hero-title">
       {/* Background Decoration */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-blue-50/30 -z-10 hidden lg:block" />
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left: Content Block */}
@@ -22,11 +22,11 @@ export default function LocalHero({ locationName, serviceTitle, title, intro, ke
             {/* 1. Brand Logo + Name */}
             <div className="flex items-center gap-3 mb-8">
               <div className="bg-blue-600 p-1.5 rounded-xl shadow-lg shadow-blue-100">
-                <Image 
-                  src="/logo.png" 
-                  alt="레인가드 로고" 
-                  width={28} 
-                  height={28} 
+                <Image
+                  src="/logo.png"
+                  alt="레인가드 로고"
+                  width={28}
+                  height={28}
                   className="brightness-0 invert"
                 />
               </div>
@@ -34,10 +34,17 @@ export default function LocalHero({ locationName, serviceTitle, title, intro, ke
             </div>
 
             {/* 2. H1 Title */}
-            <h1 id="hero-title" className="text-4xl md:text-6xl lg:text-7xl font-black text-gray-900 mb-8 leading-[1.15] tracking-tight">
-              {title || locationName}
+            <h1 id="hero-title" className="text-4xl md:text-6xl lg:text-7xl font-black text-gray-900 mb-8 leading-[1.15] tracking-tight break-keep">
+              {title || (locationName ? (
+                <>
+                  <span className="block mb-2">{locationName}</span>
+                  <span className="block text-blue-600">{serviceTitle}</span>
+                </>
+              ) : (
+                serviceTitle
+              ))}
             </h1>
-            
+
             {/* 3. Description */}
             <p className="text-gray-600 text-lg md:text-xl font-medium mb-10 leading-relaxed max-w-2xl opacity-90">
               {intro ? (
@@ -86,11 +93,11 @@ export default function LocalHero({ locationName, serviceTitle, title, intro, ke
                 </>
               )}
             </div>
-            
+
             {/* 5. CTA Button */}
             <div className="flex flex-wrap gap-4">
-              <a 
-                href="#contact" 
+              <a
+                href="#contact"
                 className="px-10 py-5 bg-blue-600 text-white text-lg font-black rounded-2xl shadow-xl shadow-blue-100 hover:shadow-2xl hover:bg-blue-700 transition-all text-center hover:-translate-y-1 block sm:inline-block"
                 data-track-category="conversion"
                 data-track-action="inquiry_click"
@@ -104,7 +111,7 @@ export default function LocalHero({ locationName, serviceTitle, title, intro, ke
           {/* Right: Visual Block */}
           <div className="relative order-1 lg:order-2">
             <div className="relative rounded-[40px] md:rounded-[60px] overflow-hidden shadow-2xl z-20 aspect-[4/3] md:aspect-square lg:aspect-[4/5]">
-              <Image 
+              <Image
                 src="/hero-caulking.jpg"
                 alt={`${locationName} 창틀코킹 시공 현장`}
                 fill
@@ -114,11 +121,11 @@ export default function LocalHero({ locationName, serviceTitle, title, intro, ke
               {/* Overlay Gradient */}
               <div className="absolute inset-0 bg-gradient-to-t from-gray-900/40 to-transparent" />
             </div>
-            
+
             {/* Decoration Elements */}
             <div className="absolute -top-6 -right-6 w-32 h-32 bg-blue-600/10 rounded-full -z-10 blur-xl animate-pulse" />
             <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-blue-100/50 rounded-full -z-10 blur-2xl" />
-            
+
             {/* Floating Badge (Trust Point) */}
             <div className="absolute bottom-10 right-10 bg-white/90 backdrop-blur-md p-6 rounded-3xl shadow-2xl z-30 hidden md:block border border-white">
               <div className="flex items-center gap-4">
