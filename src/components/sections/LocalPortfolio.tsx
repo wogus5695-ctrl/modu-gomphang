@@ -33,10 +33,10 @@ export default function LocalPortfolio({ title, portfolio }: LocalPortfolioProps
                 <BeforeAfterSlider before={item.beforeImg} after={item.afterImg} alt={item.title} />
               </div>
               <div className="p-8 md:p-10 flex flex-col flex-grow bg-white">
-                <h3 className="font-black text-xl md:text-2xl mb-4 group-hover:text-blue-600 transition-colors line-clamp-2 leading-tight">
+                <h3 className="font-black text-xl md:text-2xl mb-4 group-hover:text-blue-600 transition-colors leading-tight break-keep">
                   {item.title}
                 </h3>
-                <p className="text-gray-500 font-bold leading-relaxed opacity-85 line-clamp-3">
+                <p className="text-gray-500 font-bold leading-relaxed opacity-85 whitespace-pre-line break-keep">
                   {item.summary}
                 </p>
                 
