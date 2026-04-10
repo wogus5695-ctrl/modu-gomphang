@@ -1,6 +1,7 @@
 import React from "react";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import { services } from "@/data/services";
 import { getRegionInfo } from "@/data/regions";
 import { getLocalizedContent } from "@/data/localizedContent";
@@ -153,6 +154,15 @@ export default async function LocationServicePage({ params }: Props) {
               locationName={displayName} // 도시 이름 정규화 적용
               introDesc={local.localProblems}
             />
+            {/* 내부링크 보강 1: 서비스 안내 연결 */}
+            <div className="max-w-7xl mx-auto px-4 text-center pb-16 mt-[-4rem] relative z-10">
+              <p className="inline-flex flex-wrap justify-center items-center gap-1 text-gray-600 font-medium text-[15px] bg-gray-50/80 px-6 py-3.5 rounded-2xl border border-gray-100 shadow-sm leading-relaxed">
+                어떤 방식으로 문제가 해결되는지 알고 싶으신가요? 
+                <Link href={`/services/${serviceSlug}`} className="text-blue-600 hover:text-blue-800 hover:underline font-bold sm:ml-1 transition-colors">
+                  창틀코킹 및 빗물누수 점검 과정 자세히 보기 &rarr;
+                </Link>
+              </p>
+            </div>
           </section>
         )}
 
@@ -180,6 +190,12 @@ export default async function LocationServicePage({ params }: Props) {
               title={serviceSlug === 'window-caulking' ? `${displayName} 창틀누수 FAQ` : `${service?.title} 자주 묻는 질문`}
               faqs={local.faqs} 
             />
+            {/* 내부링크 보강 3: 서비스 이해도 상승 및 문의 유도 */}
+            <div className="max-w-7xl mx-auto px-4 text-center pb-16 mt-[-3rem] relative z-10">
+               <p className="text-gray-500 text-[14px] sm:text-[15px] font-medium leading-relaxed">
+                 외벽 크랙이나 노후 실리콘 등 정확한 원인 진단이 궁금하시다면 <Link href={`/services/${serviceSlug}`} className="text-blue-500 font-bold underline underline-offset-4 decoration-blue-200 hover:decoration-blue-500 hover:text-blue-700 transition-all mx-1">외벽 접합부 및 코킹 재시공 관련 안내</Link>를 함께 참조해 주세요.
+               </p>
+            </div>
           </section>
         )}
 
@@ -189,6 +205,15 @@ export default async function LocationServicePage({ params }: Props) {
             title="대표 시공 사례"
             portfolio={representativePortfolio} 
           />
+          {/* 내부링크 보강 2: 포트폴리오 랜딩 연결 */}
+          <div className="max-w-7xl mx-auto px-4 text-center pb-20 mt-[-4rem] relative z-10">
+            <Link href="/portfolio" className="inline-flex items-center justify-center gap-2 text-gray-500 hover:text-blue-600 font-bold text-[15px] transition-all border border-gray-200 hover:border-blue-200 bg-white hover:bg-blue-50 px-7 py-3.5 rounded-full shadow-sm hover:shadow-md">
+              유사한 창틀누수 시공 사례 더 살펴보기
+              <svg className="w-4 h-4 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </Link>
+          </div>
         </section>
 
         {/* 관련 사례 (조건부) */}

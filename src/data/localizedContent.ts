@@ -61,6 +61,20 @@ export function getLocalizedContent(serviceSlug: string, provinceSlug: string, c
     ? (allowedRegion.parentDistrict ? `${allowedRegion.parentDistrict} ${allowedRegion.name}` : allowedRegion.name)
     : city?.name.replace(/[구시군]$/, '') || "";
 
+  // 템플릿 다양화를 위한 지역 특화 설명 배열 (4가지 패턴)
+  const problemTemplates = [
+    `${displayName} 주변은 아파트와 빌라 등 주거 단지가 모여 있어, 노후된 창틀에서 발생하는 빗물누수 문의가 많은 편입니다. 특히 비바람이나 강풍을 직접 맞는 외벽 실리콘은 시간이 흐를수록 쉽게 경화되고 틈이 벌어지게 됩니다. 이렇게 발생한 미세한 틈새를 방치하면 안쪽 벽지 손상과 곰팡이 피해로 번질 수 있으므로, 전문가의 신속한 빗물누수 점검과 창틀코킹 재시공이 필수적입니다.`,
+    
+    `${displayName} 지역의 고층 세대나 베란다가 확장된 구조에서는 외부 강풍의 영향을 크게 받아 창틀 실리콘 노후화가 더 빠르게 진행될 수 있습니다. 샷시 주변 외벽 접합부로 한 번 빗물이 스며들기 시작하면 아래층까지 피해가 확산될 위험이 큽니다. 혹시라도 창틀누수가 의심된다면, 초기부터 꼼꼼한 진단을 받고 확실하게 실리콘 보수를 진행하는 것이 중요합니다.`,
+    
+    `${displayName} 인근의 오래된 주거단지나 다세대 건물의 경우, 세월이 지나며 기존 마감재가 삭아 내리면서 비가 올 때마다 누수가 발생하기 쉽습니다. 기존 실리콘이 낡아 들뜨거나 탈락한 틈새를 통해 빗물이 유입되는 현상이 꾸준히 나타납니다. 안전한 실내 환경을 유지하시려면 창틀누수 보수 전문가를 통해 외벽 접합부를 살펴보고 새롭게 코킹 시공을 덧입혀야 합니다.`,
+    
+    `${displayName} 내 구축 건물이나 특정 외벽 구조에 따라 샷시 틈새로 빗물이 들이치는 경우가 종종 지적되고 있습니다. 특히 장마철이나 폭우를 겪으며 베란다 쪽에 누수 흔적이 보이기 시작했다면 이미 내벽 깊숙이 습기가 스며들었을 가능성이 큽니다. 피해가 더 확산되기 전에 창문 주변을 철저히 점검하고, 꼼꼼하게 창틀 실리콘 재시공을 받아 근본적인 원인을 차단하셔야 합니다.`
+  ];
+  
+  // 지역명 텍스트 코드를 활용하여 고정된 인덱스 선택
+  const templateIndex = citySlug ? citySlug.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0) % problemTemplates.length : 0;
+
   // 기본 Fallback 데이터 생성 (RainGuard 최적화)
   return {
     key,
@@ -76,7 +90,7 @@ export function getLocalizedContent(serviceSlug: string, provinceSlug: string, c
       ? `비가 올 때마다 반복되는 빗물누수와 창틀누수, 더 이상 방치하지 마세요.\n정밀한 원인 진단을 통해 노후된 실리콘을 완벽하게 보수합니다.\n아파트, 주택부터 상가까지 레인가드가 책임지고 해결해 드립니다.`
       : `${locationName} 지역의 쾌적한 주거 환경을 위해 정직하게 시공하는 레인가드입니다. 전문적인 기술력으로 최상의 만족을 드리겠습니다.`,
     localProblems: isWindowCaulking
-      ? `시간이 지나면 외부 환경에 노출된 창틀실리콘은 자연스럽게 경화되고 틈이 벌어지게 됩니다. 이렇게 발생한 미세한 틈새로 빗물이 유입되면 내부 벽지 손상과 곰팡이의 원인이 되므로, 누수 전문가의 정확한 상태 점검이 반드시 필요합니다.`
+      ? problemTemplates[templateIndex]
       : `${locationName} 지역 특성에 맞춰 최적화된 시공 솔루션을 제공합니다. 노후된 시설 점검 및 관리를 통해 문제를 조기에 해결해 드립니다.`,
     targets: isWindowCaulking
       ? [
