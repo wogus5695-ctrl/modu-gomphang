@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { getMetadata } from '@/lib/seo';
 import { WINDOW_CAULKING_ALLOWED_REGIONS } from '@/data/allowedKeywords';
+import { SEOUL_DATA, SERVICES } from '@/data/sitemapKeywords';
 
 export const metadata: Metadata = getMetadata({
   title: '서울 창틀코킹 시공 서비스 안내',
@@ -10,27 +11,6 @@ export const metadata: Metadata = getMetadata({
   path: '/sitemap-seoul',
   noIndex: false,
 });
-
-const SEOUL_DATA = [
-  {
-    gu: "강서구",
-    dongs: ["염창동", "등촌동", "화곡본동", "화곡동", "우장산동", "가양동", "발산동", "공항동", "방화동"]
-  },
-  {
-    gu: "마포구",
-    dongs: ["아현동", "공덕동", "도화동", "용강동", "대흥동", "염리동", "신수동", "서강동", "서교동", "합정동", "망원동", "연남동", "성산동", "상암동"]
-  },
-  {
-    gu: "서대문구",
-    dongs: ["충현동", "천연동", "북아현동", "신촌동", "연희동", "홍제동", "홍은동", "남가좌동", "북가좌동"]
-  },
-  {
-    gu: "은평구",
-    dongs: ["녹번동", "불광동", "갈현동", "구산동", "대조동", "응암동", "역촌동", "신사동", "증산동", "수색동", "진관동"]
-  }
-];
-
-const SERVICES = ["창틀코킹", "창틀누수", "빗물누수"];
 
 // 역방향 조회를 위한 맵 (한글 이름 -> 슬러그)
 const nameToSlug: Record<string, string> = {};
