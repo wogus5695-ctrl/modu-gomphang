@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { getMetadata } from '@/lib/seo';
 import { WINDOW_CAULKING_ALLOWED_REGIONS } from '@/data/allowedKeywords';
-import { SEOUL_DATA, SERVICES } from '@/data/sitemapKeywords';
+import { SEOUL_DATA, NEW_REGIONS_DATA, SERVICES } from '@/data/sitemapKeywords';
 
 export const metadata: Metadata = getMetadata({
   title: '서울 창틀코킹 시공 서비스 안내',
@@ -63,6 +63,44 @@ export default function SitemapSeoulPage() {
                   레퍼런스(map.php) 스타일의 박스형 그리드 배열 적용
                   접기/펼치기 구조 없이 모든 키워드를 처음부터 평면적으로 노출
                 */}
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+                  {allKeywords.map((kw, i) => {
+                    const targetUrl = `/?k=${encodeURIComponent(kw.label)}`;
+
+                    return (
+                      <Link 
+                        key={i} 
+                        href={targetUrl}
+                        className="block px-3 py-3.5 bg-gray-50 border border-gray-200 text-gray-700 text-[14px] sm:text-[15px] font-medium text-center hover:bg-blue-50 hover:text-blue-700 hover:border-blue-200 transition-colors"
+                      >
+                        {kw.label}
+                      </Link>
+                    );
+                  })}
+                </div>
+              </section>
+            );
+          })}
+
+          {NEW_REGIONS_DATA.map((region, idx) => {
+            const allKeywords: { label: string, locationName: string }[] = [];
+            
+            SERVICES.forEach(service => {
+              allKeywords.push({ label: `${region.gu}-${service}`, locationName: region.gu });
+            });
+
+            region.dongs.forEach(dong => {
+              SERVICES.forEach(service => {
+                allKeywords.push({ label: `${dong}-${service}`, locationName: dong });
+              });
+            });
+
+            return (
+              <section key={`new-${idx}`} className="mb-16">
+                <h2 className="text-xl font-bold text-gray-800 mb-6 pb-2 border-b-2 border-gray-900 inline-block">
+                  {region.gu}
+                </h2>
+                
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
                   {allKeywords.map((kw, i) => {
                     const targetUrl = `/?k=${encodeURIComponent(kw.label)}`;
