@@ -37,10 +37,10 @@ export default function Footer() {
               대표: 김재현 | 사업자등록번호: 405-15-02677
             </p>
             <div className="flex items-center gap-3">
-              <Link href="/service-area" className="text-gray-400 hover:text-gray-600 text-xs underline decoration-gray-200 underline-offset-2 transition-colors tracking-tight">
+              <Link href="/service-area" className="hidden text-gray-400 hover:text-gray-600 text-xs underline decoration-gray-200 underline-offset-2 transition-colors tracking-tight">
                 서비스 지역 전체보기
               </Link>
-              <span className="text-gray-200 text-xs">|</span>
+              <span className="hidden text-gray-200 text-xs">|</span>
               <p className="text-gray-400 text-xs">
                 © {new Date().getFullYear()} 레인가드. All rights reserved.
               </p>
