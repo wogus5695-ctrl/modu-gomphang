@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 import { portfolioCases } from '@/data/portfolio';
 import { services } from '@/data/services';
-import { SEOUL_DATA, SERVICES } from '@/data/sitemapKeywords';
+import { SEOUL_DATA, NEW_REGIONS_DATA, SERVICES } from '@/data/sitemapKeywords';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://sinbiroo.co.kr';
@@ -9,8 +9,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // 1. 대표 동적변환 랜딩 URL 생성 (/?k=지역명-작업명)
   const regionalUrls: MetadataRoute.Sitemap = [];
   
-  SEOUL_DATA.forEach(region => {
-    // 구 단위
+  const allRegions = [...SEOUL_DATA, ...NEW_REGIONS_DATA];
+
+  allRegions.forEach(region => {
+    // 구 단위 (또는 큰 지역명)
     SERVICES.forEach(service => {
       regionalUrls.push({
         url: `${baseUrl}/?k=${encodeURIComponent(`${region.gu}-${service}`)}`,
