@@ -21,11 +21,9 @@ export default function ContactCTA() {
       {/* 카톡상담 버튼 */}
       <div className="flex-1 relative">
         <a
-          href="#"
-          onClick={(e) => {
-            e.preventDefault();
-            alert('카카오톡 상담 채널은 준비 중입니다. 급하신 문의는 전화상담을 이용해 주세요!');
-          }}
+          href="http://pf.kakao.com/_xkAXxlX"
+          target="_blank"
+          rel="noopener noreferrer"
           className="w-full inline-flex items-center justify-center gap-3 px-8 py-5 bg-[#F7E600] text-gray-900 text-xl md:text-2xl font-black rounded-3xl hover:bg-[#e6d500] transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1 active:scale-95 group"
         >
           <MessageCircle className="w-6 h-6 md:w-8 md:h-8" />
