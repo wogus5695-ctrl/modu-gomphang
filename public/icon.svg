@@ -1,0 +1,18 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>R레인가드 파비콘 최적화</title>
+  <desc>작은 크기에서도 선명하게 보이도록 중앙 정렬과 여백을 조정한 R 파비콘</desc>
+
+  <rect width="512" height="512" fill="white" fill-opacity="0" />
+
+  <text
+    x="50%"
+    y="50%"
+    text-anchor="middle"
+    dominant-baseline="central"
+    fill="#1B61FC"
+    font-size="340"
+    font-weight="800"
+    letter-spacing="-3"
+    font-family="Pretendard, Noto Sans KR, Apple SD Gothic Neo, Malgun Gothic, Arial, sans-serif"
+  >R</text>
+</svg>
