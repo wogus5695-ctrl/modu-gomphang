@@ -39,7 +39,7 @@ export default function LocalPortfolio({ title, portfolio }: LocalPortfolioProps
                 <p className="text-gray-500 font-bold leading-relaxed opacity-85 whitespace-pre-line break-keep">
                   {item.summary}
                 </p>
-                
+
                 {/* Decorative bar at the bottom for balanced look since button is removed */}
                 <div className="mt-8 pt-6 border-t border-gray-50">
                   <div className="flex items-center gap-2 text-blue-600 font-black text-sm uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
@@ -59,9 +59,9 @@ export default function LocalPortfolio({ title, portfolio }: LocalPortfolioProps
               <div key={index} className="flex-none w-[85vw] sm:w-[60vw] md:w-[45vw] lg:w-[35vw] snap-center lg:snap-start first:ml-4 sm:first:ml-6 lg:first:ml-0 last:mr-4 sm:last:mr-6 lg:last:mr-0">
                 <div className="aspect-[4/3] relative rounded-[32px] overflow-hidden shadow-sm border border-gray-100 bg-gray-50">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img 
-                    src={imgSrc} 
-                    alt="" 
+                  <img
+                    src={imgSrc}
+                    alt=""
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />
