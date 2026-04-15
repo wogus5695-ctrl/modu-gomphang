@@ -52,20 +52,18 @@ export default function LocalPortfolio({ title, portfolio }: LocalPortfolioProps
           ))}
         </div>
 
-        {/* 새 이미지 슬라이드 영역 */}
+        {/* 추가 이미지 갤러리 영역 (슬라이드 대신 단순 그리드 배치) */}
         <div className="mt-16 md:mt-24">
-          <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 md:gap-6 pb-6 px-4 sm:px-6 lg:px-0 -mx-4 sm:-mx-6 lg:mx-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-            {['/그림1.png', '/그림2.png', '/그림3.png', '/그림4.png'].map((imgSrc, index) => (
-              <div key={index} className="flex-none w-[85vw] sm:w-[60vw] md:w-[45vw] lg:w-[35vw] snap-center lg:snap-start first:ml-4 sm:first:ml-6 lg:first:ml-0 last:mr-4 sm:last:mr-6 lg:last:mr-0">
-                <div className="aspect-[4/3] relative rounded-[32px] overflow-hidden shadow-sm border border-gray-100 bg-gray-50">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={imgSrc}
-                    alt=""
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            {['/portfolio-extra-1.png', '/portfolio-extra-2.jpg', '/portfolio-extra-3.jpg', '/portfolio-extra-4.jpg'].map((imgSrc, index) => (
+              <div key={index} className="aspect-[4/3] relative rounded-[32px] overflow-hidden shadow-sm border border-gray-100 bg-gray-50">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img 
+                  src={imgSrc} 
+                  alt="" 
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                  loading="lazy"
+                />
               </div>
             ))}
           </div>
