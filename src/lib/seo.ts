@@ -63,7 +63,7 @@ export function getMetadata(options: {
       description: description || SEO_CONFIG.description,
       images: [ogImage || SEO_CONFIG.ogImage],
     },
-    robots: noIndex ? { index: false, follow: false } : undefined,
+    robots: noIndex ? { index: false, follow: true } : undefined,
     metadataBase: new URL(SEO_CONFIG.baseUrl),
   };
 }

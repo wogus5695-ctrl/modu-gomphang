@@ -9,7 +9,7 @@ export const metadata: Metadata = getMetadata({
   title: '서울 창틀코킹 시공 서비스 안내',
   description: '서울 지역 창틀코킹, 창틀누수, 빗물누수 관련 페이지를 확인하실 수 있습니다.',
   path: '/sitemap-seoul',
-  noIndex: false,
+  noIndex: true,
 });
 
 // 역방향 조회를 위한 맵 (한글 이름 -> 슬러그)
