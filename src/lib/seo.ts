@@ -18,7 +18,7 @@ export const SEO_CONFIG = {
     "베란다실리콘코킹"
   ],
   baseUrl: "https://sinbiroo.co.kr",
-  ogImage: "/icon.png",
+  ogImage: "/representative-logo.png?v=3",
 };
 
 /**

@@ -57,7 +57,7 @@ export default async function PortfolioDetailPage({ params }: Props) {
       "name": "레인가드",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://sinbiroo.co.kr/icon.png"
+        "url": "https://sinbiroo.co.kr/representative-logo.png?v=3"
       }
     }
   };

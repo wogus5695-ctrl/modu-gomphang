@@ -55,13 +55,13 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.ico?v=2" },
-      { url: "/icon-16x16.png?v=2", sizes: "16x16", type: "image/png" },
-      { url: "/icon-32x32.png?v=2", sizes: "32x32", type: "image/png" },
-      { url: "/icon.svg?v=2", type: "image/svg+xml" }
+      { url: "/favicon.ico?v=3" },
+      { url: "/icon-16x16.png?v=3", sizes: "16x16", type: "image/png" },
+      { url: "/icon-32x32.png?v=3", sizes: "32x32", type: "image/png" },
+      { url: "/icon.svg?v=3", type: "image/svg+xml" }
     ],
     apple: [
-      { url: "/apple-touch-icon.png?v=2", sizes: "180x180", type: "image/png" }
+      { url: "/apple-touch-icon.png?v=3", sizes: "180x180", type: "image/png" }
     ]
   },
 };
@@ -97,6 +97,42 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           }}
         />
         {/* End Google Tag Manager */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "레인가드",
+              "url": SEO_CONFIG.baseUrl,
+              "logo": `${SEO_CONFIG.baseUrl}/representative-logo.png?v=3`,
+              "sameAs": [
+                "http://pf.kakao.com/_xkAXxlX"
+              ],
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "010-4861-3226",
+                "contactType": "customer service"
+              }
+            })
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "레인가드",
+              "url": SEO_CONFIG.baseUrl,
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": `${SEO_CONFIG.baseUrl}/?k={search_term_string}`,
+                "query-input": "required name=search_term_string"
+              }
+            })
+          }}
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
