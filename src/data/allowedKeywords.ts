@@ -126,6 +126,26 @@ export const WINDOW_CAULKING_ALLOWED_REGIONS: Record<string, AllowedRegion> = {
   "soheul-eup": { slug: "soheul-eup", name: "소흘읍", province: "gyeonggi", parentDistrict: "포천" },
   "saengyeon-dong": { slug: "saengyeon-dong", name: "생연동", province: "gyeonggi", parentDistrict: "동두천" },
   "tanbeol-dong": { slug: "tanbeol-dong", name: "탄벌동", province: "gyeonggi", parentDistrict: "광주" },
+  
+  // 광명 추가
+  "gwangmyeong-dong": { slug: "gwangmyeong-dong", name: "광명동", province: "gyeonggi", parentDistrict: "광명" },
+  "soha-dong": { slug: "soha-dong", name: "소하동", province: "gyeonggi", parentDistrict: "광명" },
+  "iljik-dong": { slug: "iljik-dong", name: "일직동", province: "gyeonggi", parentDistrict: "광명" },
+  "hakon-dong": { slug: "hakon-dong", name: "학온동", province: "gyeonggi", parentDistrict: "광명" },
+
+  // 성북구 추가
+  "seongbuk-dong": { slug: "seongbuk-dong", name: "성북동", province: "seoul", parentDistrict: "성북" },
+  "samseon-dong": { slug: "samseon-dong", name: "삼선동", province: "seoul", parentDistrict: "성북" },
+  "dongseon-dong": { slug: "dongseon-dong", name: "동선동", province: "seoul", parentDistrict: "성북" },
+  "donam-dong": { slug: "donam-dong", name: "돈암동", province: "seoul", parentDistrict: "성북" },
+  "anam-dong": { slug: "anam-dong", name: "안암동", province: "seoul", parentDistrict: "성북" },
+  "bomun-dong": { slug: "bomun-dong", name: "보문동", province: "seoul", parentDistrict: "성북" },
+  "jeongneung-dong": { slug: "jeongneung-dong", name: "정릉동", province: "seoul", parentDistrict: "성북" },
+  "gireum-dong": { slug: "gireum-dong", name: "길음동", province: "seoul", parentDistrict: "성북" },
+  "jongam-dong": { slug: "jongam-dong", name: "종암동", province: "seoul", parentDistrict: "성북" },
+  "wolgok-dong": { slug: "wolgok-dong", name: "월곡동", province: "seoul", parentDistrict: "성북" },
+  "seokgwan-dong": { slug: "seokgwan-dong", name: "석관동", province: "seoul", parentDistrict: "성북" },
+  "jangwi-dong": { slug: "jangwi-dong", name: "장위동", province: "seoul", parentDistrict: "성북" },
 };
 
 /**
