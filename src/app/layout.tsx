@@ -105,7 +105,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               "@type": "Organization",
               "name": "레인가드",
               "url": SEO_CONFIG.baseUrl,
-              "logo": `${SEO_CONFIG.baseUrl}/representative-logo.png?v=3`,
+              "logo": `${SEO_CONFIG.baseUrl}/web-thumbnail.jpg?v=1`,
               "sameAs": [
                 "http://pf.kakao.com/_xkAXxlX"
               ],
