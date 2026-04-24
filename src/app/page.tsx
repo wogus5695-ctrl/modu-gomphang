@@ -130,7 +130,7 @@ export default async function Home({ searchParams }: Props) {
         {/* 문제 상황 및 분석 (서비스 안내 앵커 상단) */}
         <div id="services">
           <LocalAnalysis
-            locationName={k ? heroLocation : "창틀"}
+            locationName={k ? heroLocation : "레인가드"}
             introTitle={analysisTitle}
             introDesc={analysisIntro}
             blocks={analysisBlocks}

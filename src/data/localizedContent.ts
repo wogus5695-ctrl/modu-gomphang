@@ -30,7 +30,7 @@ export interface LocalizedPageContent {
 }
 
 export const localizedContents: LocalizedPageContent[] = [
-  // 곰팡이 제거 중심의 기존 수동 데이터는 삭제하고, 창틀코킹 전문 브랜드 데이터 위주로 운영
+  // 창틀코킹 전문 브랜드 데이터 위주로 운영
 ];
 
 /**
@@ -63,7 +63,7 @@ export function getLocalizedContent(serviceSlug: string, provinceSlug: string, c
 
   // 템플릿 다양화를 위한 지역 특화 설명 배열 (4가지 패턴)
   const problemTemplates = [
-    `${displayName} 주변은 아파트와 빌라 등 주거 단지가 모여 있어, 노후된 창틀에서 발생하는 빗물누수 문의가 많은 편입니다. 특히 비바람이나 강풍을 직접 맞는 외벽 실리콘은 시간이 흐를수록 쉽게 경화되고 틈이 벌어지게 됩니다. 이렇게 발생한 미세한 틈새를 방치하면 안쪽 벽지 손상과 곰팡이 피해로 번질 수 있으므로, 전문가의 신속한 빗물누수 점검과 창틀코킹 재시공이 필수적입니다.`,
+    `${displayName} 주변은 아파트와 빌라 등 주거 단지가 모여 있어, 노후된 창틀에서 발생하는 빗물누수 문의가 많은 편입니다. 특히 비바람이나 강풍을 직접 맞는 외벽 실리콘은 시간이 흐를수록 쉽게 경화되고 틈이 벌어지게 됩니다. 이렇게 발생한 미세한 틈새를 방치하면 안쪽 벽지 손상과 내부 부식으로 번질 수 있으므로, 전문가의 신속한 빗물누수 점검과 창틀코킹 재시공이 필수적입니다.`,
     
     `${displayName} 지역의 고층 세대나 베란다가 확장된 구조에서는 외부 강풍의 영향을 크게 받아 창틀 실리콘 노후화가 더 빠르게 진행될 수 있습니다. 샷시 주변 외벽 접합부로 한 번 빗물이 스며들기 시작하면 아래층까지 피해가 확산될 위험이 큽니다. 혹시라도 창틀누수가 의심된다면, 초기부터 꼼꼼한 진단을 받고 확실하게 실리콘 보수를 진행하는 것이 중요합니다.`,
     
@@ -91,7 +91,7 @@ export function getLocalizedContent(serviceSlug: string, provinceSlug: string, c
       : `${locationName} 지역의 쾌적한 주거 환경을 위해 정직하게 시공하는 레인가드입니다. 전문적인 기술력으로 최상의 만족을 드리겠습니다.`,
     localProblems: isWindowCaulking
       ? problemTemplates[templateIndex]
-      : `${locationName} 지역 특성에 맞춰 최적화된 시공 솔루션을 제공합니다. 노후된 시설 점검 및 관리를 통해 문제를 조기에 해결해 드립니다.`,
+      : `${locationName} 지역 특성에 맞춰 최적화된 시공 솔루션을 제공합니다. 노후된 시설 점검 및 관리를 통해 문제를 조기에 해결해 드립나다.`,
     targets: isWindowCaulking
       ? [
           "아파트, 주택, 상가 등 빗물누수 취약 세대",
