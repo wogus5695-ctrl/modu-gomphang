@@ -1,5 +1,5 @@
 /**
- * 메인페이지(Brand Hub)에서 사용할 전역 모두종합환경 콘텐츠 정의
+ * 메인페이지(Brand Hub)에서 사용할 전역 레인가드 콘텐츠 정의
  * 지역 유입 페이지의 LocalizedPageContent 구조와 호환되도록 구성하여 컴포넌트 재사용성을 높임.
  */
 export const BRAND_HUB_CONTENT = {
