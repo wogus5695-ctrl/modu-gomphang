@@ -47,6 +47,9 @@ export const metadata: Metadata = {
     description: SEO_CONFIG.description,
     images: [SEO_CONFIG.ogImage],
   },
+  other: {
+    "thumbnail": `${SEO_CONFIG.baseUrl}${SEO_CONFIG.ogImage}`,
+  },
   verification: {
     google: "rn37nKpOdKO8P9jYe7aPcvJAXGeg4v9Pl9oH3SQcC10",
     other: {

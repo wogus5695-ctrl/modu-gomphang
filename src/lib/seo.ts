@@ -18,7 +18,7 @@ export const SEO_CONFIG = {
     "베란다실리콘코킹"
   ],
   baseUrl: "https://sinbiroo.co.kr",
-  ogImage: "/web-thumbnail.jpg?v=1",
+  ogImage: "/web-thumbnail(2).jpg?v=2", // 최적화된 썸네일 파일로 교체
 };
 
 /**
@@ -33,6 +33,7 @@ export function getMetadata(options: {
 }): Metadata {
   const { title, description, path, ogImage, noIndex } = options;
   const url = `${SEO_CONFIG.baseUrl}${path || ''}`;
+  const finalOgImage = ogImage || SEO_CONFIG.ogImage;
 
   return {
     title: title,
@@ -50,7 +51,7 @@ export function getMetadata(options: {
       type: "website",
       images: [
         {
-          url: ogImage || SEO_CONFIG.ogImage,
+          url: finalOgImage,
           width: 800,
           height: 600,
           alt: title || "레인가드",
@@ -61,10 +62,13 @@ export function getMetadata(options: {
       card: "summary_large_image",
       title: title ? `${title} | 레인가드` : SEO_CONFIG.title.default,
       description: description || SEO_CONFIG.description,
-      images: [ogImage || SEO_CONFIG.ogImage],
+      images: [finalOgImage],
     },
     robots: noIndex ? { index: false, follow: true } : undefined,
     metadataBase: new URL(SEO_CONFIG.baseUrl),
+    other: {
+      "thumbnail": `${SEO_CONFIG.baseUrl}${finalOgImage}`, // 네이버 썸네일 힌트
+    }
   };
 }
 
@@ -80,8 +84,9 @@ export function getMetadataByLocation(options: {
   metaTitle?: string;
   metaDescription?: string;
   benefit?: string;
+  ogImage?: string;
 }): Metadata & { h1: string } {
-  const { serviceSlug, serviceTitle, provinceName, cityName, path, metaTitle, metaDescription, benefit } = options;
+  const { serviceSlug, serviceTitle, provinceName, cityName, path, metaTitle, metaDescription, benefit, ogImage } = options;
   const locationText = `${provinceName} ${cityName}`;
   
   // 서비스별 기본 효익(Benefit) 설정
@@ -139,6 +144,7 @@ export function getMetadataByLocation(options: {
       title: finalTitle,
       description: finalDescription,
       path,
+      ogImage,
     }),
     h1,
   };

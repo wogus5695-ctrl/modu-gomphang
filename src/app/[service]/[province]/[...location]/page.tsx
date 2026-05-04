@@ -7,11 +7,11 @@ import { getRegionInfo } from "@/data/regions";
 import { getLocalizedContent } from "@/data/localizedContent";
 import { WINDOW_CAULKING_ALLOWED_REGIONS } from "@/data/allowedKeywords";
 import { portfolioCases } from "@/data/portfolio";
-import { getMetadataByLocation } from "@/lib/seo";
+import { getMetadataByLocation, SEO_CONFIG } from "@/lib/seo";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContactCTA from "@/components/ContactCTA";
-import FAQSchema from "@/components/FAQSchema";
+import UnifiedSchema from "@/components/UnifiedSchema";
 import Breadcrumbs, { BreadcrumbItem } from "@/components/Breadcrumbs";
 
 // Modular Section Components
@@ -62,7 +62,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     metaDescription: localContent?.metaDescription,
   });
 
-  return seo; // Next.js는 Metadata 타입만 취하고 h1 속도는 무시함
+  return seo;
 }
 
 export default async function LocationServicePage({ params }: Props) {
@@ -93,13 +93,16 @@ export default async function LocationServicePage({ params }: Props) {
     : cityName.replace(/[구시군]$/, '');
   
   // SEO 헬퍼로부터 동일한 H1 타이틀 획득 (일관성 유지)
-  const { h1 } = getMetadataByLocation({
+  const { h1, description } = getMetadataByLocation({
     serviceSlug,
     serviceTitle: service?.title || "창틀코킹",
     provinceName: provinceName,
-    cityName: citySlug, // 헬퍼 내부에서 화이트리스트 참조를 위해 slug 전달
+    cityName: citySlug,
     path: `/`, // 임시
   });
+
+  const fullUrl = `${SEO_CONFIG.baseUrl}/${serviceSlug}/${provinceSlug}/${location.join('/')}`;
+  const metaDescription = local?.metaDescription || description || "";
 
   // 관련 포트폴리오 필터링 (동적 조건부)
   const relatedPortfolio = portfolioCases.filter(p => local?.relatedPortfolioIds.includes(p.id));
@@ -128,8 +131,14 @@ export default async function LocationServicePage({ params }: Props) {
 
   return (
     <div className="flex min-h-screen flex-col font-sans antialiased">
-      {/* FAQ 구조화 데이터 자동 주입 (SEO) */}
-      {local?.faqs && <FAQSchema faqs={local.faqs} />}
+      {/* 통합 구조화 데이터 자동 주입 (SEO: FAQ + Breadcrumbs + Image) */}
+      <UnifiedSchema 
+        title={h1}
+        description={metaDescription}
+        url={fullUrl}
+        faqs={local?.faqs}
+        breadcrumbs={breadcrumbItems}
+      />
       
       <Header />
       
