@@ -72,13 +72,6 @@ export default async function Home({ searchParams }: Props) {
     const hash = getHash(decoded);
     const data = getDynamicHomeData(region, service, hash);
 
-    // 1번. H1 문구 
-    heroLocation = "";
-    heroService = data.h1;
-
-    // 2번. 상단 요약 문구
-    heroIntro = data.summary;
-
     // 3번. 원인 진단 및 분석
     analysisTitle = data.analysisTitle;
     analysisIntro = [
@@ -124,7 +117,12 @@ export default async function Home({ searchParams }: Props) {
           locationName={heroLocation}
           serviceTitle={heroService}
           intro={heroIntro}
-          keywords={["100% 책임 시공제", "정밀 누수 진단", "전문가 직접 시공", "철저한 사후 관리"]}
+          keywords={[
+            "100% 책임 시공제",
+            analysisDynamicKeyword ? `${analysisDynamicKeyword} 정밀 진단` : "정밀 누수 진단",
+            "전문가 직접 시공",
+            "철저한 사후 관리"
+          ]}
         />
 
         {/* 문제 상황 및 분석 (서비스 안내 앵커 상단) */}
@@ -184,7 +182,7 @@ export default async function Home({ searchParams }: Props) {
       </main>
 
 
-      <Footer />
+      <Footer dynamicKeyword={analysisDynamicKeyword} />
     </div>
   );
 }

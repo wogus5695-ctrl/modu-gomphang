@@ -2,7 +2,11 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function Footer() {
+interface FooterProps {
+  dynamicKeyword?: string;
+}
+
+export default function Footer({ dynamicKeyword }: FooterProps) {
   return (
     <footer className="bg-white border-t border-gray-100 py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -18,7 +22,7 @@ export default function Footer() {
               />
             </div>
             <p className="text-gray-600 text-sm leading-relaxed max-w-sm">
-              레인가드는 아파트 및 주거 시설의 빗물누수 문제를 완벽하게 해결하는 창틀코킹 및 누수 보수 전문 브랜드입니다. 정밀 점검과 전문 실리콘 코킹 공법으로 안전한 주거 환경을 약속합니다.
+              레인가드는 {dynamicKeyword ? <strong>{dynamicKeyword}</strong> : "아파트 및 주거 시설의 빗물누수"} 문제를 완벽하게 해결하는 창틀코킹 및 누수 보수 전문 브랜드입니다. 정밀 점검과 전문 실리콘 코킹 공법으로 안전한 주거 환경을 약속합니다.
             </p>
           </div>
           <div className="space-y-4">
@@ -47,7 +51,7 @@ export default function Footer() {
             </div>
           </div>
           <p className="text-gray-400/70 text-[11px] tracking-tight text-center md:text-left break-keep">
-            * 서울·경기·인천·강원 지역 창틀코킹 및 빗물누수 보수 상담 가능
+            * {dynamicKeyword ? <strong>{dynamicKeyword}</strong> : "서울·경기·인천·강원"} 지역 창틀코킹 및 빗물누수 보수 상담 가능
           </p>
         </div>
       </div>
