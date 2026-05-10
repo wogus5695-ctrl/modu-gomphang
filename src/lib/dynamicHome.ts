@@ -6,7 +6,7 @@ export const getDynamicHomeData = (region: string, service: string, hash: number
   const keyword = `${region} ${service}`;
 
   // 기본 서비스 매핑 (키워드 매칭 실패 시 창틀코킹 기준)
-  const serviceType = service.includes('빗물') ? '빗물누수' : (service.includes('샷시') ? '창틀누수' : '창틀코킹');
+  const serviceType = (service.includes('빗물') || service.includes('외벽')) ? '빗물누수' : (service.includes('샷시') ? '창틀누수' : '창틀코킹');
 
   const configs: Record<string, any> = {
     '창틀코킹': {
