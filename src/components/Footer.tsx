@@ -28,8 +28,8 @@ export default function Footer({ dynamicKeyword }: FooterProps) {
           <div className="space-y-4">
             <p className="text-gray-900 font-bold text-lg mb-4">고객센터</p>
             <div className="space-y-2">
-              <a href="tel:010-4861-3226" className="text-3xl font-black text-blue-600 hover:text-blue-700 transition-colors block">
-                010-4861-3226
+              <a href="tel:010-7774-5823" className="text-3xl font-black text-blue-600 hover:text-blue-700 transition-colors block">
+                010-7774-5823
               </a>
               <p className="text-gray-500 text-sm">평일/주말 09:00 ~ 20:00 (연중무휴)</p>
             </div>

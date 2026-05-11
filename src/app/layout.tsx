@@ -114,7 +114,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               ],
               "contactPoint": {
                 "@type": "ContactPoint",
-                "telephone": "010-4861-3226",
+                "telephone": "010-7774-5823",
                 "contactType": "customer service"
               }
             })
