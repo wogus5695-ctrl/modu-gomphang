@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 import { portfolioCases } from '@/data/portfolio';
 import { services } from '@/data/services';
-import { SEOUL_DATA, NEW_REGIONS_DATA, SERVICES } from '@/data/sitemapKeywords';
+import { SEOUL_DATA, NEW_REGIONS_DATA, SERVICES, WATERPROOF_SERVICES } from '@/data/sitemapKeywords';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://sinbiroo.co.kr';
@@ -12,8 +12,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const allRegions = [...SEOUL_DATA, ...NEW_REGIONS_DATA];
 
   allRegions.forEach(region => {
-    // 구 단위 (또는 큰 지역명)
+    // 구 단위 (또는 큰 지역명) - 기존 서비스
     SERVICES.forEach(service => {
+      regionalUrls.push({
+        url: `${baseUrl}/?k=${encodeURIComponent(`${region.gu}-${service}`)}`,
+        lastModified: new Date(),
+        changeFrequency: 'monthly',
+        priority: 0.8,
+      });
+    });
+
+    // 구 단위 (또는 큰 지역명) - 방수 신규 서비스 추가
+    WATERPROOF_SERVICES.forEach(service => {
       regionalUrls.push({
         url: `${baseUrl}/?k=${encodeURIComponent(`${region.gu}-${service}`)}`,
         lastModified: new Date(),
