@@ -1,3 +1,5 @@
+import { WATERPROOF_SERVICES } from "@/data/sitemapKeywords";
+
 export const getHash = (str: string) => {
   return str.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
 };
@@ -6,7 +8,9 @@ export const getDynamicHomeData = (region: string, service: string, hash: number
   const keyword = `${region} ${service}`;
 
   // 기본 서비스 매핑 (키워드 매칭 실패 시 창틀코킹 기준)
-  const serviceType = (service.includes('빗물') || service.includes('외벽')) ? '빗물누수' : (service.includes('샷시') ? '창틀누수' : '창틀코킹');
+  const serviceType = WATERPROOF_SERVICES.includes(service)
+    ? '방수'
+    : ((service.includes('빗물') || service.includes('외벽')) ? '빗물누수' : (service.includes('샷시') ? '창틀누수' : '창틀코킹'));
 
   const configs: Record<string, any> = {
     '창틀코킹': {
@@ -119,6 +123,43 @@ export const getDynamicHomeData = (region: string, service: string, hash: number
         { question: "부분 시공도 가능한가요?", answer: "네, 누수가 발생하는 특정 창문만 선택해서 시공도 가능하지만, 전체 시공을 하시는 것이 장기적으로 경제적입니다." },
         { question: "견적은 어떻게 확인하나요?", answer: "전화로 아파트명과 평수를 알려주시거나, 누수 부위 사진을 문자로 보내주시면 즉시 예상 견적을 드립니다." }
       ]
+    },
+    '방수': {
+      h1: `${keyword} 전문가의 정밀 시공`,
+      summary: `${region} 지역 건물 및 아파트의 노후된 외벽과 옥상을 정밀 방수 처리하여, 빗물 누수 피해를 완벽히 차단하는 건물방수 솔루션을 제공합니다.`,
+      regionText: `${region} 지역은 기후 변화와 건물의 노후화로 인해 외벽 균열과 옥상 방수층 파손으로 인한 건물 누수 피해가 증가하고 있습니다.`,
+      analysisTitle: `${service} 원인 진단 및 균열 점검`,
+      analysisDesc: `${service}은 누수 지점만 임시방편으로 막는 것이 아니라, 외벽 미세 크랙과 상부 방수층 균열 등 누수의 근본적인 유입 경로를 추적하는 정밀 진단이 필수적입니다.`,
+      analysisBlocks: [
+        {
+          title: "01. 외벽 크랙 및 균열 상태 점검",
+          description: "콘크리트 외벽의 미세 균열 및 누수 유입 경로를 정밀하게 점검하여 보강 범위를 결정합니다.",
+          checkpoints: ["외벽 미세 크랙 탐색", "누수 유입 예상 경로 분석", "콘크리트 중성화 지점 탐색"]
+        },
+        {
+          title: "02. 옥상 및 상부 방수층 상태 진단",
+          description: "우레탄 방수층의 균열, 들뜸 현상 및 구배(물빠짐) 불량 상태 등을 꼼꼼하게 검사합니다.",
+          checkpoints: ["우레탄 방수층 들뜸 체크", "옥상 바닥 균열 범위 파악", "배수구 주변 누수 흔적 분석"]
+        },
+        {
+          title: "03. 고기능 방수 및 실링 자재 선정",
+          description: "크랙의 깊이와 시공 부위의 수축/팽창률을 고려하여 접착력과 내후성이 우수한 방수제를 선정합니다.",
+          checkpoints: ["고탄성 방수재 적합성 검토", "하도 프라이머 결착력 확인", "날씨 및 온도 환경 분석"]
+        }
+      ],
+      processTitle: `${service} 4단계 책임 방수 시공`,
+      processSteps: [
+        { title: "균열 부위 V-컷팅 및 이물질 정리", description: "방수재 주입 공간을 확보하기 위해 크랙 부위를 깎아내고 먼지 등 이물질을 깨끗이 청소합니다." },
+        { title: "부착력 강화용 하도 프라이머 도포", description: "균열 내부 깊숙이 방수 프라이머를 도포하여 보수 자재가 완벽하게 결착되도록 합니다." },
+        { title: "고탄성 균열 보수재 및 방수 실런트 충진", description: "균열 틈새를 기밀하게 메워주고 물이 침투하지 못하도록 방수 실런트를 꼼꼼하게 주입합니다." },
+        { title: "방수 코팅 도포 및 마감 최종 검수", description: "도포면을 매끄럽게 정리하여 보호 코팅을 입히고 방수 효과를 최종 테스트합니다." }
+      ],
+      faqTitle: `${service} 관련 궁금증 해결`,
+      faqs: [
+        { question: "외벽방수와 옥상방수 중 어디를 먼저 해야 하나요?", answer: "누수 부위에 따라 다릅니다. 현장 방문 시 열화상 장비 등을 활용해 정확한 누수 발원지를 짚어드립니다." },
+        { question: "시공 후 A/S 기간은 어떻게 되나요?", answer: "레인가드는 100% 책임 시공제를 실시하며, 시공 후 철저한 사후 관리와 완벽한 무상 하자 보증 서비스를 제공합니다." },
+        { question: "방수 공사는 비가 오는 날에도 가능한가요?", answer: "비가 오면 하자가 발생할 위험이 높습니다. 레인가드는 콘크리트가 완전히 건조된 날씨 좋은 날에만 작업을 진행하여 완벽한 접착을 유도합니다." }
+      ]
     }
   };
 
@@ -137,6 +178,10 @@ export const getDynamicHomeData = (region: string, service: string, hash: number
     '창틀누수': [
       `오래된 샷시를 교체 없이 새것처럼! 프리미엄 실리콘 코킹으로 누수 해결과 외풍 차단 효과를 동시에 누리세요.`,
       `들뜨고 갈라진 샷시 실리콘, 레인가드가 깔끔하게 복원합니다. 물걸레 청소가 가능할 정도의 완벽한 마감을 경험하세요.`
+    ],
+    '방수': [
+      `완벽한 방수막으로 빗물을 원천 차단! 레인가드만의 특수 방수 공법으로 건물의 수명을 연장하세요.`,
+      `반복되는 외벽 누수와 균열, 이제 걱정 마세요. 수많은 방수 시공 실적으로 검증된 레인가드가 해결해 드립니다.`
     ]
   };
 

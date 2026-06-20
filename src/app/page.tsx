@@ -57,8 +57,10 @@ export default async function Home({ searchParams }: Props) {
   }
 
   let heroLocation = "레인가드";
-  let heroService = "창틀코킹 전문 브랜드";
-  let heroIntro = `창틀코킹이 필요한 현장은\n비가 올 때 창틀실리콘 노후화로 인한\n창틀누수가 반복되는 경우가 많습니다.\n레인가드는 빗물누수의 근본적인 원인을 점검하고\n정확한 창틀코킹 보수로 해결해 드립니다.`;
+  let heroService = isWaterproof ? "건물방수 전문 브랜드" : "창틀코킹 전문 브랜드";
+  let heroIntro = isWaterproof
+    ? `건물 방수가 필요한 현장은\n비가 올 때 외벽 균열이나\n옥상 방수층 노후화로 인한 누수가 반복되는 경우가 많습니다.\n레인가드는 누수의 근본적인 원인을 점검하고\n정확한 건물방수 시공으로 해결해 드립니다.`
+    : `창틀코킹이 필요한 현장은\n비가 올 때 창틀실리콘 노후화로 인한\n창틀누수가 반복되는 경우가 많습니다.\n레인가드는 빗물누수의 근본적인 원인을 점검하고\n정확한 창틀코킹 보수로 해결해 드립니다.`;
   
   let analysisTitle = ""; // introTitle
   let analysisIntro = BRAND_HUB_CONTENT.localProblems; // introDesc
