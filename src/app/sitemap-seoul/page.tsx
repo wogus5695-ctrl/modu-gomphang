@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { getMetadata } from '@/lib/seo';
 import { WINDOW_CAULKING_ALLOWED_REGIONS } from '@/data/allowedKeywords';
-import { SEOUL_DATA, NEW_REGIONS_DATA, SERVICES } from '@/data/sitemapKeywords';
+import { SEOUL_DATA, NEW_REGIONS_DATA, SERVICES, WATERPROOF_SERVICES } from '@/data/sitemapKeywords';
 
 export const metadata: Metadata = getMetadata({
   title: '서울 창틀코킹 시공 서비스 안내',
@@ -119,6 +119,67 @@ export default function SitemapSeoulPage() {
               </section>
             );
           })}
+
+          {/* 방수 시공 서비스 안내 섹션 */}
+          <div className="my-16 border-t-4 border-double border-gray-200 pt-16"></div>
+          <section className="mb-16">
+            <header className="mb-12 text-center pb-8 border-b border-gray-100">
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">방수 시공 서비스 안내</h2>
+              <p className="text-gray-600">
+                외벽방수, 옥상방수, 건물방수, 외벽보수 등 방수 관련 시공이 필요한 지역을 선택해 주세요.
+              </p>
+            </header>
+
+            <div className="space-y-16">
+              {/* 서울 지역 방수 */}
+              <div>
+                <h3 className="text-lg font-bold text-gray-800 mb-6 pb-2 border-b border-gray-200 inline-block">
+                  서울 지역 방수 키워드
+                </h3>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+                  {SEOUL_DATA.map((region) =>
+                    WATERPROOF_SERVICES.map((service, i) => {
+                      const label = `${region.gu}-${service}`;
+                      const targetUrl = `/?k=${encodeURIComponent(label)}`;
+                      return (
+                        <Link
+                          key={`${region.gu}-${service}-${i}`}
+                          href={targetUrl}
+                          className="block px-3 py-3.5 bg-blue-50/30 border border-blue-100 text-blue-900 text-[14px] sm:text-[15px] font-semibold text-center hover:bg-blue-100 hover:text-blue-700 hover:border-blue-300 transition-colors rounded-lg"
+                        >
+                          {label}
+                        </Link>
+                      );
+                    })
+                  )}
+                </div>
+              </div>
+
+              {/* 경기 지역 방수 */}
+              <div>
+                <h3 className="text-lg font-bold text-gray-800 mb-6 pb-2 border-b border-gray-200 inline-block">
+                  경기 지역 방수 키워드
+                </h3>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+                  {NEW_REGIONS_DATA.map((region) =>
+                    WATERPROOF_SERVICES.map((service, i) => {
+                      const label = `${region.gu}-${service}`;
+                      const targetUrl = `/?k=${encodeURIComponent(label)}`;
+                      return (
+                        <Link
+                          key={`${region.gu}-${service}-${i}`}
+                          href={targetUrl}
+                          className="block px-3 py-3.5 bg-blue-50/30 border border-blue-100 text-blue-900 text-[14px] sm:text-[15px] font-semibold text-center hover:bg-blue-100 hover:text-blue-700 hover:border-blue-300 transition-colors rounded-lg"
+                        >
+                          {label}
+                        </Link>
+                      );
+                    })
+                  )}
+                </div>
+              </div>
+            </div>
+          </section>
         </main>
 
         <div className="mt-16 text-center pt-8 border-t border-gray-100">

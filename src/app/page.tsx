@@ -15,6 +15,7 @@ import LocalCosts from "@/components/sections/LocalCosts";
 import LocalFAQ from "@/components/sections/LocalFAQ";
 import LocalPortfolio from "@/components/sections/LocalPortfolio";
 import { getDynamicHomeData, getHash } from "@/lib/dynamicHome";
+import { WATERPROOF_SERVICES } from "@/data/sitemapKeywords";
 
 type Props = {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
@@ -47,6 +48,13 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
 export default async function Home({ searchParams }: Props) {
   const unresolvedParams = await searchParams;
   const k = typeof unresolvedParams.k === 'string' ? unresolvedParams.k : undefined;
+
+  let isWaterproof = false;
+  if (k) {
+    const decoded = decodeURIComponent(k);
+    const [, service = ''] = decoded.split('-');
+    isWaterproof = WATERPROOF_SERVICES.includes(service);
+  }
 
   let heroLocation = "레인가드";
   let heroService = "창틀코킹 전문 브랜드";
@@ -109,7 +117,7 @@ export default async function Home({ searchParams }: Props) {
       {/* FAQ 구조화 데이터 자동 주입 (SEO) */}
       <FAQSchema faqs={faqList} />
 
-      <Header />
+      <Header isWaterproof={isWaterproof} />
 
       <main className="flex-grow bg-white">
         {/* 히어로 섹션 (필수) */}
@@ -174,7 +182,7 @@ export default async function Home({ searchParams }: Props) {
               </p>
 
               <div className="bg-transparent mt-8">
-                <ContactCTA />
+                <ContactCTA isWaterproof={isWaterproof} />
               </div>
             </div>
           </div>
@@ -182,7 +190,7 @@ export default async function Home({ searchParams }: Props) {
       </main>
 
 
-      <Footer dynamicKeyword={analysisDynamicKeyword} />
+      <Footer dynamicKeyword={analysisDynamicKeyword} isWaterproof={isWaterproof} />
     </div>
   );
 }

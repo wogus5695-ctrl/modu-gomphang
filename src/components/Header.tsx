@@ -4,7 +4,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 
-export default function Header() {
+interface HeaderProps {
+  isWaterproof?: boolean;
+}
+
+export default function Header({ isWaterproof = false }: HeaderProps) {
   const pathname = usePathname();
   
   // 현재 페이지가 지역 랜딩 페이지인 경우 현재 URL을 유지, 그 외엔 메인홈 기준 앵커로 이동
@@ -37,7 +41,7 @@ export default function Header() {
           </Link>
         </nav>
         <a 
-          href="tel:010-7774-5823" 
+          href={isWaterproof ? "tel:010-4667-5568" : "tel:010-7774-5823"} 
           className="inline-flex items-center justify-center px-4 py-2 sm:px-5 sm:py-2.5 bg-blue-600 text-white text-sm sm:text-base font-bold rounded-lg hover:bg-blue-700 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
           data-track-category="conversion"
           data-track-action="call_click"

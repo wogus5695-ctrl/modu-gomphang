@@ -137,3 +137,5 @@ export const NEW_REGIONS_DATA = [
 ];
 
 export const SERVICES = ["창틀코킹", "창틀누수", "빗물누수", "창틀실리콘", "샷시실리콘", "외벽보수"];
+
+export const WATERPROOF_SERVICES = ["외벽방수", "옥상방수", "건물방수", "외벽보수"];
