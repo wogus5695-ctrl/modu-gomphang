@@ -137,21 +137,32 @@ export default function SitemapSeoulPage() {
                   서울 지역 방수 키워드
                 </h3>
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
-                  {SEOUL_DATA.map((region) =>
-                    WATERPROOF_SERVICES.map((service, i) => {
-                      const label = `${region.gu}-${service}`;
+                  {SEOUL_DATA.map((region) => {
+                    const localKeywords: string[] = [];
+                    // 1. 구 단위
+                    WATERPROOF_SERVICES.forEach(service => {
+                      localKeywords.push(`${region.gu}-${service}`);
+                    });
+                    // 2. 동 단위
+                    region.dongs.forEach(dong => {
+                      WATERPROOF_SERVICES.forEach(service => {
+                        localKeywords.push(`${dong}-${service}`);
+                      });
+                    });
+
+                    return localKeywords.map((label, i) => {
                       const targetUrl = `/?k=${encodeURIComponent(label)}`;
                       return (
                         <Link
-                          key={`${region.gu}-${service}-${i}`}
+                          key={`${label}-${i}`}
                           href={targetUrl}
                           className="block px-3 py-3.5 bg-blue-50/30 border border-blue-100 text-blue-900 text-[14px] sm:text-[15px] font-semibold text-center hover:bg-blue-100 hover:text-blue-700 hover:border-blue-300 transition-colors rounded-lg"
                         >
                           {label}
                         </Link>
                       );
-                    })
-                  )}
+                    });
+                  })}
                 </div>
               </div>
 
@@ -161,21 +172,32 @@ export default function SitemapSeoulPage() {
                   경기 지역 방수 키워드
                 </h3>
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
-                  {NEW_REGIONS_DATA.map((region) =>
-                    WATERPROOF_SERVICES.map((service, i) => {
-                      const label = `${region.gu}-${service}`;
+                  {NEW_REGIONS_DATA.map((region) => {
+                    const localKeywords: string[] = [];
+                    // 1. 구/시 단위
+                    WATERPROOF_SERVICES.forEach(service => {
+                      localKeywords.push(`${region.gu}-${service}`);
+                    });
+                    // 2. 동 단위
+                    region.dongs.forEach(dong => {
+                      WATERPROOF_SERVICES.forEach(service => {
+                        localKeywords.push(`${dong}-${service}`);
+                      });
+                    });
+
+                    return localKeywords.map((label, i) => {
                       const targetUrl = `/?k=${encodeURIComponent(label)}`;
                       return (
                         <Link
-                          key={`${region.gu}-${service}-${i}`}
+                          key={`${label}-${i}`}
                           href={targetUrl}
                           className="block px-3 py-3.5 bg-blue-50/30 border border-blue-100 text-blue-900 text-[14px] sm:text-[15px] font-semibold text-center hover:bg-blue-100 hover:text-blue-700 hover:border-blue-300 transition-colors rounded-lg"
                         >
                           {label}
                         </Link>
                       );
-                    })
-                  )}
+                    });
+                  })}
                 </div>
               </div>
             </div>

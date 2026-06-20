@@ -32,9 +32,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
       });
     });
 
-    // 동 단위
+    // 동 단위 - 기존 서비스
     region.dongs.forEach(dong => {
       SERVICES.forEach(service => {
+        regionalUrls.push({
+          url: `${baseUrl}/?k=${encodeURIComponent(`${dong}-${service}`)}`,
+          lastModified: new Date(),
+          changeFrequency: 'monthly',
+          priority: 0.7,
+        });
+      });
+    });
+
+    // 동 단위 - 방수 신규 서비스 추가
+    region.dongs.forEach(dong => {
+      WATERPROOF_SERVICES.forEach(service => {
         regionalUrls.push({
           url: `${baseUrl}/?k=${encodeURIComponent(`${dong}-${service}`)}`,
           lastModified: new Date(),
