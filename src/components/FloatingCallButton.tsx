@@ -12,7 +12,7 @@ export default function FloatingCallButton() {
       if (k) {
         const decoded = decodeURIComponent(k);
         const [, service = ''] = decoded.split('-');
-        const waterproofKeywords = ["외벽방수", "옥상방수", "건물방수", "외벽보수"];
+        const waterproofKeywords = ["외벽방수", "옥상방수", "건물방수", "외벽도색"];
         if (waterproofKeywords.includes(service)) {
           setPhoneNumber("010-4667-5568");
         }
