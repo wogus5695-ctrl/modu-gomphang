@@ -38,10 +38,14 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
   const hash = getHash(decoded);
   const data = getDynamicHomeData(region, service, hash);
 
+  const isWaterproof = WATERPROOF_SERVICES.includes(service);
+  const ogImage = isWaterproof ? "/waterproof-thumbnail.jpg" : undefined;
+
   return getMetadata({
     title: data.metaTitle,
     description: data.metaDesc,
     path: `/?k=${k}`,
+    ogImage: ogImage,
   });
 }
 
