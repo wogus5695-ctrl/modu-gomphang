@@ -33,7 +33,16 @@ export function getMetadata(options: {
 }): Metadata {
   const { title, description, path, ogImage, noIndex } = options;
   const url = `${SEO_CONFIG.baseUrl}${path || ''}`;
-  const finalOgImage = ogImage || SEO_CONFIG.ogImage;
+  
+  const rawOgImage = ogImage || SEO_CONFIG.ogImage;
+  const baseImage = rawOgImage.startsWith('http') 
+    ? rawOgImage 
+    : `${SEO_CONFIG.baseUrl}${rawOgImage}`;
+  
+  // 버전 쿼리가 있으면 ?v=3으로 업데이트하고 없으면 붙여줌
+  const finalOgImage = baseImage.includes('?v=') 
+    ? baseImage.replace(/\?v=[^&]+/, '?v=3') 
+    : `${baseImage}?v=3`;
 
   return {
     title: title,
@@ -67,7 +76,7 @@ export function getMetadata(options: {
     robots: noIndex ? { index: false, follow: true } : undefined,
     metadataBase: new URL(SEO_CONFIG.baseUrl),
     other: {
-      "thumbnail": `${SEO_CONFIG.baseUrl}${finalOgImage}`, // 네이버 썸네일 힌트
+      "thumbnail": finalOgImage, // 네이버 썸네일 힌트 (절대경로 및 버전 적용)
     }
   };
 }

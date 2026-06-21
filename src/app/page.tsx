@@ -137,6 +137,7 @@ export default async function Home({ searchParams }: Props) {
             "전문가 직접 시공",
             "철저한 사후 관리"
           ]}
+          imageSrc={isWaterproof ? "/waterproof-thumbnail.jpg" : "/hero-caulking.jpg"}
         />
 
         {/* 문제 상황 및 분석 (서비스 안내 앵커 상단) */}
@@ -154,6 +155,7 @@ export default async function Home({ searchParams }: Props) {
         <LocalProcess
           title={processTitle}
           process={processSteps}
+          imageSrc={isWaterproof ? "/waterproof-thumbnail.jpg" : "/process-caulking.jpg"}
         />
 
         {/* 비용 영향 요소 */}

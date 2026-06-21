@@ -9,9 +9,11 @@ interface ProcessStep {
 interface LocalProcessProps {
   title?: string;
   process?: string[] | ProcessStep[];
+  imageSrc?: string;
 }
 
-export default function LocalProcess({ title, process }: LocalProcessProps) {
+export default function LocalProcess({ title, process, imageSrc }: LocalProcessProps) {
+  const finalImageSrc = imageSrc || "/process-caulking.jpg";
   if (!process || process.length === 0) return null;
 
   return (
@@ -70,7 +72,7 @@ export default function LocalProcess({ title, process }: LocalProcessProps) {
             <div className="sticky top-24">
               <div className="relative rounded-[56px] overflow-hidden shadow-2xl aspect-[4/5] lg:aspect-auto lg:h-[700px]">
                 <Image 
-                  src="/process-caulking.jpg" 
+                  src={finalImageSrc} 
                   alt="레인가드 정석 시공 현장"
                   fill
                   className="object-cover object-right"
