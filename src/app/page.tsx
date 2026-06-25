@@ -5,7 +5,7 @@ import ContactCTA from "@/components/ContactCTA";
 import FAQSchema from "@/components/FAQSchema";
 import { getMetadata } from "@/lib/seo";
 import { BRAND_HUB_CONTENT } from "@/data/brandHub";
-import { portfolioCases } from "@/data/portfolio";
+import { portfolioCases, waterproofPortfolioCases } from "@/data/portfolio";
 
 // Modular Section Components (Same as Location Pages)
 import LocalHero from "@/components/sections/LocalHero";
@@ -171,7 +171,8 @@ export default async function Home({ searchParams }: Props) {
         <div id="cases">
           <LocalPortfolio
             title={portfolioTitle}
-            portfolio={representativePortfolio}
+            portfolio={isWaterproof ? waterproofPortfolioCases : representativePortfolio}
+            isWaterproof={isWaterproof}
           />
         </div>
 
