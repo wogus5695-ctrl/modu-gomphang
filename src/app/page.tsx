@@ -199,7 +199,7 @@ export default async function Home({ searchParams }: Props) {
       </main>
 
 
-      <Footer dynamicKeyword={analysisDynamicKeyword} isWaterproof={isWaterproof} />
+      <Footer dynamicKeyword={analysisDynamicKeyword} isWaterproof={isWaterproof} isMainPage={!k} />
     </div>
   );
 }

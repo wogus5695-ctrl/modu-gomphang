@@ -5,9 +5,10 @@ import Link from 'next/link';
 interface FooterProps {
   dynamicKeyword?: string;
   isWaterproof?: boolean;
+  isMainPage?: boolean;
 }
 
-export default function Footer({ dynamicKeyword, isWaterproof = false }: FooterProps) {
+export default function Footer({ dynamicKeyword, isWaterproof = false, isMainPage = false }: FooterProps) {
   return (
     <footer className="bg-white border-t border-gray-100 py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -42,7 +43,11 @@ export default function Footer({ dynamicKeyword, isWaterproof = false }: FooterP
         <div className="pt-8 border-t border-gray-100">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-3">
             <p className="text-gray-400 text-xs tracking-tight">
-              대표: 권병훈 | 사업자등록번호: 740-14-02758
+              {isMainPage ? (
+                <>상호명: 올케어서비스 | 대표: 김재현 | 사업자등록번호: 405-15-02677</>
+              ) : (
+                <>대표: 권병훈 | 사업자등록번호: 740-14-02758</>
+              )}
             </p>
             <div className="flex items-center gap-3">
               <Link href="/service-area" className="hidden text-gray-400 hover:text-gray-600 text-xs underline decoration-gray-200 underline-offset-2 transition-colors tracking-tight">
