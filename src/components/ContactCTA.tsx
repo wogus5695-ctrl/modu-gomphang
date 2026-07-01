@@ -5,14 +5,15 @@ import { Phone, MessageCircle } from 'lucide-react';
 
 interface ContactCTAProps {
   isWaterproof?: boolean;
+  isIncheonCaulking?: boolean;
 }
 
-export default function ContactCTA({ isWaterproof = false }: ContactCTAProps) {
+export default function ContactCTA({ isWaterproof = false, isIncheonCaulking = false }: ContactCTAProps) {
   return (
     <div className={`flex flex-col ${isWaterproof ? "items-center" : "md:flex-row items-stretch"} justify-center gap-4 md:gap-6`}>
       {/* 전화상담 버튼 */}
       <a
-        href={isWaterproof ? "tel:010-4667-5568" : "tel:010-7774-5823"}
+        href={isWaterproof ? "tel:010-4667-5568" : (isIncheonCaulking ? "tel:010-4467-5568" : "tel:010-7774-5823")}
         className={`${isWaterproof ? "w-full max-w-md" : "flex-1"} inline-flex items-center justify-center gap-3 px-8 py-5 bg-[#1B61FC] text-white text-xl md:text-2xl font-black rounded-3xl hover:bg-blue-700 transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1 active:scale-95 group`}
         data-track-category="conversion"
         data-track-action="call_click"

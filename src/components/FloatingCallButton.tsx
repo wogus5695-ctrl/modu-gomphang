@@ -11,10 +11,19 @@ export default function FloatingCallButton() {
       const k = params.get("k");
       if (k) {
         const decoded = decodeURIComponent(k);
-        const [, service = ''] = decoded.split('-');
+        const [region = '서울', service = ''] = decoded.split('-');
         const waterproofKeywords = ["외벽방수", "옥상방수", "건물방수", "외벽도색"];
+        const incheonRegions = [
+          "인천", "인천시", "인천광역시", "강화", "강화군", "옹진", "옹진군", 
+          "중구", "동구", "미추홀", "미추홀구", "연수", "연수구", "남동", "남동구", 
+          "부평", "부평구", "계양", "계양구", "서구",
+          "부평동", "산곡동", "청천동", "갈산동", "삼산동", "부개동", "일신동", "십정동"
+        ];
+        
         if (waterproofKeywords.includes(service)) {
           setPhoneNumber("010-4667-5568");
+        } else if (incheonRegions.includes(region)) {
+          setPhoneNumber("010-4467-5568");
         }
       }
     }

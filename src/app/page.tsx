@@ -54,10 +54,22 @@ export default async function Home({ searchParams }: Props) {
   const k = typeof unresolvedParams.k === 'string' ? unresolvedParams.k : undefined;
 
   let isWaterproof = false;
+  let isIncheonCaulking = false;
   if (k) {
     const decoded = decodeURIComponent(k);
-    const [, service = ''] = decoded.split('-');
+    const [region = '서울', service = ''] = decoded.split('-');
     isWaterproof = WATERPROOF_SERVICES.includes(service);
+    
+    // 인천 지역 (부평 및 동 포함) + 방수가 아닐 때 (창틀코킹 등)
+    const incheonRegions = [
+      "인천", "인천시", "인천광역시", "강화", "강화군", "옹진", "옹진군", 
+      "중구", "동구", "미추홀", "미추홀구", "연수", "연수구", "남동", "남동구", 
+      "부평", "부평구", "계양", "계양구", "서구",
+      "부평동", "산곡동", "청천동", "갈산동", "삼산동", "부개동", "일신동", "십정동"
+    ];
+    if (!isWaterproof && incheonRegions.includes(region)) {
+      isIncheonCaulking = true;
+    }
   }
 
   let heroLocation = "레인가드";
@@ -123,7 +135,7 @@ export default async function Home({ searchParams }: Props) {
       {/* FAQ 구조화 데이터 자동 주입 (SEO) */}
       <FAQSchema faqs={faqList} />
 
-      <Header isWaterproof={isWaterproof} />
+      <Header isWaterproof={isWaterproof} isIncheonCaulking={isIncheonCaulking} />
 
       <main className="flex-grow bg-white">
         {/* 히어로 섹션 (필수) */}
@@ -191,7 +203,7 @@ export default async function Home({ searchParams }: Props) {
               </p>
 
               <div className="bg-transparent mt-8">
-                <ContactCTA isWaterproof={isWaterproof} />
+                <ContactCTA isWaterproof={isWaterproof} isIncheonCaulking={isIncheonCaulking} />
               </div>
             </div>
           </div>
@@ -199,7 +211,7 @@ export default async function Home({ searchParams }: Props) {
       </main>
 
 
-      <Footer dynamicKeyword={analysisDynamicKeyword} isWaterproof={isWaterproof} isMainPage={!k} />
+      <Footer dynamicKeyword={analysisDynamicKeyword} isWaterproof={isWaterproof} isMainPage={!k} isIncheonCaulking={isIncheonCaulking} />
     </div>
   );
 }
