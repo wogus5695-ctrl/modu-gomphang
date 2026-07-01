@@ -23,7 +23,7 @@ export default function FloatingCallButton() {
         if (waterproofKeywords.includes(service)) {
           setPhoneNumber("010-4667-5568");
         } else if (incheonRegions.includes(region)) {
-          setPhoneNumber("010-4467-5568");
+          setPhoneNumber("010-4667-5568");
         }
       }
     }

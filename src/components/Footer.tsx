@@ -32,10 +32,10 @@ export default function Footer({ dynamicKeyword, isWaterproof = false, isMainPag
             <p className="text-gray-900 font-bold text-lg mb-4">고객센터</p>
             <div className="space-y-2">
               <a 
-                href={isWaterproof ? "tel:010-4667-5568" : (isIncheonCaulking ? "tel:010-4467-5568" : "tel:010-7774-5823")} 
+                href={isWaterproof ? "tel:010-4667-5568" : (isIncheonCaulking ? "tel:010-4667-5568" : "tel:010-7774-5823")} 
                 className="text-3xl font-black text-blue-600 hover:text-blue-700 transition-colors block"
               >
-                {isWaterproof ? "010-4667-5568" : (isIncheonCaulking ? "010-4467-5568" : "010-7774-5823")}
+                {isWaterproof ? "010-4667-5568" : (isIncheonCaulking ? "010-4667-5568" : "010-7774-5823")}
               </a>
               <p className="text-gray-500 text-sm">평일/주말 09:00 ~ 20:00 (연중무휴)</p>
             </div>
