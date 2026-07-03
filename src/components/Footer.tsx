@@ -7,9 +7,10 @@ interface FooterProps {
   isWaterproof?: boolean;
   isMainPage?: boolean;
   isIncheonCaulking?: boolean;
+  isNewExpansion?: boolean;
 }
 
-export default function Footer({ dynamicKeyword, isWaterproof = false, isMainPage = false, isIncheonCaulking = false }: FooterProps) {
+export default function Footer({ dynamicKeyword, isWaterproof = false, isMainPage = false, isIncheonCaulking = false, isNewExpansion = false }: FooterProps) {
   return (
     <footer className="bg-white border-t border-gray-100 py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

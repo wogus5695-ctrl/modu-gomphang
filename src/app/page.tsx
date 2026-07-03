@@ -14,8 +14,8 @@ import LocalProcess from "@/components/sections/LocalProcess";
 import LocalCosts from "@/components/sections/LocalCosts";
 import LocalFAQ from "@/components/sections/LocalFAQ";
 import LocalPortfolio from "@/components/sections/LocalPortfolio";
-import { getDynamicHomeData, getHash } from "@/lib/dynamicHome";
-import { WATERPROOF_SERVICES } from "@/data/sitemapKeywords";
+import { getDynamicHomeData, getHash, isNewExpansionArea } from "@/lib/dynamicHome";
+import { WATERPROOF_SERVICES, NEW_REGIONS_DATA, EXPANSION_REGIONS_DATA } from "@/data/sitemapKeywords";
 
 type Props = {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
@@ -55,10 +55,14 @@ export default async function Home({ searchParams }: Props) {
 
   let isWaterproof = false;
   let isIncheonCaulking = false;
+  let isNewExpansion = false;
   if (k) {
     const decoded = decodeURIComponent(k);
     const [region = '서울', service = ''] = decoded.split('-');
     isWaterproof = WATERPROOF_SERVICES.includes(service);
+    
+    // Check if new expansion region
+    isNewExpansion = isNewExpansionArea(region);
     
     // 인천 지역 (부평 및 동 포함) + 방수가 아닐 때 (창틀코킹 등)
     const incheonRegions = [
@@ -67,7 +71,30 @@ export default async function Home({ searchParams }: Props) {
       "부평", "부평구", "계양", "계양구", "서구",
       "부평동", "산곡동", "청천동", "갈산동", "삼산동", "부개동", "일신동", "십정동"
     ];
-    if (!isWaterproof && incheonRegions.includes(region)) {
+    
+    // NEW_REGIONS_DATA 기반 신규 확장 지역 동적 키워드 리스트 생성
+    const newRegionsList = NEW_REGIONS_DATA.reduce((acc: string[], r) => {
+      acc.push(r.gu);
+      acc.push(`${r.gu}시`);
+      acc.push(`${r.gu}구`);
+      r.dongs.forEach(d => acc.push(d));
+      return acc;
+    }, []);
+
+    // EXPANSION_REGIONS_DATA 기반 신규 확장 지역 동적 키워드 리스트 생성
+    const expansionRegionsList = EXPANSION_REGIONS_DATA.reduce((acc: string[], r) => {
+      acc.push(r.gu);
+      acc.push(`${r.gu}시`);
+      acc.push(`${r.gu}구`);
+      r.dongs.forEach(d => acc.push(d));
+      return acc;
+    }, []);
+
+    if (!isWaterproof && (incheonRegions.includes(region) || newRegionsList.includes(region) || expansionRegionsList.includes(region))) {
+      isIncheonCaulking = true;
+    }
+
+    if (isNewExpansion) {
       isIncheonCaulking = true;
     }
   }
@@ -127,6 +154,11 @@ export default async function Home({ searchParams }: Props) {
 
   const content = BRAND_HUB_CONTENT;
 
+  let ctaSummaryText = content.ctaSummary;
+  if (isNewExpansion) {
+    ctaSummaryText = "시공 가능 여부와 대략적인 범위를 전화로 먼저 확인해 보세요.";
+  }
+
   // 대표 시공 사례 (대표 3개 선정)
   const representativePortfolio = portfolioCases.slice(0, 3);
 
@@ -135,7 +167,7 @@ export default async function Home({ searchParams }: Props) {
       {/* FAQ 구조화 데이터 자동 주입 (SEO) */}
       <FAQSchema faqs={faqList} />
 
-      <Header isWaterproof={isWaterproof} isIncheonCaulking={isIncheonCaulking} />
+      <Header isWaterproof={isWaterproof} isIncheonCaulking={isIncheonCaulking} isNewExpansion={isNewExpansion} />
 
       <main className="flex-grow bg-white">
         {/* 히어로 섹션 (필수) */}
@@ -199,11 +231,11 @@ export default async function Home({ searchParams }: Props) {
                 {ctaHeader}
               </h2>
               <p className="text-blue-100 mb-12 text-lg font-medium opacity-90 relative z-10">
-                {content.ctaSummary}
+                {ctaSummaryText}
               </p>
 
               <div className="bg-transparent mt-8">
-                <ContactCTA isWaterproof={isWaterproof} isIncheonCaulking={isIncheonCaulking} />
+                <ContactCTA isWaterproof={isWaterproof} isIncheonCaulking={isIncheonCaulking} isNewExpansion={isNewExpansion} />
               </div>
             </div>
           </div>
@@ -211,7 +243,7 @@ export default async function Home({ searchParams }: Props) {
       </main>
 
 
-      <Footer dynamicKeyword={analysisDynamicKeyword} isWaterproof={isWaterproof} isMainPage={!k} isIncheonCaulking={isIncheonCaulking} />
+      <Footer dynamicKeyword={analysisDynamicKeyword} isWaterproof={isWaterproof} isMainPage={!k} isIncheonCaulking={isIncheonCaulking} isNewExpansion={isNewExpansion} />
     </div>
   );
 }

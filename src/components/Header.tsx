@@ -7,9 +7,10 @@ import { usePathname } from "next/navigation";
 interface HeaderProps {
   isWaterproof?: boolean;
   isIncheonCaulking?: boolean;
+  isNewExpansion?: boolean;
 }
 
-export default function Header({ isWaterproof = false, isIncheonCaulking = false }: HeaderProps) {
+export default function Header({ isWaterproof = false, isIncheonCaulking = false, isNewExpansion = false }: HeaderProps) {
   const pathname = usePathname();
   
   // 현재 페이지가 지역 랜딩 페이지인 경우 현재 URL을 유지, 그 외엔 메인홈 기준 앵커로 이동
