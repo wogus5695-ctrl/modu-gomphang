@@ -34,7 +34,9 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
   }
 
   const decoded = decodeURIComponent(k);
-  const [region = '서울', service = '창틀코킹'] = decoded.split('-');
+  const parts = decoded.split('-');
+  const service = parts[parts.length - 1] || '창틀코킹';
+  const region = parts.slice(0, parts.length - 1).join(' ') || '서울';
   const hash = getHash(decoded);
   const data = getDynamicHomeData(region, service, hash);
 
@@ -58,7 +60,9 @@ export default async function Home({ searchParams }: Props) {
   let isNewExpansion = false;
   if (k) {
     const decoded = decodeURIComponent(k);
-    const [region = '서울', service = ''] = decoded.split('-');
+    const parts = decoded.split('-');
+    const service = parts[parts.length - 1] || '';
+    const region = parts.slice(0, parts.length - 1).join(' ') || '서울';
     isWaterproof = WATERPROOF_SERVICES.includes(service);
     
     // Check if new expansion region

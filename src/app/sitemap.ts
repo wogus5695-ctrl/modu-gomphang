@@ -11,12 +11,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const generatedKeysSet = new Set<string>();
 
   const addRegionalUrl = (regionName: string, service: string, priority: number) => {
-    const key = `${regionName}-${service}`;
-    if (generatedKeysSet.has(key)) return;
-    generatedKeysSet.add(key);
+    const rawKey = `${regionName}-${service}`;
+    const urlKey = rawKey.replace(/\s+/g, '-');
+    if (generatedKeysSet.has(urlKey)) return;
+    generatedKeysSet.add(urlKey);
 
     regionalUrls.push({
-      url: `${baseUrl}/?k=${encodeURIComponent(key)}`,
+      url: `${baseUrl}/?k=${encodeURIComponent(urlKey)}`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority,

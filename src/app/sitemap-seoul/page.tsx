@@ -73,7 +73,7 @@ export default function SitemapSeoulPage() {
                     </h3>
                     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
                       {allKeywords.map((kw, i) => {
-                        const targetUrl = `/?k=${encodeURIComponent(kw.label)}`;
+                        const targetUrl = `/?k=${encodeURIComponent(kw.label.replace(/\s+/g, '-'))}`;
                         return (
                           <Link 
                             key={i} 
@@ -107,7 +107,7 @@ export default function SitemapSeoulPage() {
                     </h3>
                     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
                       {allKeywords.map((kw, i) => {
-                        const targetUrl = `/?k=${encodeURIComponent(kw.label)}`;
+                        const targetUrl = `/?k=${encodeURIComponent(kw.label.replace(/\s+/g, '-'))}`;
                         return (
                           <Link 
                             key={i} 
@@ -191,7 +191,7 @@ export default function SitemapSeoulPage() {
                             </h3>
                             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
                               {localKeywords.map((label, i) => {
-                                const targetUrl = `/?k=${encodeURIComponent(label)}`;
+                                const targetUrl = `/?k=${encodeURIComponent(label.replace(/\s+/g, '-'))}`;
                                 return (
                                   <Link
                                     key={`${label}-${i}`}
@@ -262,7 +262,7 @@ export default function SitemapSeoulPage() {
                             </h3>
                             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
                               {filteredKeywords.map((label, i) => {
-                                const targetUrl = `/?k=${encodeURIComponent(label)}`;
+                                const targetUrl = `/?k=${encodeURIComponent(label.replace(/\s+/g, '-'))}`;
                                 return (
                                   <Link
                                     key={`${label}-${i}`}
@@ -313,7 +313,7 @@ export default function SitemapSeoulPage() {
                             </h3>
                             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
                               {localKeywords.map((label, i) => {
-                                const targetUrl = `/?k=${encodeURIComponent(label)}`;
+                                const targetUrl = `/?k=${encodeURIComponent(label.replace(/\s+/g, '-'))}`;
                                 return (
                                   <Link
                                     key={`${label}-${i}`}
@@ -382,7 +382,7 @@ export default function SitemapSeoulPage() {
                             </h3>
                             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
                               {filteredKeywords.map((label, i) => {
-                                const targetUrl = `/?k=${encodeURIComponent(label)}`;
+                                const targetUrl = `/?k=${encodeURIComponent(label.replace(/\s+/g, '-'))}`;
                                 return (
                                   <Link
                                     key={`${label}-${i}`}
@@ -435,7 +435,7 @@ export default function SitemapSeoulPage() {
                     });
 
                     return localKeywords.map((label, i) => {
-                      const targetUrl = `/?k=${encodeURIComponent(label)}`;
+                      const targetUrl = `/?k=${encodeURIComponent(label.replace(/\s+/g, '-'))}`;
                       return (
                         <Link
                           key={`${label}-${i}`}
@@ -468,7 +468,7 @@ export default function SitemapSeoulPage() {
                     });
 
                     return localKeywords.map((label, i) => {
-                      const targetUrl = `/?k=${encodeURIComponent(label)}`;
+                      const targetUrl = `/?k=${encodeURIComponent(label.replace(/\s+/g, '-'))}`;
                       return (
                         <Link
                           key={`${label}-${i}`}
