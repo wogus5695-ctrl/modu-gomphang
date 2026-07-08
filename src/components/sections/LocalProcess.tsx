@@ -71,12 +71,23 @@ export default function LocalProcess({ title, process, imageSrc }: LocalProcessP
           <div className="lg:col-span-5 relative order-first lg:order-last mb-12 lg:mb-0">
             <div className="sticky top-24">
               <div className="relative rounded-[56px] overflow-hidden shadow-2xl aspect-[4/5] lg:aspect-auto lg:h-[700px]">
-                <Image 
-                  src={finalImageSrc} 
-                  alt="레인가드 정석 시공 현장"
-                  fill
-                  className="object-cover object-right"
-                />
+                {(() => {
+                  const keyword = title && title !== "레인가드만의 정석 시공 프로세스"
+                    ? title.replace("시공 프로세스", "").trim()
+                    : "";
+                  const isWp = finalImageSrc.includes('waterproof');
+                  const altText = keyword
+                    ? (isWp ? `${keyword} 누수 보수 및 방수 시공 이미지` : `${keyword} 정밀 점검 및 창틀코킹 시공 이미지`)
+                    : (isWp ? "건물 외벽방수 시공 사례" : "노후 창틀실리콘 제거 후 코킹 마감 사례");
+                  return (
+                    <Image 
+                      src={finalImageSrc} 
+                      alt={altText}
+                      fill
+                      className="object-cover object-right"
+                    />
+                  );
+                })()}
                 {/* Overlay Gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900/40 via-transparent to-transparent" />
                 

@@ -22,7 +22,7 @@ export default function ServicesPage() {
           <div className="absolute inset-0 opacity-20">
             <img 
               src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=1600" 
-              alt="전문 시공 배경 이미지" 
+              alt="레인가드 창틀코킹 및 빗물누수 전문 시공 배경 이미지" 
               className="w-full h-full object-cover"
             />
           </div>
@@ -43,7 +43,11 @@ export default function ServicesPage() {
                   <div className="aspect-video relative overflow-hidden">
                     <img 
                       src={service.heroImage} 
-                      alt={service.title} 
+                      alt={
+                        service.title.includes('방수') || service.title.includes('도색')
+                          ? `${service.title} 누수 보수 및 방수 시공 이미지`
+                          : `${service.title} 정밀 점검 및 창틀코킹 시공 이미지`
+                      } 
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
                     />
                     <div className="absolute inset-0 bg-blue-900/10 group-hover:bg-transparent transition-colors"></div>

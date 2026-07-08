@@ -23,7 +23,7 @@ export default function Header({ isWaterproof = false, isIncheonCaulking = false
         <Link href="/" className="flex items-center group">
           <Image 
             src="/logo.png" 
-            alt="레인가드 로고" 
+            alt="레인가드 창틀코킹 방수 전문 브랜드 로고" 
             width={320} 
             height={80} 
             className="h-16 md:h-20 w-auto transition-transform group-hover:scale-105" 

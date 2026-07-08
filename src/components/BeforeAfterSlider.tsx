@@ -57,7 +57,7 @@ export default function BeforeAfterSlider({ before, after, alt = "시공 전후 
       {/* After Image (Base) */}
       <img
         src={after}
-        alt={`${alt} (After)`}
+        alt={`${alt} 시공 후 누수 보수 완료 상태`}
         className="absolute inset-0 w-full h-full object-cover pointer-events-none"
       />
 
@@ -68,7 +68,7 @@ export default function BeforeAfterSlider({ before, after, alt = "시공 전후 
       >
         <img
           src={before}
-          alt={`${alt} (Before)`}
+          alt={`${alt} 시공 전 누수 발생 부위`}
           className="absolute inset-0 w-full h-full object-cover"
         />
       </div>

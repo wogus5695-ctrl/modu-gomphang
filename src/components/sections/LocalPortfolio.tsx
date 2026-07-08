@@ -93,7 +93,7 @@ export default function LocalPortfolio({ title, portfolio, isWaterproof = false 
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img 
                           src={item.beforeImg} 
-                          alt={item.title} 
+                          alt={`${item.title} 시공 전 누수 발생 부위`} 
                           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
                           loading="lazy"
                         />
@@ -190,12 +190,17 @@ export default function LocalPortfolio({ title, portfolio, isWaterproof = false 
         {/* 추가 이미지 갤러리 영역 (슬라이드 대신 단순 그리드 배치 - 유지) */}
         <div className="mt-16 md:mt-24">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-            {['/portfolio-extra-1.png', '/portfolio-extra-2.jpg', '/portfolio-extra-3.jpg', '/portfolio-extra-4.jpg'].map((imgSrc, index) => (
+            {[
+              { src: '/portfolio-extra-1.png', alt: '고층 빌드 아파트 외벽 로프 작업 창틀코킹 시공 사례' },
+              { src: '/portfolio-extra-2.jpg', alt: '빌라 외부 창틀 노후 실리콘 제거 및 마감재 충진 작업' },
+              { src: '/portfolio-extra-3.jpg', alt: '콘크리트 옹벽 균열 보강 및 외부 빗물누수 방수 시공' },
+              { src: '/portfolio-extra-4.jpg', alt: '노후화된 건물 옥상 우레탄 도막 방수 공사 완료 사례' }
+            ].map((item, index) => (
               <div key={index} className="aspect-[4/3] relative rounded-[32px] overflow-hidden shadow-sm border border-gray-100 bg-gray-50">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img 
-                  src={imgSrc} 
-                  alt="" 
+                  src={item.src} 
+                  alt={item.alt} 
                   className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                   loading="lazy"
                 />

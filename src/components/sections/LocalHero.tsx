@@ -26,7 +26,7 @@ export default function LocalHero({ locationName, serviceTitle, title, intro, ke
               <div className="bg-blue-600 p-1.5 rounded-xl shadow-lg shadow-blue-100">
                 <Image
                   src="/logo.png"
-                  alt="레인가드 로고"
+                  alt="레인가드 창틀코킹 방수 전문 브랜드 로고"
                   width={28}
                   height={28}
                   className="brightness-0 invert"
@@ -115,7 +115,7 @@ export default function LocalHero({ locationName, serviceTitle, title, intro, ke
             <div className="relative rounded-[40px] md:rounded-[60px] overflow-hidden shadow-2xl z-20 aspect-[4/3] md:aspect-square lg:aspect-[4/5]">
               <Image
                 src={finalImageSrc}
-                alt={`${locationName} 시공 현장`}
+                alt={locationName ? `${locationName} ${serviceTitle} 전문 시공 현장 이미지` : "레인가드 창틀코킹 빗물누수 시공 현장 이미지"}
                 fill
                 className="object-cover"
                 priority

@@ -38,7 +38,7 @@ export default function PortfolioListPage() {
                   <div className="aspect-[4/3] relative overflow-hidden">
                     <img 
                       src={item.afterImg} 
-                      alt={item.title} 
+                      alt={`${item.title} 시공 후 완료 상태`} 
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
                     />
                     <div className="absolute top-4 left-4 flex gap-2">

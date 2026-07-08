@@ -91,7 +91,11 @@ export default async function ServiceDetailPage({ params }: Props) {
               <div className="relative aspect-video rounded-[40px] overflow-hidden shadow-3xl border-8 border-white transform rotate-1">
                 <img 
                   src={service.heroImage} 
-                  alt={service.title} 
+                  alt={
+                    service.title.includes('방수') || service.title.includes('도색')
+                      ? `${service.title} 누수 보수 및 방수 시공 이미지`
+                      : `${service.title} 정밀 점검 및 창틀코킹 시공 이미지`
+                  } 
                   className="w-full h-full object-cover"
                 />
               </div>

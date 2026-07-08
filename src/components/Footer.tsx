@@ -19,7 +19,7 @@ export default function Footer({ dynamicKeyword, isWaterproof = false, isMainPag
             <div className="flex items-center">
               <Image 
                 src="/logo.png" 
-                alt="레인가드 로고" 
+                alt="레인가드 창틀코킹 방수 전문 브랜드 로고" 
                 width={120} 
                 height={30} 
                 className="h-6 md:h-7 w-auto opacity-80" 

@@ -211,7 +211,7 @@ export default async function PortfolioDetailPage({ params }: Props) {
               {portfolioCases.filter(c => c.id !== post.id).slice(0, 3).map((item) => (
                 <Link key={item.id} href={`/portfolio/${item.id}`} className="group block bg-white rounded-3xl overflow-hidden border border-gray-100 hover:shadow-2xl transition-all">
                    <div className="aspect-video relative overflow-hidden">
-                      <img src={item.afterImg} alt={item.title} className="w-full h-full object-cover transition-transform group-hover:scale-110" />
+                      <img src={item.afterImg} alt={`${item.title} 시공 후 완료 상태`} className="w-full h-full object-cover transition-transform group-hover:scale-110" />
                    </div>
                    <div className="p-6">
                       <h5 className="font-bold text-gray-900 group-hover:text-blue-600 transition-colors line-clamp-1">{item.title}</h5>
