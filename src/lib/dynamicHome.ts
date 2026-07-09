@@ -53,20 +53,17 @@ export const getDynamicHomeData = (region: string, service: string, hash: number
   const keyword = `${region} ${service}`;
   const isExpansion = isNewExpansionArea(region);
 
-  // 신규 확장 권역용 문구 분기 (서울 전용 문구 차단)
   const regionContext = isExpansion
     ? `${region} 및 인근 경기·인천 권역`
     : `${region} 및 서울·수도권 지역`;
 
-  // 각 10대 작업명별 정밀 설정 분기
   const configs: Record<string, any> = {
     '창틀코킹': {
-      h1: `${keyword} 전문 정밀 보수 시공`,
-      summary: `${region} 지역 아파트 및 빌라의 노후 실리콘을 전면 제거하고, 빗물 유입을 완벽히 차단하는 창틀코킹 정석 시공 서비스를 제공합니다.`,
-      regionText: `${regionContext}은 계절적 습도 변화와 강풍에 노출된 창틀이 많아, 실리콘 경화로 인한 틈새 발생과 누수 현상이 빈번히 발견됩니다.`,
-      analysisTitle: `${service} 상태 정밀 점검 및 진단`,
-      analysisDesc: `${region} ${service}은 단순히 실리콘을 덧바르는 것이 아니라, 기존 마감재의 탈락 상태와 외벽 접합부의 미세 크랙을 정밀하게 파악하는 것이 중요합니다.`,
-      analysisBlocks: [
+      heroTitleBase: "전문 정밀 보수 시공",
+      heroLead: `${region} 지역 아파트 및 빌라의 노후 실리콘을 전면 제거하고, 빗물 유입을 완벽히 차단하는 창틀코킹 정석 시공 서비스를 제공합니다.`,
+      diagnosisTitle: `${service} 상태 정밀 점검 및 진단`,
+      diagnosisDesc: `${region} ${service}은 단순히 실리콘을 덧바르는 것이 아니라, 기존 마감재의 탈락 상태와 외벽 접합부의 미세 크랙을 정밀하게 파악하는 것이 중요합니다.`,
+      diagnosisBlocks: [
         {
           title: "01. 노후 실리콘 상태 점검",
           description: "창틀 주변 실리콘이 딱딱하게 굳거나 벽면에서 벌어진 정도를 확인하여 재시공 범위를 결정합니다.",
@@ -74,7 +71,7 @@ export const getDynamicHomeData = (region: string, service: string, hash: number
         },
         {
           title: "02. 창틀 틈새 보수 계획 수립",
-          description: "샤시 프레임 and 콘크리트 외벽 접합부 사이의 균열을 파악해 기밀한 보강 계획을 세웁니다.",
+          description: "샤시 프레임 및 콘크리트 외벽 접합부 사이의 균열을 파악해 기밀한 보강 계획을 세웁니다.",
           checkpoints: ["접합부 틈새 유격 측정", "우레탄 폼 보강 필요성 검사", "코너 부위 취약점 진단"]
         },
         {
@@ -89,15 +86,34 @@ export const getDynamicHomeData = (region: string, service: string, hash: number
         { title: "고밀착 전용 프라이머 도포", description: "새로운 실리콘이 콘크리트와 샷시에 완벽히 붙도록 접착 강화제를 도포합니다." },
         { title: "프리미엄 창호 전용 실런트 충진", description: "창틀 틈새 속 깊은 곳까지 실리콘을 밀착하여 두껍고 균일하게 채워 넣습니다." },
         { title: "표면 매끄러운 마감 및 최종 검수", description: "전용 헤라로 매끄럽게 마감하고, 누수 위험 요소를 최종 점검합니다." }
-      ]
+      ],
+      faqTitle: `${region} ${service} 관련 핵심 질문`,
+      faqs: [
+        {
+          question: `${region} 지역에서 ${service} 시공을 할 때 기존 실리콘을 완전히 떼어내나요?`,
+          answer: `네, 당연합니다. ${region} 현장의 ${service} 보수 작업을 진행할 때는 낡고 경화되어 들뜬 노후 실리콘을 전면 스크래핑해 완전히 제거한 뒤, 창호 전용 특수 프라이머를 바르고 기밀 실링해야 누수가 완벽하게 차단됩니다.`
+        },
+        {
+          question: `${region} ${service} 시공 견적은 어떻게 산출되나요?`,
+          answer: `아파트인 경우 거주하시는 평형대와 창문의 개수, 상가나 주택인 경우 외벽 크랙 상태 및 현장 접근성에 따라 ${region} ${service} 견적이 결정됩니다. 전화로 대략적인 건물 상황을 설명해 주시면 무료 예상 비용을 친절하게 산정해 드립니다.`
+        },
+        {
+          question: `비가 내리는 중에도 ${region}에서 ${service} 보수 공사가 가능한가요?`,
+          answer: `아닙니다. 외벽이나 샷시 프레임 표면에 빗물 수분이 남아 있으면 자재 결착력이 현격히 떨어져 들뜸 하자가 생기기 쉽습니다. 따라서 비가 그치고 표면이 완전히 건조된 상태에서 작업을 실시하여 ${region} ${service}의 완벽한 수밀 성능을 보장해 드립니다.`
+        }
+      ],
+      portfolioTitle: `레인가드 ${service} 시공 사례`,
+      finalCtaTitle: `${keyword} 실시간 견적 상담`,
+      finalCtaDescription: "노후 실리콘 제거부터 프라이머 처리, 창호 전용 실런트 기밀 마감까지 완벽하게 시공해 드립니다.",
+      footerDescription: `레인가드는 ${region} 지역의 노후 실리콘을 제거하고 고기능성 창호 전용 실런트로 확실하게 창틀 틈새를 코킹하여 누수를 해결하는 전문 브랜드입니다.`,
+      imageAltBase: "아파트 베란다 창틀 실리콘 제거 코킹"
     },
     '창틀누수': {
-      h1: `${keyword} 원인 진단 및 해결`,
-      summary: `${region} 지역 비 올 때 창틀 주변 물자국 및 누수로 인한 고민을 해결하기 위해 외벽과 창호 접합부 점검부터 정밀 보수까지 원스톱으로 처리합니다.`,
-      regionText: `${regionContext}의 아파트나 빌라에서 비가 많이 올 때 창틀 하부 누수나 내부 벽지 변색이 생기는 것은 전형적인 창틀 마감 균열 신호입니다.`,
-      analysisTitle: `${service} 원인 분석 및 정밀 점검`,
-      analysisDesc: `${region} ${service}의 근본적인 차단을 위해, 실내 물자국 흔적을 토대로 외부 누수 발원지를 역추적해 정밀 진단합니다.`,
-      analysisBlocks: [
+      heroTitleBase: "원인 진단 및 해결",
+      heroLead: `${region} 지역 비 올 때 창틀 주변 물자국 및 누수로 인한 고민을 해결하기 위해 외벽과 창호 접합부 점검부터 정밀 보수까지 원스톱으로 처리합니다.`,
+      diagnosisTitle: `${service} 원인 분석 및 정밀 점검`,
+      diagnosisDesc: `${region} ${service}의 근본적인 차단을 위해, 실내 물자국 흔적을 토대로 외부 누수 발원지를 역추적해 정밀 진단합니다.`,
+      diagnosisBlocks: [
         {
           title: "01. 비 올 때 창틀 주변 물자국 경로 파악",
           description: "누수가 진행되며 실내 벽지가 젖은 부위를 확인하여 물이 스며든 예상 경로를 역으로 추적합니다.",
@@ -120,15 +136,34 @@ export const getDynamicHomeData = (region: string, service: string, hash: number
         { title: "접착면 프라이머 강화 처리", description: "실런트의 접착 성능을 최대로 높여줄 강화 약품을 꼼꼼하게 발라 줍니다." },
         { title: "샷시 접합부 틈새 실링 보완", description: "외벽과 프레임 사이 틈새를 고탄성 실런트로 빈틈없이 메워 줍니다." },
         { title: "물빠짐 상태 점검 및 마감", description: "샤시 하부 레일과 배수 구멍이 정상 작동하도록 조치하고 마무리합니다." }
-      ]
+      ],
+      faqTitle: `${region} ${service} 관련 핵심 질문`,
+      faqs: [
+        {
+          question: `${region}에서 창틀 하부 누수가 심할 때 임시방편이 있나요?`,
+          answer: "빗물이 침투할 때 실내에서 실리콘을 덧바르는 것은 물길을 다른 내부 균열로 유도해 피해를 더 키울 뿐입니다. 외부 원인 진단과 외벽 프레임 틈새 실링 보완이 필수적입니다."
+        },
+        {
+          question: `비 올 때 벽지가 젖는 현상도 ${region} ${service}의 증상인가요?`,
+          answer: "네, 맞습니다. 샷시 주변 콘크리트 미세 균열이나 접합부 실리콘 박리로 인해 내부 석고보드와 도배지가 젖는 증상은 대표적인 창틀 샷시 누수 경향입니다."
+        },
+        {
+          question: `샤시 흔들림이 누수를 더 촉진시키나요?`,
+          answer: "그렇습니다. 외부 바람에 샷시가 미세하게 유격 운동을 하면서 주변 고착된 실리콘 틈을 찢어지게 만들기 때문에, 고신율 탄성 실런트를 활용하여 기밀하게 마감해야 안전합니다."
+        }
+      ],
+      portfolioTitle: `레인가드 ${service} 시공 사례`,
+      finalCtaTitle: `${keyword} 실시간 견적 상담`,
+      finalCtaDescription: "물자국 경로 파악부터 하부 및 외벽 접합부 집중 점검으로 누수 원인을 완벽하게 해결합니다.",
+      footerDescription: `레인가드는 ${region} 지역의 아파트, 빌라 등에서 비 올 때 발생하는 샷시 접합부 누수 및 창틀 주변 벽지 물자국 원인을 정밀하게 역추적해 차단하는 누수 보완 전문 브랜드입니다.`,
+      imageAltBase: "비 올 때 베란다 샷시 물자국 및 창틀누수 점검"
     },
     '빗물누수': {
-      h1: `${keyword} 완벽 차단 솔루션`,
-      summary: `${region} 지역 폭우 시 유입되는 빗물누수를 원천 봉쇄하기 위해 빗물 유입 경로 확인 및 외벽/창틀 접합부 방수 처리를 정밀 시공합니다.`,
-      regionText: `${regionContext}은 동풍이나 북서풍 등 강한 바람과 함께 내리는 빗물로 인해 창문 틈새 기밀성이 약화되어 누수 현상이 자주 나타납니다.`,
-      analysisTitle: `${service} 침투 경로 확인 및 방수 설계`,
-      analysisDesc: `${region} ${service} 차단을 위해 단순히 마감재를 덧바르는 일차원적 방식이 아닌, 다각도 균열 추적 방식으로 누수 재발 방지 대책을 세웁니다.`,
-      analysisBlocks: [
+      heroTitleBase: "완벽 차단 솔루션",
+      heroLead: `${region} 지역 폭우 시 유입되는 빗물누수를 원천 봉쇄하기 위해 빗물 유입 경로 확인 및 외벽/창틀 접합부 방수 처리를 정밀 시공합니다.`,
+      diagnosisTitle: `${service} 침투 경로 확인 및 방수 설계`,
+      diagnosisDesc: `${region} ${service} 차단을 위해 단순히 마감재를 덧바르는 일차원적 방식이 아닌, 다각도 균열 추적 방식으로 누수 재발 방지 대책을 세웁니다.`,
+      diagnosisBlocks: [
         {
           title: "01. 빗물 유입 경로 확인",
           description: "비바람이 칠 때 외부에서 물이 밀려 들어올 수 있는 기성 샷시 접합부의 미세 공극을 찾아냅니다.",
@@ -151,15 +186,34 @@ export const getDynamicHomeData = (region: string, service: string, hash: number
         { title: "하도 프라이머 침투제 도포", description: "콘크리트 내부에 흡수되어 접착력을 배가시키는 전용 약품을 도포합니다." },
         { title: "고성능 외벽 창호 방수재 충진", description: "빗물이 들이쳐도 기밀하게 방어할 수 있는 방수 코킹재를 두껍게 시공합니다." },
         { title: "건조 유도 및 기밀성 검수", description: "시공부가 완전 경화되도록 관리 안내를 드리고 최종 상태를 모니터링합니다." }
-      ]
+      ],
+      faqTitle: `${region} ${service} 관련 핵심 질문`,
+      faqs: [
+        {
+          question: `태풍이나 폭우 때만 빗물이 새어 들어오는데도 ${region}에서 시공이 필요한가요?`,
+          answer: "강한 바람을 동반한 폭우 상황에서는 창틀 틈새의 공극으로 가해지는 압력이 커져 빗물이 대량 침투하게 됩니다. 이를 장기 방치하면 벽체 균열과 결로 곰팡이가 가속화됩니다."
+        },
+        {
+          question: "상부 세대의 외부 코킹 균열로 인한 누수도 해결 가능한가요?",
+          answer: "상부 세대 외벽 틈에서 수직 하강하는 빗물 유입도 정밀 로프 점검을 거쳐 접합 경계면에 특수 방수 실런트를 보강함으로써 일정 수준 방어가 가능합니다."
+        },
+        {
+          question: "빗물누수 방수 시공 시 소음이 많이 나나요?",
+          answer: "외부 고소 로프 작업과 컷팅/헤라 가공 공정으로 진행되므로 실내에 가해지는 소음 및 분진은 매우 적어 일상 생활에 불편이 없습니다."
+        }
+      ],
+      portfolioTitle: `레인가드 ${service} 시공 사례`,
+      finalCtaTitle: `${keyword} 실시간 견적 상담`,
+      finalCtaDescription: "외벽과 베란다 창틀 틈새에 물길이 침투하는 것을 차단하여 들이치는 폭우 걱정을 덜어드립니다.",
+      footerDescription: `레인가드는 ${region}에서 강수 유입에 취약한 베란다 샷시 접합부 틈새와 외벽면을 분석해 누수 지점을 탐색하고 빗물 침투를 원천 예방하는 차단 전문 브랜드입니다.`,
+      imageAltBase: "창틀 틈새 빗물누수 탐지 및 외벽 보강 코킹"
     },
     '창틀실리콘': {
-      h1: `${keyword} 노후화 교체 시공`,
-      summary: `${region} 지역 샷시 주변의 갈라지고 노후된 창틀실리콘을 전면 제거하고 창호 전용 실런트를 사용하여 완벽한 기밀성을 보강합니다.`,
-      regionText: `${regionContext}의 오래된 주거 시설은 햇빛 자외선과 온도 변화로 인해 창틀실리콘이 서서히 수축하고 굳어 박리나 갈라짐이 일어납니다.`,
-      analysisTitle: `${service} 노후화 점검 및 처방`,
-      analysisDesc: `${region} ${service} 보수는 낡아서 수명이 다한 실리콘 부위를 정밀하게 짚어내고, 균열과 박리가 발생한 면을 다듬는 것부터 시작합니다.`,
-      analysisBlocks: [
+      heroTitleBase: "노후화 교체 시공",
+      heroLead: `${region} 지역 샷시 주변의 갈라지고 노후된 창틀실리콘을 전면 제거하고 창호 전용 실런트를 사용하여 완벽한 기밀성을 보강합니다.`,
+      diagnosisTitle: `${service} 노후화 점검 및 처방`,
+      diagnosisDesc: `${region} ${service} 보수는 낡아서 수명이 다한 실리콘 부위를 정밀하게 짚어내고, 균열과 박리가 발생한 면을 다듬는 것부터 시작합니다.`,
+      diagnosisBlocks: [
         {
           title: "01. 실리콘 노후화 및 수명 확인",
           description: "기존에 시공된 자재가 자외선으로 인해 딱딱하게 변형되거나 부스러지는 정도를 판별합니다.",
@@ -179,18 +233,37 @@ export const getDynamicHomeData = (region: string, service: string, hash: number
       processTitle: `${service} 노후 실리콘 전면 교체 과정`,
       processSteps: [
         { title: "노후 자재 한 올 없이 컷팅 제거", description: "박리되고 굳어버린 오래된 실리콘을 프레임 상하지 않게 정밀 컷팅해 냅니다." },
-        { title: "프레임 유기물질 클리닝 및 면정리", description: "새 약품이 완벽히 고착될 수 있도록 접합면의 기름기와 미세 먼지를 닦아 냅니다." },
+        { title: "프레임 이물질 클리닝 및 면정리", description: "새 약품이 완벽히 고착될 수 있도록 접합면의 기름기와 미세 먼지를 닦아 냅니다." },
         { title: "창호 전용 특수 프라이머 인입", description: "접착력을 반영구적으로 지속시키기 위해 특수 프라이머를 충분히 바릅니다." },
         { title: "창호 전용 실런트 기밀 코킹 및 마감", description: "두툼한 두께로 압착 충진하고, 헤라로 눌러 빈틈없는 실링을 연출합니다." }
-      ]
+      ],
+      faqTitle: `${region} ${service} 관련 핵심 질문`,
+      faqs: [
+        {
+          question: `실리콘이 굳어서 바스러질 때 ${region} 세대에 어떤 하자 증상이 생기나요?`,
+          answer: "실리콘이 유연성을 상실해 콘크리트 벽체와 샷시 틈새가 벌어지며, 이곳으로 겨울에는 황소바람이 불고 여름에는 장대비가 실내 바닥으로 침범해 곰팡이를 유발합니다."
+        },
+        {
+          question: "기존 실리콘을 제거하지 않고 덧씌우면(덧방) 수명이 얼마나 가나요?",
+          answer: "노화된 실리콘 위에 새 실리콘을 얹을 경우 먼지와 박리된 껍질 때문에 6개월 이내에 부착층 전체가 들떠 쉽게 탈락하게 됩니다. 레인가드는 100% 제거 후 재시공을 고집합니다."
+        },
+        {
+          question: "교체 후 얼마 동안 만지지 말아야 하는가요?",
+          answer: "외부 실리콘 표면이 굳는 시간은 보통 24~48시간 정도 소요됩니다. 굳기 전까지 심한 물리적 압력이나 마찰을 가하지 않는 것이 가장 좋습니다."
+        }
+      ],
+      portfolioTitle: `레인가드 ${service} 시공 사례`,
+      finalCtaTitle: `${keyword} 실시간 견적 상담`,
+      finalCtaDescription: "수축되고 박리된 오래된 실리콘을 전용 커터로 전면 제거하고 탄성 복원 전처리 후 실런트를 충진합니다.",
+      footerDescription: `레인가드는 ${region} 지역의 오래되고 딱딱해진 샷시 테두리 실리콘을 정밀 제거하고 외벽 전용 고탄성 실런트로 깔끔하게 재시공하는 코킹 브랜드입니다.`,
+      imageAltBase: "노화된 외부 샷시 실리콘 제거 및 재시공"
     },
     '샷시실리콘': {
-      h1: `${keyword} 접합부 코킹 보강`,
-      summary: `${region} 지역 노후화된 샷시 프레임 접합부와 하부 실리콘을 완벽하게 보강하여 외부 빗물 유입을 완벽히 방지하고 노후 실리콘을 교체합니다.`,
-      regionText: `${regionContext}의 창호 샷시는 강풍으로 인한 프레임 흔들림과 창틀 유격이 발생해 기존 샷시실리콘이 파손되면서 누수로 이어지는 구조적 특징을 지닙니다.`,
-      analysisTitle: `${service} 샷시 프레임 접합부 및 하부 실리콘 보강`,
-      analysisDesc: `${region} ${service}은 샤시의 미세 흔들림까지 감안하여, 접합면의 신축 허용 범위를 견딜 수 있는 특수 실링 보강 공법으로 진단해야 합니다.`,
-      analysisBlocks: [
+      heroTitleBase: "접합부 코킹 보강",
+      heroLead: `${region} 지역 노후화된 샷시 프레임 접합부와 하부 실리콘을 완벽하게 보강하여 외부 빗물 유입을 완벽히 방지하고 노후 실리콘을 교체합니다.`,
+      diagnosisTitle: `${service} 샷시 프레임 접합부 및 하부 실리콘 보강`,
+      diagnosisDesc: `${region} ${service}은 샤시의 미세 흔들림까지 감안하여, 접합면의 신축 허용 범위를 견딜 수 있는 특수 실링 보강 공법으로 진단해야 합니다.`,
+      diagnosisBlocks: [
         {
           title: "01. 샷시 프레임 접합부 흔들림 진단",
           description: "샷시 틀이 외벽 콘크리트 벽체에 고정되어 있는 유격 강도와 실리콘 인장 상태를 확인합니다.",
@@ -210,18 +283,37 @@ export const getDynamicHomeData = (region: string, service: string, hash: number
       processTitle: `${service} 샷시 틈새 보강 및 교체 공정`,
       processSteps: [
         { title: "갈라진 샷시 실리콘 전면 탈락 제거", description: "노화되어 결속력이 끊어진 샷시 주변 실리콘을 전면 박리하여 제거합니다." },
-        { title: "접합면 표면 활성화 및 이물 정리", description: "강화 프라이머 도포 전에 면을 바짝 건조하고 유기 브러시로 클리닝합니다." },
+        { title: "접합면 표면 활성화 및 이물 정리", description: "강화 프라이머 도포 전에 면을 바짝 건조하고 이물질을 클리닝합니다." },
         { title: "샷시 전용 탄성 프라이머 코팅", description: "흔들림을 감당하는 샷시 특성에 맞게 탄성이 가미된 결착 약품을 칠해 줍니다." },
         { title: "샷시용 광폭 코킹 실링 및 헤라 압착", description: "창틀 외부 전체를 넓은 폭으로 마감하여 기밀성과 누수 차단율을 극대화합니다." }
-      ]
+      ],
+      faqTitle: `${region} ${service} 관련 핵심 질문`,
+      faqs: [
+        {
+          question: `알루미늄 샷시와 PVC 샷시는 ${region}에서 시공할 때 실리콘 종류가 다른가요?`,
+          answer: "두 자재의 수축팽창 거동률이 다르고 벽체와 접착력이 미세하게 다르나, 레인가드가 엄선한 프라이머와 고부착 창호 전용 실런트는 두 프레임 모두에 반영구적인 밀착 성능을 냅니다."
+        },
+        {
+          question: "샤시 주변 실리콘 폭이 너무 넓은데(광폭) 시공비가 더 드나요?",
+          answer: "기존 샷시와 콘크리트 유격 거리가 넓어 광폭으로 두껍게 도포해야 하는 경우 실런트 소요량이 증가하나, 레인가드는 규정된 합리적 견적 조건에 맞춰 책임 시공합니다."
+        },
+        {
+          question: "비가 올 때 물구멍(배수구) 틈에서도 누수가 발생할 수 있나요?",
+          answer: "레일 하단의 물구멍 배수 턱이 막히거나, 샷시 조인 접합부 하부 실리콘 보강이 부실해 물이 역류하여 내부로 들어오는 경우가 많습니다. 이 역시 정밀 보강이 가능합니다."
+        }
+      ],
+      portfolioTitle: `레인가드 ${service} 시공 사례`,
+      finalCtaTitle: `${keyword} 실시간 견적 상담`,
+      finalCtaDescription: "외벽 샷시 프레임 주변의 틈새를 매끄럽게 넓은 폭으로 코킹해 흔들림 유격 속에서도 수밀성을 유지합니다.",
+      footerDescription: `레인가드는 ${region} 내 노후 샷시 프레임 흔들림과 창틀 벌어짐 틈새에 대응하도록 특수 결착제와 광폭 실런트 코킹 보강 공법을 전담 설계하는 샷시 수리 전문 브랜드입니다.`,
+      imageAltBase: "창틀 샷시 프레임 광폭 실리콘 코킹 보완"
     },
     '외벽보수': {
-      h1: `${keyword} 및 누수 예방 시공`,
-      summary: `${region} 지역 건물의 안전을 저해하는 외벽 크랙 및 균열을 보수하고, 접합부 보강 작업을 진행하여 외부 누수의 근본 원인을 해결합니다.`,
-      regionText: `${regionContext}의 빌라 및 상가 건물은 콘크리트 중성화와 지반 거동으로 인해 외벽에 미세한 크랙이 생기고, 이를 통해 빗물이 서서히 스며듭니다.`,
-      analysisTitle: `${service} 크랙 추적 및 안전 진단`,
-      analysisDesc: `${region} ${service}는 미관 개선뿐만 아니라 골조 내부에 철근 부식을 일으키는 균열 경로를 정밀히 추적하고 보강해야 재발을 막을 수 있습니다.`,
-      analysisBlocks: [
+      heroTitleBase: "및 누수 예방 시공",
+      heroLead: `${region} 지역 건물의 안전을 저해하는 외벽 크랙 및 균열을 보수하고, 접합부 보강 작업을 진행하여 외부 누수의 근본 원인을 해결합니다.`,
+      diagnosisTitle: `${service} 크랙 추적 및 안전 진단`,
+      diagnosisDesc: `${region} ${service}는 미관 개선뿐만 아니라 골조 내부에 철근 부식을 일으키는 균열 경로를 정밀히 추적하고 보강해야 재발을 막을 수 있습니다.`,
+      diagnosisBlocks: [
         {
           title: "01. 외벽 크랙 및 균열 유형 진단",
           description: "건물 표면의 크랙이 단순 마감재 균열인지 골조의 구조적 균열인지 깊이와 폭을 정밀히 관찰합니다.",
@@ -240,11 +332,31 @@ export const getDynamicHomeData = (region: string, service: string, hash: number
       ],
       processTitle: `${service} 외벽 균열 보강 공법`,
       processSteps: [
-        { title: "균열 부위 V-컷팅 및 이물질 정리", description: "퍼티와 실란트가 틈새 깊숙이 메워지도록 균열을 V자로 넓혀 깎아 냅니다." },
-        { title: "고부착 에폭시 프라이머 도포", description: "콘크리트 절단면의 부스러짐을 막고 메움 자재가 떨어지지 않게 접착제를 바릅니다." },
-        { title: "고신율 균열 보수 퍼티제 충진", description: "진동과 수축팽창을 견디는 외벽 균열 보수재를 틈새에 빈틈없이 충진합니다." },
-        { title: "보수 부위 표면 도막 마감", description: "보수제를 평탄화하여 외벽면을 매끄럽게 잡고 방수 성능을 완성합니다." }
-      ]
+        { title: "균열 V-컷팅 및 에폭시 보강", description: "균열 부위를 V자로 깎고 에폭시 프라이머 도포 및 크랙 퍼티를 충진합니다." },
+        { title: "에폭시 씰러 코팅", description: "외벽면의 취약 바탕층에 에폭시 침투 프라이머를 주입하여 강화시킵니다." },
+        { title: "V-균열부 탄성 실란트 2차 메움", description: "외부 진동에 대응하도록 고신율 실런트로 보수 마감합니다." },
+        { title: "보수 부위 표면 도막 마감 및 검수", description: "도막 마감을 정리하여 물길 유입 균열 보수를 끝마칩니다." }
+      ],
+      faqTitle: `${region} ${service} 관련 핵심 질문`,
+      faqs: [
+        {
+          question: `콘크리트 옹벽의 굵은 실금 균열(크랙)은 ${region}에서 어떤 방식으로 보수하나요?`,
+          answer: "단순히 표면에 덧칠을 하면 콘크리트 진동으로 다시 갈라집니다. 반드시 크랙 부위를 V-컷팅 가공하여 에폭시 하도를 칠하고 고신율 탄성 퍼티제를 채워 수밀성을 살려야 합니다."
+        },
+        {
+          question: "적벽돌 메지(줄눈) 탈락으로 인한 누수도 이 시공에 해당하나요?",
+          answer: "벽돌 사이 몰탈 메지가 들떠서 삭아내릴 경우, 메지 보강재 충진 및 줄눈 코킹, 그리고 전면 크랙 처리를 동반하는 종합 외벽 크랙 관리를 적용해야 누수를 차단할 수 있습니다."
+        },
+        {
+          question: "아파트 고층 세대인데 외부 크랙 보수 시 장비차가 진입해야 하나요?",
+          answer: "고소 로프 전담 전문가가 직접 옥상에서 수직 하강하여 섬세하게 작업하므로 장비차 진입이 어려운 협소한 세대나 고층 현장도 깔끔히 해결 가능합니다."
+        }
+      ],
+      portfolioTitle: `레인가드 ${service} 시공 사례`,
+      finalCtaTitle: `${keyword} 실시간 견적 상담`,
+      finalCtaDescription: "안전을 저해하는 균열 부위를 V-컷팅하고 접착강화제 도포 후 고신율 퍼티 메움으로 확실하게 방어합니다.",
+      footerDescription: `레인가드는 ${region} 내 노후 상가, 빌라 등의 콘크리트 외벽 균열과 골조 이격 현상을 정밀 진단하여 에폭시 씰러 및 방수 퍼티로 틈새를 복원 보강하는 종합 보수 브랜드입니다.`,
+      imageAltBase: "외벽 콘크리트 크랙 V컷팅 및 탄성퍼티 보수"
     },
     '외벽방수': {
       h1: `${keyword} 균열 보강 및 차단`,

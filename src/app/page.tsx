@@ -15,6 +15,7 @@ import LocalCosts from "@/components/sections/LocalCosts";
 import LocalFAQ from "@/components/sections/LocalFAQ";
 import LocalPortfolio from "@/components/sections/LocalPortfolio";
 import { getDynamicHomeData, getHash, isNewExpansionArea } from "@/lib/dynamicHome";
+import { parseKeyword } from "@/lib/keywordParser";
 import { WATERPROOF_SERVICES, NEW_REGIONS_DATA, EXPANSION_REGIONS_DATA } from "@/data/sitemapKeywords";
 
 type Props = {
@@ -33,14 +34,16 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
     });
   }
 
-  const decoded = decodeURIComponent(k);
-  const parts = decoded.split('-');
-  const service = parts[parts.length - 1] || '창틀코킹';
-  const region = parts.slice(0, parts.length - 1).join(' ') || '서울';
-  const hash = getHash(decoded);
+  const parsed = parseKeyword(k);
+  const region = parsed.location;
+  const service = parsed.service;
+  const hash = getHash(decodeURIComponent(k));
   const data = getDynamicHomeData(region, service, hash);
 
-  const isWaterproof = WATERPROOF_SERVICES.includes(service);
+  const decoded = decodeURIComponent(k);
+  const parts = decoded.split('-');
+  const rawService = parts[parts.length - 1] || '창틀코킹';
+  const isWaterproof = WATERPROOF_SERVICES.includes(rawService);
   const ogImage = isWaterproof ? "/waterproof-thumbnail.jpg" : undefined;
 
   return getMetadata({
@@ -122,43 +125,50 @@ export default async function Home({ searchParams }: Props) {
   let portfolioTitle = "대표 시공 사례";
   let ctaHeader = BRAND_HUB_CONTENT.ctaHeader;
   let analysisDynamicKeyword = "";
+  let dynamicHomeData: any = null;
 
   if (k) {
-    const decoded = decodeURIComponent(k);
-    const [region = '서울', service = '창틀코킹'] = decoded.split('-');
-    const hash = getHash(decoded);
-    const data = getDynamicHomeData(region, service, hash);
+    const parsed = parseKeyword(k);
+    const region = parsed.location;
+    const service = parsed.service;
+    const hash = getHash(decodeURIComponent(k));
+    dynamicHomeData = getDynamicHomeData(region, service, hash);
+
+    // H1 텍스트 누락 방지를 위해 heroLocation, heroService 업데이트
+    heroLocation = region;
+    heroService = service;
+    heroIntro = dynamicHomeData.summary;
 
     // 3번. 원인 진단 및 분석
-    analysisTitle = data.analysisTitle;
+    analysisTitle = dynamicHomeData.analysisTitle;
     analysisIntro = [
-      data.regionText,
-      data.analysisDesc || "",
-      data.serviceBlock
+      dynamicHomeData.regionText,
+      dynamicHomeData.analysisDesc || "",
+      dynamicHomeData.serviceBlock
     ].filter(Boolean).join('\n\n');
-    analysisBlocks = data.analysisBlocks;
+    analysisBlocks = dynamicHomeData.analysisBlocks;
 
     // 4번. 시공 프로세스
-    processTitle = data.processTitle;
-    processSteps = data.processSteps;
+    processTitle = dynamicHomeData.processTitle;
+    processSteps = dynamicHomeData.processSteps;
 
     // 5번. FAQ
-    faqTitle = data.faqTitle;
-    faqList = data.faqs;
+    faqTitle = dynamicHomeData.faqTitle;
+    faqList = dynamicHomeData.faqs;
 
     // 6번. 포트폴리오 제목
-    portfolioTitle = data.portfolioTitle;
+    portfolioTitle = dynamicHomeData.portfolioTitle;
 
     // 7번. CTA 문구
-    ctaHeader = data.ctaHeader;
+    ctaHeader = dynamicHomeData.ctaHeader;
 
     // 추가: Expert Analysis 꼬릿말용 동적 키워드
-    analysisDynamicKeyword = `${region} ${service}`;
+    analysisDynamicKeyword = parsed.keyword;
   }
 
   const content = BRAND_HUB_CONTENT;
 
-  let ctaSummaryText = content.ctaSummary;
+  let ctaSummaryText = dynamicHomeData ? dynamicHomeData.ctaSummary : content.ctaSummary;
   if (isNewExpansion) {
     ctaSummaryText = "시공 가능 여부와 대략적인 범위를 전화로 먼저 확인해 보세요.";
   }
@@ -247,7 +257,7 @@ export default async function Home({ searchParams }: Props) {
       </main>
 
 
-      <Footer dynamicKeyword={analysisDynamicKeyword} isWaterproof={isWaterproof} isMainPage={!k} isIncheonCaulking={isIncheonCaulking} isNewExpansion={isNewExpansion} />
+      <Footer dynamicKeyword={analysisDynamicKeyword} isWaterproof={isWaterproof} isMainPage={!k} isIncheonCaulking={isIncheonCaulking} isNewExpansion={isNewExpansion} footerDesc={k && dynamicHomeData ? dynamicHomeData.footerDesc : undefined} />
     </div>
   );
 }

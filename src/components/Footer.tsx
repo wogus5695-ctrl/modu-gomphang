@@ -8,9 +8,10 @@ interface FooterProps {
   isMainPage?: boolean;
   isIncheonCaulking?: boolean;
   isNewExpansion?: boolean;
+  footerDesc?: string;
 }
 
-export default function Footer({ dynamicKeyword, isWaterproof = false, isMainPage = false, isIncheonCaulking = false, isNewExpansion = false }: FooterProps) {
+export default function Footer({ dynamicKeyword, isWaterproof = false, isMainPage = false, isIncheonCaulking = false, isNewExpansion = false, footerDesc }: FooterProps) {
   return (
     <footer className="bg-white border-t border-gray-100 py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -26,7 +27,9 @@ export default function Footer({ dynamicKeyword, isWaterproof = false, isMainPag
               />
             </div>
             <p className="text-gray-600 text-sm leading-relaxed max-w-sm">
-              레인가드는 {dynamicKeyword ? <strong>{dynamicKeyword}</strong> : "아파트 및 주거 시설의 빗물누수"} 문제를 완벽하게 해결하는 창틀코킹 및 누수 보수 전문 브랜드입니다. 정밀 점검과 전문 실리콘 코킹 공법으로 안전한 주거 환경을 약속합니다.
+              {footerDesc || (
+                <>레인가드는 {dynamicKeyword ? <strong>{dynamicKeyword}</strong> : "아파트 및 주거 시설의 빗물누수"} 문제를 완벽하게 해결하는 창틀코킹 및 누수 보수 전문 브랜드입니다. 정밀 점검과 전문 실리콘 코킹 공법으로 안전한 주거 환경을 약속합니다.</>
+              )}
             </p>
           </div>
           <div className="space-y-4">
