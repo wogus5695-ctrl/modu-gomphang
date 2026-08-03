@@ -109,7 +109,18 @@ export default function SitemapGyeonggiPage() {
 
             <div className="space-y-8">
               {(() => {
-                const gyeonggiGus = ["수원", "수원시", "장안구", "권선구", "팔달구", "영통구", "구리", "구리시", "양주", "양주시", "고양", "고양시", "덕양구", "일산동구", "일산서구", "경기 광주", "광주시"];
+                const gyeonggiGus = [
+                  "수원", "수원시", "장안구", "권선구", "팔달구", "영통구", 
+                  "구리", "구리시", 
+                  "양주", "양주시", 
+                  "고양", "고양시", "덕양구", "일산동구", "일산서구", 
+                  "경기 광주", "광주시",
+                  "안산", "안산시", "상록구", "단원구",
+                  "군포", "군포시",
+                  "의왕", "의왕시",
+                  "남양주", "남양주시",
+                  "의정부", "의정부시"
+                ];
 
                 return gyeonggiGus.map((guName, idx) => {
                   const localKeywords = combinedServices.map(service => `${guName}-${service}`);
@@ -166,7 +177,13 @@ export default function SitemapGyeonggiPage() {
                   { title: "고양 덕양구 권역", guName: "덕양구" },
                   { title: "고양 일산동구 권역", guName: "일산동구" },
                   { title: "고양 일산서구 권역", guName: "일산서구" },
-                  { title: "경기 광주 동·읍·면 권역", guName: "경기 광주" }
+                  { title: "경기 광주 동·읍·면 권역", guName: "경기 광주" },
+                  { title: "안산 상록구 권역", guName: "상록구" },
+                  { title: "안산 단원구 권역", guName: "단원구" },
+                  { title: "군포 동 권역", guName: "군포시" },
+                  { title: "의왕 동 권역", guName: "의왕시" },
+                  { title: "남양주 읍·면·동 권역", guName: "남양주시" },
+                  { title: "의정부 동 권역", guName: "의정부시" }
                 ];
 
                 return gyeonggiDongsGroups.map((group, idx) => {

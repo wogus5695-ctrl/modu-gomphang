@@ -38,14 +38,28 @@ export default function runAllSitemapValidation() {
     });
   });
 
-  const gyeonggiGus = ["수원", "수원시", "장안구", "권선구", "팔달구", "영통구", "구리", "구리시", "양주", "양주시", "고양", "고양시", "덕양구", "일산동구", "일산서구", "경기 광주", "광주시"];
+  const gyeonggiGus = [
+    "수원", "수원시", "장안구", "권선구", "팔달구", "영통구", 
+    "구리", "구리시", 
+    "양주", "양주시", 
+    "고양", "고양시", "덕양구", "일산동구", "일산서구", 
+    "경기 광주", "광주시",
+    "안산", "안산시", "상록구", "단원구",
+    "군포", "군포시",
+    "의왕", "의왕시",
+    "남양주", "남양주시",
+    "의정부", "의정부시"
+  ];
   gyeonggiGus.forEach(guName => {
     combinedServices.forEach(service => {
       allRawKKeywords.push(`${guName}-${service}`);
     });
   });
 
-  const gyeonggiDongsGroups = ["장안구", "권선구", "팔달구", "영통구", "구리", "양주", "덕양구", "일산동구", "일산서구", "경기 광주"];
+  const gyeonggiDongsGroups = [
+    "장안구", "권선구", "팔달구", "영통구", "구리", "양주", "덕양구", "일산동구", "일산서구", "경기 광주",
+    "상록구", "단원구", "군포시", "의왕시", "남양주시", "의정부시"
+  ];
   gyeonggiDongsGroups.forEach(guName => {
     const targetRegion = EXPANSION_REGIONS_DATA.find(r => r.gu === guName);
     if (targetRegion && targetRegion.dongs) {

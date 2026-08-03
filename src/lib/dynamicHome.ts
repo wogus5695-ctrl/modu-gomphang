@@ -39,12 +39,41 @@ export function isNewExpansionArea(region: string): boolean {
     "광주", "태전", "오포", "초월", "곤지암", "신현", "양벌"
   ];
 
-  if (incheonKeywords.some(kw => cleanRegion.includes(kw))) return true;
+  // 안산 권역 키워드 (안산 전체)
+  const ansanKeywords = [
+    "안산", "상록", "단원", "본오", "월피", "성포", "선부", "대부"
+  ];
+
+  // 군포 권역 키워드 (군포 전체)
+  const gunpoKeywords = [
+    "군포", "산본", "금정", "재궁", "궁내", "광정", "수리", "송부"
+  ];
+
+  // 의왕 권역 키워드 (의왕 전체)
+  const uiwangKeywords = [
+    "의왕", "고천", "오전", "내손", "청계"
+  ];
+
+  // 남양주 권역 키워드 (남양주 전체)
+  const namyangjuKeywords = [
+    "남양주", "와부", "진접", "화도", "진건", "오남", "퇴계원", "별내", "수동", "조안", "호평", "평내", "양정"
+  ];
+
+  // 의정부 권역 키워드 (의정부 전체)
+  const uijeongbuKeywords = [
+    "의정부", "호원", "장암", "송산", "자금", "가능", "흥선", "녹양"
+  ];
+
   if (suwonKeywords.some(kw => cleanRegion.includes(kw))) return true;
   if (guriKeywords.some(kw => cleanRegion.includes(kw))) return true;
   if (yangjuKeywords.some(kw => cleanRegion.includes(kw))) return true;
   if (goyangKeywords.some(kw => cleanRegion.includes(kw))) return true;
   if (gwangjuKeywords.some(kw => cleanRegion.includes(kw))) return true;
+  if (ansanKeywords.some(kw => cleanRegion.includes(kw))) return true;
+  if (gunpoKeywords.some(kw => cleanRegion.includes(kw))) return true;
+  if (uiwangKeywords.some(kw => cleanRegion.includes(kw))) return true;
+  if (namyangjuKeywords.some(kw => cleanRegion.includes(kw))) return true;
+  if (uijeongbuKeywords.some(kw => cleanRegion.includes(kw))) return true;
 
   return false;
 }
