@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Phone, MessageCircle } from 'lucide-react';
+import { usePathname, useSearchParams } from 'next/navigation';
 
 interface ContactCTAProps {
   isWaterproof?: boolean;
@@ -10,11 +11,27 @@ interface ContactCTAProps {
 }
 
 export default function ContactCTA({ isWaterproof = false, isIncheonCaulking = false, isNewExpansion = false }: ContactCTAProps) {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  
+  // 메인 페이지 판별
+  const isMainPage = pathname === "/" && !searchParams.get("k");
+
+  // 전화번호 결정 로직
+  const getPhone = () => {
+    if (isMainPage) return "010-4667-5568";
+    if (isWaterproof) return "010-4667-5568";
+    if (isIncheonCaulking) return "010-4667-5568";
+    return "010-7774-5823";
+  };
+
+  const phone = getPhone();
+
   return (
     <div className={`flex flex-col ${isWaterproof || isNewExpansion ? "items-center" : "md:flex-row items-stretch"} justify-center gap-4 md:gap-6`}>
       {/* 전화상담 버튼 */}
       <a
-        href={isWaterproof ? "tel:010-4667-5568" : (isIncheonCaulking ? "tel:010-4667-5568" : "tel:010-7774-5823")}
+        href={`tel:${phone}`}
         className={`${isWaterproof || isNewExpansion ? "w-full max-w-md" : "flex-1"} inline-flex items-center justify-center gap-3 px-8 py-5 bg-[#1B61FC] text-white text-xl md:text-2xl font-black rounded-3xl hover:bg-blue-700 transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1 active:scale-95 group`}
         data-track-category="conversion"
         data-track-action="call_click"

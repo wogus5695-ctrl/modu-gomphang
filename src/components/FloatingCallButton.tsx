@@ -43,7 +43,13 @@ export default function FloatingCallButton() {
           setPhoneNumber("010-4667-5568");
         } else if (incheonRegions.includes(region) || newRegionsList.includes(region) || expansionRegionsList.includes(region)) {
           setPhoneNumber("010-4667-5568");
+        } else {
+          // 동적 키워드 매핑에서 서울 등 기본 지역에 매핑된 경우 기존 연락처 유지
+          setPhoneNumber("010-7774-5823");
         }
+      } else {
+        // 메인 페이지인 경우
+        setPhoneNumber("010-4667-5568");
       }
     }
   }, []);

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import React from "react";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import FloatingCallButton from "@/components/FloatingCallButton";
@@ -150,8 +151,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           />
         </noscript>
         {/* End Google Tag Manager (noscript) */}
-        {children}
-        <FloatingCallButton />
+        <React.Suspense fallback={null}>
+          {children}
+        </React.Suspense>
+        <React.Suspense fallback={null}>
+          <FloatingCallButton />
+        </React.Suspense>
       </body>
     </html>
   );

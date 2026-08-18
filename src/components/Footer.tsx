@@ -1,6 +1,9 @@
+"use client";
+
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname, useSearchParams } from 'next/navigation';
 
 interface FooterProps {
   dynamicKeyword?: string;
@@ -12,6 +15,22 @@ interface FooterProps {
 }
 
 export default function Footer({ dynamicKeyword, isWaterproof = false, isMainPage = false, isIncheonCaulking = false, isNewExpansion = false, footerDesc }: FooterProps) {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  
+  // 메인 페이지 판별 (?k= 파라미터가 없고 pathname이 '/'인 경우)
+  const isMainPageActual = pathname === "/" && !searchParams.get("k");
+
+  // 전화번호 결정 로직
+  const getPhone = () => {
+    if (isMainPageActual) return "010-4667-5568";
+    if (isWaterproof) return "010-4667-5568";
+    if (isIncheonCaulking) return "010-4667-5568";
+    return "010-7774-5823";
+  };
+
+  const phone = getPhone();
+
   return (
     <footer className="bg-white border-t border-gray-100 py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -36,10 +55,10 @@ export default function Footer({ dynamicKeyword, isWaterproof = false, isMainPag
             <p className="text-gray-900 font-bold text-lg mb-4">고객센터</p>
             <div className="space-y-2">
               <a 
-                href={isWaterproof ? "tel:010-4667-5568" : (isIncheonCaulking ? "tel:010-4667-5568" : "tel:010-7774-5823")} 
+                href={`tel:${phone}`} 
                 className="text-3xl font-black text-blue-600 hover:text-blue-700 transition-colors block"
               >
-                {isWaterproof ? "010-4667-5568" : (isIncheonCaulking ? "010-4667-5568" : "010-7774-5823")}
+                {phone}
               </a>
               <p className="text-gray-500 text-sm">평일/주말 09:00 ~ 20:00 (연중무휴)</p>
             </div>
@@ -48,7 +67,7 @@ export default function Footer({ dynamicKeyword, isWaterproof = false, isMainPag
         <div className="pt-8 border-t border-gray-100">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-3">
             <p className="text-gray-400 text-xs tracking-tight">
-              {isMainPage ? (
+              {isMainPageActual ? (
                 <>상호명: 올케어서비스 | 대표: 김재현 | 사업자등록번호: 405-15-02677</>
               ) : (
                 <>대표: 권병훈 | 사업자등록번호: 740-14-02758</>
