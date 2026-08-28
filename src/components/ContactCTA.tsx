@@ -3,6 +3,7 @@
 import React from 'react';
 import { Phone, MessageCircle } from 'lucide-react';
 import { usePathname, useSearchParams } from 'next/navigation';
+import { resolveContactInfo } from '@/data/contactProfiles';
 
 interface ContactCTAProps {
   isWaterproof?: boolean;
@@ -17,15 +18,9 @@ export default function ContactCTA({ isWaterproof = false, isIncheonCaulking = f
   // 메인 페이지 판별
   const isMainPage = pathname === "/" && !searchParams.get("k");
 
-  // 전화번호 결정 로직
-  const getPhone = () => {
-    if (isMainPage) return "010-4667-5568";
-    if (isWaterproof) return "010-4667-5568";
-    if (isIncheonCaulking) return "010-4667-5568";
-    return "010-7774-5823";
-  };
-
-  const phone = getPhone();
+  // 중앙 집중식 연락처 조회 함수 사용
+  const resolved = resolveContactInfo(pathname, searchParams.get("k"));
+  const phone = resolved.phone;
 
   return (
     <div className={`flex flex-col ${isWaterproof || isNewExpansion ? "items-center" : "md:flex-row items-stretch"} justify-center gap-4 md:gap-6`}>

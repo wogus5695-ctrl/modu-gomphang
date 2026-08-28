@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname, useSearchParams } from "next/navigation";
+import { resolveContactInfo } from "@/data/contactProfiles";
 
 interface HeaderProps {
   isWaterproof?: boolean;
@@ -21,15 +22,9 @@ export default function Header({ isWaterproof = false, isIncheonCaulking = false
   const isLocalPage = pathname && pathname !== '/' && !pathname.startsWith('/portfolio') && !pathname.startsWith('/services');
   const navPrefix = isLocalPage ? '' : '/';
 
-  // 전화번호 결정 로직
-  const getPhone = () => {
-    if (isMainPage) return "010-4667-5568";
-    if (isWaterproof) return "010-4667-5568";
-    if (isIncheonCaulking) return "010-4667-5568";
-    return "010-7774-5823";
-  };
-
-  const phone = getPhone();
+  // 중앙 집중식 연락처 조회 함수 사용
+  const resolved = resolveContactInfo(pathname, searchParams.get("k"));
+  const phone = resolved.phone;
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-gray-100 bg-white/90 backdrop-blur-md shadow-sm">

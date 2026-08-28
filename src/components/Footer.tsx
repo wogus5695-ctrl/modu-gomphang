@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useSearchParams } from 'next/navigation';
+import { resolveContactInfo } from '@/data/contactProfiles';
 
 interface FooterProps {
   dynamicKeyword?: string;
@@ -21,15 +22,9 @@ export default function Footer({ dynamicKeyword, isWaterproof = false, isMainPag
   // 메인 페이지 판별 (?k= 파라미터가 없고 pathname이 '/'인 경우)
   const isMainPageActual = pathname === "/" && !searchParams.get("k");
 
-  // 전화번호 결정 로직
-  const getPhone = () => {
-    if (isMainPageActual) return "010-4667-5568";
-    if (isWaterproof) return "010-4667-5568";
-    if (isIncheonCaulking) return "010-4667-5568";
-    return "010-7774-5823";
-  };
-
-  const phone = getPhone();
+  // 중앙 집중식 연락처 조회 함수 사용
+  const resolved = resolveContactInfo(pathname, searchParams.get("k"));
+  const phone = resolved.phone;
 
   return (
     <footer className="bg-white border-t border-gray-100 py-16">
